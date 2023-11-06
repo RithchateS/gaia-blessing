@@ -31,6 +31,10 @@ input_option_change_horizontal = input_option_right - input_option_left;
 
 mouse_x_position = device_mouse_x_to_gui(0);
 mouse_y_position = device_mouse_y_to_gui(0);
+mouse_x_position_previous = device_mouse_x_to_gui(0);
+mouse_y_position_previous = device_mouse_y_to_gui(0);
 
 mouse_left_pressed = mouse_check_button_pressed(mb_left);
 mouse_left_released = mouse_check_button_released(mb_left);
+
+mouse_moved = false;

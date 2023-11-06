@@ -223,6 +223,7 @@
     {"name":"spr_card_11","order":2,"path":"sprites/spr_card_11/spr_card_11.yy",},
     {"name":"spr_large_box","order":16,"path":"sprites/spr_large_box/spr_large_box.yy",},
     {"name":"ChatterboxVariablesExport","order":7,"path":"scripts/ChatterboxVariablesExport/ChatterboxVariablesExport.yy",},
+    {"name":"spr_ui_option_background","order":18,"path":"sprites/spr_ui_option_background/spr_ui_option_background.yy",},
     {"name":"spr_gui_interactable_icon","order":4,"path":"sprites/spr_gui_interactable_icon/spr_gui_interactable_icon.yy",},
     {"name":"spr_small_box","order":15,"path":"sprites/spr_small_box/spr_small_box.yy",},
     {"name":"spr_gui_card_short","order":13,"path":"sprites/spr_gui_card_short/spr_gui_card_short.yy",},
@@ -245,6 +246,7 @@
     {"name":"obj_transition","order":2,"path":"objects/obj_transition/obj_transition.yy",},
     {"name":"spr_gui_arrow_up","order":15,"path":"sprites/spr_gui_arrow_up/spr_gui_arrow_up.yy",},
     {"name":"ChatterboxLoadFromBuffer","order":3,"path":"scripts/ChatterboxLoadFromBuffer/ChatterboxLoadFromBuffer.yy",},
+    {"name":"spr_ui_logo_placeholder","order":19,"path":"sprites/spr_ui_logo_placeholder/spr_ui_logo_placeholder.yy",},
     {"name":"__ChatterboxEscapeForCSV","order":8,"path":"scripts/__ChatterboxEscapeForCSV/__ChatterboxEscapeForCSV.yy",},
   ],
 }
