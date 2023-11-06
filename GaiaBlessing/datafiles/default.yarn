@@ -1,0 +1,23 @@
+#__PrivCrochet_version:1
+__PrivCrochet_colorID: 0
+__PrivCrochet_position: 1022,165
+__PrivCrochet_tags: 
+title: npc_start
+---
+NPC: Look who's here!
+NPC: Doing well, I suppose?
+    -> Yeah
+        NPC: Good to hear!
+    -> ...
+        NPC: How cold. This options works. Now move on.
+===
+__PrivCrochet_colorID: 7
+__PrivCrochet_position: 825,490
+__PrivCrochet_tags: 
+title: bed_start
+---
+Do you want to end the day?
+-> Yes
+    <<advance_day()>>
+-> No
+===
