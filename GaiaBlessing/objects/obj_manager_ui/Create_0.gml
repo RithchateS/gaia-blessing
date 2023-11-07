@@ -30,6 +30,14 @@ focused_card_hold = false;
 focused_x_difference = 0;
 focused_y_difference = 0;
 
+card_book_tab = 1;
+card_book_row = 1;
+card_book_column = 1;
+card_book_start_row = 1;
+
+ui_tab_name_bg_width = 120;
+ui_tab_height = 24;
+
 time_since_creation = 0;
 
 display_set_gui_size(NATIVE_GUI_RESOLUTION_WIDTH, NATIVE_GUI_RESOLUTION_HEIGHT);

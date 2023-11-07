@@ -5,7 +5,6 @@ var _activated_card_info = scr_card_activate_info(activated_card_id);
 activated_card_name = scr_card_name(_activated_card_info[0]);
 activated_card_effect_type = scr_card_effect(_activated_card_info[1]);
 activated_card_effect_param = _activated_card_info[2];
-activated_card_discard_method = scr_card_discard_method(_activated_card_info[3]);
 activated_card_cost = _activated_card_info[4];
 activated_card_target_requirement = _activated_card_info[5];
 activated_card_endurance_cost = _activated_card_info[6];
@@ -18,7 +17,7 @@ if (activated_card_cost <= global.player_energy_current)
 		if (obj_player.activate != noone)
 		{
 			scr_card_activate(activated_card_effect_type, activated_card_effect_param, activated_card_endurance_cost);
-			scr_deck_active_update();
+			scr_active_hand_update();
 			
 			with (obj_player)
 			{
@@ -34,7 +33,7 @@ if (activated_card_cost <= global.player_energy_current)
 	else
 	{
 		scr_card_activate(activated_card_effect_type, activated_card_effect_param);
-		scr_deck_active_update();
+		scr_active_hand_update();
 		
 		with (obj_player)
 		{

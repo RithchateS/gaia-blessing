@@ -47,6 +47,7 @@ else if (keyboard_check_pressed(ord("J")) && !instance_exists(obj_transition) &&
 	{
 		global.game_paused = !global.game_paused;
 		global.game_paused_tab = 1;
+		global.instance_manager_ui.card_selected = 0;
 		with (all)
 		{
 			game_paused_image_speed = image_speed;

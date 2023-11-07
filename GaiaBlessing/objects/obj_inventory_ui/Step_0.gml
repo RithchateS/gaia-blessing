@@ -35,10 +35,10 @@ if (input_manager.mouse_left_pressed && (focused_card != -1))
 {
 	scr_add_card_from_inventory_to_deck(focused_card);
 }
-	
+
 if ((input_manager.mouse_x_position > deck_sprite_start_x + 85) && (input_manager.mouse_x_position < deck_sprite_start_x + 97))
 {
-	if ((input_manager.mouse_y_position > screen_border + 33) && (input_manager.mouse_y_position < screen_border + 33 + ((inventory_manager.card_deck_count) * 19)))
+	if ((input_manager.mouse_y_position > screen_border + 33) && (input_manager.mouse_y_position < screen_border + 33 + ((inventory_manager.card_type_in_deck_count) * 19)))
 	{
 		if ((input_manager.mouse_y_position - (screen_border + 33)) % 19 > 12)
 		{
@@ -48,6 +48,10 @@ if ((input_manager.mouse_x_position > deck_sprite_start_x + 85) && (input_manage
 		{
 			focused_remove = floor((input_manager.mouse_y_position - (screen_border + 33)) / 19);
 		}
+	}
+	else
+	{
+		focused_remove = -1;
 	}
 }
 else
@@ -62,7 +66,7 @@ if (inventory_manager.card_deck_count == 0)
 
 if (input_manager.mouse_left_pressed && (focused_remove != -1))
 {
-	scr_remove_card_from_deck_to_inventory(inventory_manager.card_deck[focused_remove]);
+	scr_remove_card_from_deck_to_inventory(inventory_manager.card_type_in_deck[focused_remove]);
 }
 
 if (input_manager.key_back)

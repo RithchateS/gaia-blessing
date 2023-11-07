@@ -32,15 +32,15 @@ for (var _i = 0; _i < inventory_manager.card_found_count; _i++)
 	}
 }
 
-for (var _i = 0; _i < inventory_manager.card_deck_count; _i++)
+for (var _i = 0; _i < inventory_manager.card_type_in_deck_count; _i++)
 {
 	draw_sprite_stretched(spr_gui_card_short, 0, deck_sprite_start_x, screen_border + 32 + (_i * 19), deck_sprite_width, 15);
 	scr_text_setup(fnt_dialogue_text, fa_left, fa_top, #353738);
-	draw_text(deck_text_start_x, screen_border + 32 + (_i * 19), scr_card_name(inventory_manager.card_deck[_i]));
+	draw_text(deck_text_start_x, screen_border + 32 + (_i * 19), scr_card_name(inventory_manager.card_type_in_deck[_i]));
 	scr_text_setup(fnt_dialogue_text, fa_right, fa_top, #353738);
-	draw_text(deck_number_start_x, screen_border + 32 + (_i * 19), "x" + string(inventory_manager.card_inventory[inventory_manager.card_deck[_i]][2]));
+	draw_text(deck_number_start_x, screen_border + 32 + (_i * 19), "x" + string(inventory_manager.card_inventory[inventory_manager.card_type_in_deck[_i]][2]));
 	scr_text_setup(global.font_number, fa_center, fa_top, #353738);
-	draw_text(deck_text_start_x - 14, screen_border + 36 + (_i * 19), inventory_manager.card_deck[_i]);
+	draw_text(deck_text_start_x - 14, screen_border + 36 + (_i * 19), inventory_manager.card_type_in_deck[_i]);
 	draw_sprite(spr_gui_remove, 0, deck_sprite_start_x + 85, screen_border + 33 + (_i * 19));
 }
 

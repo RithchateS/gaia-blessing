@@ -31,12 +31,12 @@
   "properties": [],
   "solid": false,
   "spriteId": {
-    "name": "spr_player_idle_old",
-    "path": "sprites/spr_player_idle_old/spr_player_idle_old.yy",
+    "name": "spr_player_idle",
+    "path": "sprites/spr_player_idle/spr_player_idle.yy",
   },
   "spriteMaskId": {
-    "name": "spr_player_idle_old",
-    "path": "sprites/spr_player_idle_old/spr_player_idle_old.yy",
+    "name": "spr_player_idle",
+    "path": "sprites/spr_player_idle/spr_player_idle.yy",
   },
   "visible": true,
 }

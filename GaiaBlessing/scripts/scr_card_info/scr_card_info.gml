@@ -290,23 +290,6 @@ function scr_card_effect(_id){
 	}
 }
 
-function scr_card_discard_method(_id){
-	switch (_id)
-	{
-		case 1:
-			return "Discard Pile";
-		
-		case 2:
-			return "Burn";
-			
-		case 3:
-			return "Remove";
-			
-		default:
-			return "Invalid card discard method id";
-	}
-}
-
 // And also id system for card effects
 
 function scr_card_activate(_type, _param, _endurance = 0){
@@ -377,24 +360,16 @@ function scr_card_activate(_type, _param, _endurance = 0){
 			{
 				obj_player.applied_buff[obj_player.buffs_in_play] = _param
 				obj_player.buffs_in_play++;
-				if (activated_card_discard_method == "Discard Pile")
-				{
-					scr_deck_active_discard_card(activated_card_slot);
-				}
-				
-				global.player_energy_current -= activated_card_cost;
 			}
+			scr_active_hand_discard_card(activated_card_slot);
+			scr_active_hand_update();
+			
 			return true;
 			
 		case "Card Discard":
 			break;
 			
 		case "Increase Energy":
-			if (activated_card_discard_method == "Discard Pile")
-			{
-				scr_deck_active_discard_card(activated_card_slot);
-			}
-		
 			global.player_energy_current += _param;
 			break;
 			

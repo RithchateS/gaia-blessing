@@ -68,28 +68,9 @@ if (global.game_paused)
 				card_selected = scr_range(card_selected + (5 * _input_manager.input_option_change_vertical), 0, 14);
 			}
 			
-			/*
-			if (floor(card_selected / 5) > card_selected_row)
-			{
-				if (card_selected_row == 2 && card_display_row_start == 0)
-				{
-					card_display_row_start++;
-				}
-				else if (card_selected_row == 3 && card_display_row_start == 1)
-				{
-					card_display_row_start++;
-				}
-			}
-			else if(floor(card_selected / 5) < card_display_row_start)
-			{
-				card_display_row_start--;
-			} 
-			*/
-			
 			card_selected_row = floor(card_selected / 5);
 			card_selected_column = card_selected % 5;
 
-		
 			break;
 		
 		default:

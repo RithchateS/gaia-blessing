@@ -1,5 +1,4 @@
-// Script assets have changed for v2.3.0 see
-// https://help.yoyogames.com/hc/en-us/articles/360005277377 for more information
+#region Card Inventory Manipulation
 function scr_inventory_add(_id, _amount){
 	with (obj_manager_inventory)
 	{
@@ -11,6 +10,7 @@ function scr_inventory_add(_id, _amount){
 		{
 			card_inventory[_id][0] = true;
 			card_inventory[_id][1] = _amount;
+			
 			scr_generate_found_array();
 		}
 	}
@@ -33,10 +33,12 @@ function scr_inventory_remove(_id, _amount){
 					card_inventory[_id][2] -= 1;
 				}
 			}
+			if (card_inventory[_id][1] < 0) card_inventory[_id][1] = 0;
+			if (card_inventory[_id][2] < 0) card_inventory[_id][2] = 0;
 		}
 		else
 		{
-			show_debug_message("Trying to remove a card that hasn't been unlocked yet.")
+			show_debug_message("Trying to remove a card that hasn't been found yet.")
 		}
 	}
 }
@@ -46,10 +48,9 @@ function scr_add_card_from_inventory_to_deck(_id){
 	{
 		if (card_inventory[_id][0] == true)
 		{
-			if ((card_inventory[_id][1] - card_inventory[_id][2] > 0) && (card_in_deck < CARD_SLOTS))
+			if ((card_inventory[_id][1] - card_inventory[_id][2] > 0) && (card_deck_count < CARD_SLOTS))
 			{
 				card_inventory[_id][2]++;
-				card_in_deck++;
 				scr_generate_deck_array();
 			}
 			else
@@ -59,7 +60,7 @@ function scr_add_card_from_inventory_to_deck(_id){
 		}
 		else
 		{
-			show_debug_message("Trying to add a card that hasn't been unlocked yet.");
+			show_debug_message("Trying to add a card that hasn't been found yet.");
 		}
 	}
 }
@@ -72,7 +73,6 @@ function scr_remove_card_from_deck_to_inventory(_id){
 			if (card_inventory[_id][2] > 0)
 			{
 				card_inventory[_id][2]--;
-				card_in_deck--;
 				scr_generate_deck_array();
 			}
 			else
@@ -83,7 +83,7 @@ function scr_remove_card_from_deck_to_inventory(_id){
 		}
 		else
 		{
-			show_debug_message("Trying to remove a card that hasn't been unlocked yet.");
+			show_debug_message("Trying to remove a card that hasn't been found yet.");
 		}
 	}
 }
@@ -105,69 +105,71 @@ function scr_generate_found_array(){
 }
 
 function scr_generate_deck_array(){
-	var _count = 0;
 	with (obj_manager_inventory)
 	{
 		card_deck = [];
 		card_deck_count = 0;
-		card_deck_to_draw[CARD_SLOTS] = 0;
+		card_type_in_deck = [];
+		card_type_in_deck_count = 0;
+		
 		for (var _i = 1; _i <= 100; _i++)
 		{	
 			if (card_inventory[_i][2] != 0)
 			{
-				card_deck[card_deck_count] = _i;
-				card_deck_count++;
+				card_type_in_deck[card_type_in_deck_count] = _i;
+				card_type_in_deck_count++;
 				for (var _j = 0; _j < card_inventory[_i][2]; _j++)
 				{
-					card_deck_to_draw[_count] = _i;
-					_count++;
+					card_deck[card_deck_count] = _i;
+					card_deck_count++;
 				}
 			}
 		}
-		for (var _i = _count; _i < CARD_SLOTS; _i++)
+		
+		for (var _i = card_deck_count; _i < CARD_SLOTS; _i++)
 		{
-			card_deck_to_draw[_count] = 0;
+			card_deck[card_deck_count] = 0;
 		}
 	}
 }
+#endregion
 
-function scr_item_inventory_add(_id, _amount){
+#region Item Inventory Manipulation
+
+function scr_item_inventory_add(_id, _rank, _amount){
 	with (obj_manager_inventory)
 	{
 		if (item_inventory[_id][0] == true)
 		{
-			item_inventory[_id][1] += _amount;
+			item_inventory[_id][_rank] += _amount;
 		}
 		else
 		{
 			item_inventory[_id][0] = true;
-			item_inventory[_id][1] = _amount;
+			item_inventory[_id][_rank] = _amount;
+			
 			scr_generate_item_found_array();
 		}
 	}
 }
 
-function scr_item_inventory_remove(_id, _amount){
+function scr_item_inventory_remove(_id, _rank, _amount){
 	with (obj_manager_inventory)
 	{
 		if (item_inventory[_id][0] == true)
 		{
-			for (var _i = 1; _i <= _amount; _i++)
+			if (item_inventopry[_id][_rank] >= _amount)
 			{
-				if (item_inventory[_id][1] > item_inventory[_id][2])
-				{
-					item_inventory[_id][1] -= 1;
-				}
-				if (item_inventory[_id][1] == item_inventory[_id][2])
-				{
-					item_inventory[_id][1] -= 1;
-					item_inventory[_id][2] -= 1;
-				}
+				item_inventory[_id][_rank] -= _amount;
 			}
+			else
+			{
+				show_debug_message("Not enough item in inventory to be removed.")
+			}	
 		}
 		else
 		{
-			show_debug_message("Trying to remove a card that hasn't been unlocked yet.")
+			show_debug_message("Trying to remove a card that hasn't been found yet.")
 		}
 	}
 }
@@ -188,10 +190,12 @@ function scr_generate_item_found_array(){
 	}
 }
 
-function scr_sell_item_card(_id){
+function scr_sell_item_card(_id, _rank){
 	with (obj_manager_inventory)
 	{
-		global.player_coin += scr_card_value(_id);
-		scr_item_inventory_remove(_id, 1);
+		global.player_coin += scr_card_value(_id, _rank);
+		scr_item_inventory_remove(_id, _rank, 1);
 	}
 }
+
+#endregion

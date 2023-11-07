@@ -46,6 +46,8 @@ function scr_load_game(_save_slot)
 		scr_room_transition(TRANSITION_TYPE.SLIDE, _json[? "room"]);
 		
 		ds_map_destroy(_json);
+		
+		scr_generate_deck_array();
 		return true;
 	}
 	else

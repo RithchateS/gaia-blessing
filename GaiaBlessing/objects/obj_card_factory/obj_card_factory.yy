@@ -34,8 +34,8 @@
   "properties": [],
   "solid": false,
   "spriteId": {
-    "name": "spr_card_factory_box",
-    "path": "sprites/spr_card_factory_box/spr_card_factory_box.yy",
+    "name": "spr_indoor_pc",
+    "path": "sprites/spr_indoor_pc/spr_indoor_pc.yy",
   },
   "spriteMaskId": null,
   "visible": true,

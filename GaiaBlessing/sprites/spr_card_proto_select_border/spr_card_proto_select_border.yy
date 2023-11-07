@@ -24,7 +24,7 @@
     {"resourceType":"GMImageLayer","resourceVersion":"1.0","name":"50556a15-d59e-4b69-825f-ba79e5db9105","blendMode":0,"displayName":"default","isLocked":false,"opacity":100.0,"visible":true,},
   ],
   "nineSlice": null,
-  "origin": 7,
+  "origin": 9,
   "parent": {
     "name": "Cards",
     "path": "folders/Sprites/Cards.yy",
@@ -61,7 +61,7 @@
     ],
     "visibleRange": null,
     "volume": 1.0,
-    "xorigin": 58,
+    "xorigin": 56,
     "yorigin": 78,
   },
   "swatchColours": null,

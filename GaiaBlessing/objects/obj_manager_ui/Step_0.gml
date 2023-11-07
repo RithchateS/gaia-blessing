@@ -3,17 +3,22 @@
 var _input_manager = global.instance_manager_input;
 var _card_manager = global.instance_manager_card;
 var _deck_manager = global.instance_manager_deck;
+var _inventory_manager = global.instance_manager_inventory;
+
+#region Getting Card Asset Index
 
 card_to_display_amount = 0;
 
 for (var _i = 0; _i < 5; _i++)
 {
-	if (_deck_manager.deck_active[_i] > 0)
+	if (_deck_manager.active_hand[_i + 1] > 0)
 	{
-		card_to_display[card_to_display_amount] = asset_get_index("spr_card_" + string(_deck_manager.deck_active[_i]));
+		card_to_display[card_to_display_amount] = asset_get_index("spr_card_" + string(_deck_manager.daily_deck[_deck_manager.active_hand[_i + 1]][0]));
 		card_to_display_amount++;
 	}
 }
+
+#endregion
 
 if (focused_card == -1 && !focused_card_hold)
 {

@@ -11,39 +11,12 @@ if (room == r_ending)
 {
 	scr_text_setup(fnt_gui_dialogue_text, fa_center, fa_middle, c_white);
 	draw_text(NATIVE_GUI_RESOLUTION_WIDTH * 0.5, NATIVE_GUI_RESOLUTION_HEIGHT * 0.5, "You completed the game, press R to restart.");
-	
 }
 else
 {
 
-#region Energy HUD Display
-/*
-var _player_energy_current = global.player_energy_current;
-var _player_energy_max = global.player_energy_max;
-var _player_energy_fraction = frac(_player_energy_current);
-_player_energy_current -= _player_energy_fraction;
-
-for (var _i = 1; _i <= _player_energy_max; _i++)
-{
-	var _image_index = (_i > _player_energy_current);
-	if (_i == _player_energy_current + 1)
-	{
-		_image_index += (_player_energy_fraction > 0);
-		_image_index += (_player_energy_fraction > 0.25);
-		_image_index += (_player_energy_fraction > 0.5);
-	}
-	
-	draw_sprite(spr_gui_energy, _image_index, 8 + ((_i - 1) * 20), NATIVE_GUI_RESOLUTION_HEIGHT - 40);
-}
-*/
-#endregion
-
-scr_text_setup(fnt_gui_dialogue_text, fa_left, fa_top, c_white);
+scr_text_setup(global.font_large, fa_left, fa_top, c_white);
 draw_text(10, 10, "Day " + string(global.game_day));
-
-scr_text_setup(fnt_gui_dialogue_text, fa_left, fa_top, c_white);
-draw_sprite(spr_gui_value, 0, 10, 40);
-draw_text(38, 36, global.player_coin);
 
 #region Buff HUD Display
 
@@ -58,13 +31,10 @@ if (obj_player.buffs_in_play > 0)
 
 #endregion
 
-
-
 #region CARD HUD Display and Controls
 
-if (show_cards)
+if (show_cards && !global.game_paused)
 {	
-	
 	#region Card UI Old, Keyboard control.
 	/*
 	if (_input_manager.input_any_card)
@@ -102,6 +72,7 @@ if (show_cards)
 	
 	#endregion
 	
+	draw_text(30, 30, focused_card);
 	// Drawing Cards on screen
 	for (var _k = 0; _k < card_to_display_amount; _k++) 
 	{
@@ -134,8 +105,8 @@ if (show_cards)
 		{
 			if (_focused_card_origin_y < NATIVE_GUI_RESOLUTION_HEIGHT - (CARD_HEIGHT * 1.2))
 			{
-				_card_manager.activated_card_slot = focused_card;
-				_card_manager.activated_card_id = _deck_manager.deck_active[focused_card];
+				_card_manager.activated_card_slot = focused_card + 1;
+				_card_manager.activated_card_id = _deck_manager.daily_deck[_deck_manager.active_hand[focused_card + 1]][0];
 				_card_manager.alarm[0] = 2;
 				focused_card = -1;
 				focused_card_hold = false;
@@ -151,8 +122,8 @@ if (show_cards)
 		if (focused_card != -1)
 		{
 			draw_sprite(card_to_display[focused_card], 0, _focused_card_origin_x, _focused_card_origin_y);
-		
-			card_information = scr_card_info(_deck_manager.deck_active[focused_card]);
+			card_information = scr_card_info(_deck_manager.active_hand[focused_card + 1]);
+			
 			if (card_information[0] != 0)
 			{
 				var _index_to_display = scr_tooltip_info(card_information[0])[0];
@@ -177,9 +148,17 @@ if (show_cards)
 
 if (global.game_paused)
 {
-	draw_set_color(#353738);
+	draw_set_color(c_black);
 	draw_set_alpha(0.75);
 	draw_rectangle(0, 0, NATIVE_GUI_RESOLUTION_WIDTH, NATIVE_GUI_RESOLUTION_HEIGHT, false);
+	
+	draw_set_alpha(1.0);
+	draw_sprite_stretched(spr_ui_option_background, 1, 5, 5, ui_tab_name_bg_width, ui_tab_height); // UI Tab Name BG
+	draw_sprite_stretched(spr_ui_option_background, 1, NATIVE_GUI_RESOLUTION_WIDTH - 72, 5, 67, ui_tab_height); // Back Button
+	draw_sprite_stretched(spr_ui_option_background, 1, -10, NATIVE_GUI_RESOLUTION_HEIGHT - ui_tab_height, NATIVE_GUI_RESOLUTION_WIDTH + 20, ui_tab_height + 2); // Back Button
+	
+	scr_text_setup(global.font_large, fa_center, fa_top, c_white);
+	draw_text(NATIVE_GUI_RESOLUTION_WIDTH - 38, 10, "Back");
 	
 	switch (global.game_paused_tab)
 	{
@@ -204,35 +183,68 @@ if (global.game_paused)
 			}
 			break;
 		
-		case 1:
-			draw_set_alpha(1.0);
-			scr_text_setup(fnt_gui_dialogue_text, fa_center, fa_middle, c_white);
-			draw_text(NATIVE_GUI_RESOLUTION_WIDTH * 0.5, NATIVE_GUI_RESOLUTION_HEIGHT * 0.1, "...Cards in deck...");
-			
-			// draw_sprite(spr_deck_side_bar, card_display_row_start, (NATIVE_GUI_RESOLUTION_WIDTH * 0.97), (NATIVE_GUI_RESOLUTION_HEIGHT * 0.5));
-			
+		case 2:
+			scr_text_setup(global.font_large, fa_center, fa_top, c_white);
+			draw_text(5 + (ui_tab_name_bg_width / 2), 10, "Deck");
 			
 			for (var _i = 0; _i < 15; _i++)
 			{
-				if (_i  + (card_display_row_start * 5) == card_selected)
+				if (_i == card_selected)
 				{
-					draw_sprite(spr_card_proto_select_border, floor(time_since_creation / 60) % 2, (NATIVE_GUI_RESOLUTION_WIDTH * 0.14) + ((_i % 5) * 0.18 * NATIVE_GUI_RESOLUTION_WIDTH), (NATIVE_GUI_RESOLUTION_HEIGHT * 0.2) + CARD_HEIGHT + (floor(_i / 5) * 1.2 * CARD_HEIGHT) + 8);
+					draw_sprite(spr_card_proto_select_border, floor(time_since_creation / 60) % 2, (NATIVE_GUI_RESOLUTION_WIDTH * 0.14) + ((_i % 5) * 0.18 * NATIVE_GUI_RESOLUTION_WIDTH), (NATIVE_GUI_RESOLUTION_HEIGHT * 0.2) + CARD_HEIGHT + (floor(_i / 5) * 1.3 * CARD_HEIGHT) + 8);
 				}
 				
-				if (_inventory_manager.card_deck_to_draw[_i + (card_display_row_start * 5)] > 0)
+				if (_deck_manager.daily_deck[_i + 1][0] > 0)
 				{
-					var _sprite = asset_get_index("spr_card_" + string(_inventory_manager.card_deck_to_draw[_i + (card_display_row_start * 5)]));
+					var _sprite = asset_get_index("spr_card_" + string(_deck_manager.daily_deck[_i + 1][0]));
+					if (_deck_manager.daily_deck[_i + 1][1] == 0)
+					{
+						var _index = 0;
+					}
+					else
+					{
+						var _index = 1;
+					}
 				}
 				else
 				{
 					var _sprite = asset_get_index("spr_card_proto_empty");
+					var _index = 0;
 				}
 				
-				draw_sprite(_sprite, 0, (NATIVE_GUI_RESOLUTION_WIDTH * 0.14) + ((_i % 5) * 0.18 * NATIVE_GUI_RESOLUTION_WIDTH), (NATIVE_GUI_RESOLUTION_HEIGHT * 0.2) + CARD_HEIGHT + (floor(_i / 5) * 1.2 * CARD_HEIGHT));
+				draw_sprite(_sprite, _index, (NATIVE_GUI_RESOLUTION_WIDTH * 0.14) + ((_i % 5) * 0.18 * NATIVE_GUI_RESOLUTION_WIDTH), (NATIVE_GUI_RESOLUTION_HEIGHT * 0.2) + CARD_HEIGHT + (floor(_i / 5) * 1.3 * CARD_HEIGHT));
 			}
 			
 			break;
 			
+		case 1:
+			scr_text_setup(global.font_large, fa_center, fa_top, c_white);
+			draw_text(5 + (ui_tab_name_bg_width / 2), 10, "Cardbook");
+			
+			if (card_book_tab == 1)
+			{
+				draw_sprite_stretched(spr_ui_tab_background, 0, 41, 48, 116, 28);
+				draw_sprite_stretched(spr_ui_tab_background, 1, 15, 48, 116, 28);
+				draw_text(73, 53, "Active");
+			}
+			draw_sprite_stretched(spr_ui_option_background, 1, 15, 68, 610, 256); // Background
+			
+			if (card_book_tab == 1)
+			{
+				for (var _i = 0; _i < 15; _i++)
+				{
+					if (_inventory_manager.card_inventory[_i + 1 + ((card_book_start_row - 1) * 5)][0] != false)
+					{
+						var _sprite = asset_get_index("spr_card_" + string(_i + 1 + ((card_book_start_row - 1) * 5)));
+					}
+					else
+					{
+						var _sprite = asset_get_index("spr_card_proto_empty");
+					}
+					
+					draw_sprite(_sprite, 0, 28 + (CARD_WIDTH * 0.5) + ((_i % 5) * (CARD_WIDTH + 16)), 87 + CARD_HEIGHT + (floor(_i / 5) * (CARD_HEIGHT + 16)));
+				}
+			}
 		
 		default:
 			break;

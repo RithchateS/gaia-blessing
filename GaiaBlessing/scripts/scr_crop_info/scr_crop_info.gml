@@ -36,12 +36,8 @@ function scr_farm_slot_add_crop(_slot, _id) {
 		_farm_manager.farm_slot[_slot][6] = scr_crop_info(_id)[3];
 		_farm_manager.farm_slot[_slot][7] = 0;
 		
-		if (activated_card_discard_method == "Discard Pile")
-		{
-			scr_deck_active_discard_card(activated_card_slot);
-		}
-		
-		global.player_energy_current -= activated_card_cost;
+		scr_active_hand_discard_card(activated_card_slot);
+		scr_active_hand_update();
 	}
 	else
 	{
@@ -85,12 +81,10 @@ function scr_farm_slot_add_growth(_slot, _value, _endurance_cost) {
 		// Decrease Endurance
 		_farm_manager.farm_slot[_slot, 5] -= _endurance_cost;
 		
-		if (activated_card_discard_method == "Discard Pile")
-		{
-			scr_deck_active_discard_card(activated_card_slot);
-		}
-		
 		global.player_energy_current -= activated_card_cost;
+		
+		scr_active_hand_discard_card(activated_card_slot);
+		scr_active_hand_update();
 					
 		return true;
 	}
@@ -115,13 +109,9 @@ function scr_farm_slot_add_nutrient(_slot, _value, _endurance_cost) {
 				_farm_manager.farm_slot[_slot, 7] += 1;
 			}
 			_farm_manager.farm_slot[_slot, 5] -= _endurance_cost
-		
-			if (activated_card_discard_method == "Discard Pile")
-			{
-				scr_deck_active_discard_card(activated_card_slot);
-			}
-		
-			global.player_energy_current -= activated_card_cost;
+			
+			scr_active_hand_discard_card(activated_card_slot);
+			scr_active_hand_update();
 		
 			return true;
 		}
@@ -141,20 +131,25 @@ function scr_farm_slot_add_nutrient(_slot, _value, _endurance_cost) {
 function scr_farm_slot_add_endurance(_slot, _value) {
 	var _farm_manager = global.instance_manager_farm;
 	
-	_farm_manager.farm_slot[_slot, 5] += _value;
-	if (_farm_manager.farm_slot[_slot, 5] >= _farm_manager.farm_slot[_slot, 6])
+	if (_farm_manager.farm_slot[_slot, 0] > 0)
 	{
-		_farm_manager.farm_slot[_slot, 5] = _farm_manager.farm_slot[_slot, 6];
-	}
+		_farm_manager.farm_slot[_slot, 5] += _value;
+		if (_farm_manager.farm_slot[_slot, 5] >= _farm_manager.farm_slot[_slot, 6])
+		{
+			_farm_manager.farm_slot[_slot, 5] = _farm_manager.farm_slot[_slot, 6];
+		}
 	
-	if (activated_card_discard_method == "Discard Pile")
-	{
-		scr_deck_active_discard_card(activated_card_slot);
+		scr_active_hand_discard_card(activated_card_slot);
+		scr_active_hand_update();
+	
+		return true;
 	}
+	else
+	{
+		show_debug_message("There is no crop in this slot");
 		
-	global.player_energy_current -= activated_card_cost;
-	
-	return true;
+		return false;
+	}
 }
 
 function scr_farm_slot_harvest(_slot) {
@@ -164,21 +159,18 @@ function scr_farm_slot_harvest(_slot) {
 	{
 		if (_farm_manager.farm_slot[_slot, 1] >= _farm_manager.farm_slot[_slot, 2])
 		{
-			scr_item_inventory_add(100 + (_farm_manager.farm_slot[_slot, 0] * 10) + _farm_manager.farm_slot[_slot, 7] + 1, 1);
+			scr_item_inventory_add(100 + _farm_manager.farm_slot[_slot, 0], _farm_manager.farm_slot[_slot, 7] + 1, 1);
 			scr_farm_slot_reset(_slot);
 		
 			if (instance_exists(obj_crop_info))
 			{
 				instance_destroy(obj_crop_info);
 			}
-		
-			if (activated_card_discard_method == "Discard Pile")
-			{
-				scr_deck_active_discard_card(activated_card_slot);
-			}
-		
-			global.player_energy_current -= activated_card_cost;
-			_farm_manager.farm_slot[_slot, 0] = -1; 
+			
+			_farm_manager.farm_slot[_slot, 0] = -1;
+			
+			scr_active_hand_discard_card(activated_card_slot);
+			scr_active_hand_update();
 		
 			return true;
 		}

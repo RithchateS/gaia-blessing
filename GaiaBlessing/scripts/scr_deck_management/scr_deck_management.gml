@@ -1,82 +1,110 @@
 function scr_reset_deck_manager() {
 	with (global.instance_manager_deck)
 	{
-		deck_active = [];
-		deck_active_card_count = 0;
-		deck_discard = [];
-		deck_discard_card_count = 0;
+		for (var _i = 1; _i <= CARD_SLOTS; _i++)
+		{
+			daily_deck[_i][0] = 0;
+			daily_deck[_i][1] = 0; // Has it been used?
+			daily_deck[_i][2] = 0; // Where is it right now? Draw Pile / Hand / Discard Pile
+		}
+
+		daily_deck_card_count = 0;
+		daily_discard_card_count = 0;
 	}
 }
 
-function scr_deck_active_add_card(_id){
-	deck_active[deck_active_card_count] = _id;
-	deck_active_card_count++;
-}
-
-function scr_deck_active_discard_card(_slot){
+function scr_daily_deck_add_card(_id){
 	with (global.instance_manager_deck)
 	{
-		deck_discard[deck_discard_card_count] = deck_active[_slot];
-		deck_discard_card_count++;
-		
-		deck_active[_slot] = 0;
-		deck_active_card_count--;
+		daily_deck[daily_deck_card_count + 1][0] = _id;
+		daily_deck[daily_deck_card_count + 1][1] = 0;
+		daily_deck[daily_deck_card_count + 1][2] = 0;
+		daily_deck_card_count++;
 	}
 }
 
-function scr_deck_active_update(){
-	var _slot_empty = -1;
+function scr_active_hand_discard_card(_position){
+	with (global.instance_manager_deck)
+	{
+		daily_deck[active_hand[_position]][1] = 1;
+		daily_deck[active_hand[_position]][2] = 2;
+		
+		active_hand[_position] = 0;
+		daily_discard_card_count++;
+		
+	}
+}
+
+function scr_active_hand_update(){
+	var _position_empty = -1;
 	
 	with (global.instance_manager_deck)
 	{
-		for (var _i = 0; _i <= deck_active_card_count; _i++)
+		for (var _i = 1; _i <= 5; _i++)
 		{
-			if (deck_active[_i] <= 0)
+			if (active_hand[_i] <= 0)
 			{
-				_slot_empty = _i;
+				_position_empty = _i;
 				break;
 			}
 		}
+		show_debug_message("Position Empty:" + string(_position_empty));
 		
-		if  (_slot_empty != -1)
+		if  (_position_empty != -1)
 		{
-			for (var _i = _slot_empty; _i < deck_active_card_count - 1; _i++)
+			if (daily_deck_card_count - daily_discard_card_count >= 5)
 			{
-				deck_active[_i] = deck_active[_i + 1];
+				while(active_hand[_position_empty] <= 0)
+				{
+					var _random_card_position = irandom_range(1, daily_deck_card_count);
+					if ((daily_deck[_random_card_position][1] != 1) && (daily_deck[_random_card_position][2] < 1))
+					{
+						active_hand[_position_empty] = _random_card_position;
+						daily_deck[_random_card_position][2] = 1;
+					}
+				}
 			}
-			deck_active[deck_active_card_count] = 0;
+			else
+			{
+				for (var _i = _position_empty; _i < daily_deck_card_count - daily_discard_card_count + 1; _i++)
+				{
+					active_hand[_i] = active_hand[_i+ 1];
+				}
+				active_hand[daily_deck_card_count - daily_discard_card_count + 1] = 0;
+			}
 		}
+		show_debug_message(active_hand);
 	}
+	
 }
 
-function scr_deck_active_generate_hand(){
+function scr_generate_first_active_hand(){
 	var _inventory_manager = global.instance_manager_inventory;
 	
-	scr_generate_found_array();
+	scr_generate_deck_array();
 	
 	with (obj_manager_deck)
 	{
-		for (var _i = 0; _i < CARD_SLOTS; _i++) {
-		    deck_active[_i] = 0;
-			deck_discard[_i] = 0;
+		for (var _i = 0; _i < _inventory_manager.card_deck_count; _i++) {
+		    scr_daily_deck_add_card(_inventory_manager.card_deck[_i]);
 		}
 		
-		deck_active_card_count = 0;
-		deck_discard_card_count = 0;
+		daily_deck_card_count = _inventory_manager.card_deck_count;
+		daily_discard_card_count = 0;
 		
-		for (var _i = 0; _i < _inventory_manager.card_in_deck; _i++) {
-			scr_deck_active_add_card(_inventory_manager.card_deck_to_draw[_i]);
-		}
-	}
-}
-
-function scr_deck_active_shuffle(){
-	with (global.instance_manager_deck)
-	{
-		deck_active = array_shuffle(deck_active, 0, deck_active_card_count);
-		for (var _i = deck_active_card_count; _i < CARD_SLOTS; _i++)
+		if (daily_deck_card_count >= 5)
 		{
-			deck_active[_i] = 0;
+			repeat(5)
+			{
+				scr_active_hand_update();
+			}
+		}
+		else
+		{
+			repeat(daily_deck_card_count)
+			{
+				scr_active_hand_update();
+			}
 		}
 	}
 }

@@ -10,8 +10,7 @@ if (instance_exists(obj_player) && (position_meeting(obj_player.x, obj_player.y,
 			{
 				global.left_house = true;
 				scr_generate_deck_array();
-				scr_deck_active_generate_hand();
-				scr_deck_active_shuffle();
+				scr_generate_first_active_hand();
 				global.target_room = target_room;
 				global.target_x = target_x;
 				global.target_y = target_y;

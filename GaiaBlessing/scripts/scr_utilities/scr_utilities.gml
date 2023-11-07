@@ -95,6 +95,4 @@ function scr_first_day(){
 	
 	scr_generate_found_array();
 	scr_generate_deck_array();
-	scr_deck_active_generate_hand();
-	scr_deck_active_shuffle();
 }

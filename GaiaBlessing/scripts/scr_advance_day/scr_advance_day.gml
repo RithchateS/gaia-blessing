@@ -32,8 +32,8 @@ function scr_advance_day(){
 	}
 	
 	scr_room_transition(TRANSITION_TYPE.FADE, r_house, 0.02);
-	global.target_x = 440;
-	global.target_y = 88;
+	global.target_x = 432;
+	global.target_y = 120;
 	
 	scr_save_game();
 }
