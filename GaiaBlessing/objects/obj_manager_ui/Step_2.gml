@@ -24,10 +24,31 @@ var _deck_manager = global.instance_manager_deck;
 
 if (global.game_paused)
 {	
+	if (_input_manager.key_tab)
+	{
+		global.game_paused_tab++;
+		global.game_paused_tab = scr_wrap(global.game_paused_tab, 0, 2);
+	}
+	
 	switch (global.game_paused_tab)
 	{
 		case 0:
 			pause_option_selected = scr_wrap(pause_option_selected + _input_manager.input_option_change_vertical, 0, option_count - 1);
+	
+			if ((_input_manager.mouse_x_position >= NATIVE_GUI_RESOLUTION_WIDTH - 72) && (_input_manager.mouse_x_position <= NATIVE_GUI_RESOLUTION_WIDTH - 5))
+			{
+				if ((_input_manager.mouse_y_position >= 5) && (_input_manager.mouse_y_position <= 29))
+				{
+					if (_input_manager.mouse_left_pressed)
+					{
+						global.game_paused = false;
+						with (all)
+						{
+							image_speed = game_paused_image_speed;
+						}
+					}
+				}
+			}
 	
 			if (_input_manager.key_activate)
 			{
@@ -42,15 +63,12 @@ if (global.game_paused)
 							image_speed = 0;
 						}
 					} break;
-					case 1: // Save and Quit
+					case 1: // Main Menu
 					{
-						with (obj_manager_game) instance_destroy();
-						scr_save_game();
 						game_restart();
 					} break;
 					case 2: // Save and Quit to Desktop
 					{
-						scr_save_game();
 						game_end();
 					} break;
 				}
@@ -70,7 +88,89 @@ if (global.game_paused)
 			
 			card_selected_row = floor(card_selected / 5);
 			card_selected_column = card_selected % 5;
+			
+			if (_input_manager.key_back)
+			{
+				global.game_paused = false;
+				with (all)
+				{
+					image_speed = game_paused_image_speed;
+				}
+			}
 
+			break;
+			
+		case 2:
+			if (_input_manager.input_option_change_horizontal != 0)
+			{
+				card_book_selected = scr_range(card_book_selected + _input_manager.input_option_change_horizontal, 1, 100);
+				
+			}
+			
+			if (_input_manager.input_option_change_vertical != 0)
+			{
+				card_book_selected = scr_range(card_book_selected + (5 * _input_manager.input_option_change_vertical), 1, 100);
+			}
+			
+			if (card_book_selected > ((card_book_start_row + 2) * 5))
+			{
+				card_book_start_row++;
+				if (card_book_start_row > 18)
+				{
+					card_book_start_row = 18;
+				}
+			}
+			else if (card_book_selected <= ((card_book_start_row - 1) * 5))
+			{
+				card_book_start_row--;
+				if (card_book_start_row < 1)
+				{
+					card_book_start_row = 1;
+				}
+			}
+			
+			card_book_row = floor((card_book_selected - ((card_book_start_row - 1) * 5))/ 5) + 1;
+			card_book_column = ((card_book_selected - 1) % 5) + 1;
+			
+			if ((_input_manager.mouse_x_position >= 604) && (_input_manager.mouse_x_position <= 612))
+			{
+				if ((_input_manager.mouse_y_position >= 98) && (_input_manager.mouse_y_position <= 291))
+				{
+					if (_input_manager.mouse_left_pressed)
+					{
+						if ((_input_manager.mouse_y_position - 98) % 11 <= 8)
+						{
+							card_book_start_row = floor((_input_manager.mouse_y_position - 98) / 11) + 1;
+							card_book_selected = (((card_book_start_row - 1) + (card_book_row - 1)) * 5) + card_book_column;
+						}
+					}
+				}
+			}
+			
+			if (_input_manager.key_back)
+			{
+				global.game_paused = false;
+				with (all)
+				{
+					image_speed = game_paused_image_speed;
+				}
+			}
+			
+			if ((_input_manager.mouse_x_position >= NATIVE_GUI_RESOLUTION_WIDTH - 72) && (_input_manager.mouse_x_position <= NATIVE_GUI_RESOLUTION_WIDTH - 5))
+			{
+				if ((_input_manager.mouse_y_position >= 5) && (_input_manager.mouse_y_position <= 5 + ui_tab_height))
+				{
+					if (_input_manager.mouse_left_pressed)
+					{
+						global.game_paused = false;
+						with (all)
+						{
+							image_speed = game_paused_image_speed;
+						}
+					}
+				}
+			}
+			
 			break;
 		
 		default:

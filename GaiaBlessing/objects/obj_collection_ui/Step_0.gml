@@ -4,7 +4,7 @@ if ((input_manager.mouse_x_position > NATIVE_RESOLUTION_WIDTH * 0.5 - 50) && (in
 	{
 		if (input_manager.mouse_left_pressed)
 		{
-			if (inventory_manager.item_inventory[114][1] > 3)
+			if (inventory_manager.item_inventory[114][1] >= 3)
 			{
 				scr_room_transition(TRANSITION_TYPE.FADE, r_ending);
 			}

@@ -16,7 +16,6 @@ function scr_advance_day(){
 	
 	with (global.instance_manager_farm)
 	{
-		
 		for (var _i = 1; _i < 12; _i++)
 		{
 			if (farm_slot[_i][0] > 0)
@@ -30,6 +29,8 @@ function scr_advance_day(){
 			}
 		}
 	}
+	
+	scr_reset_deck_manager();
 	
 	scr_room_transition(TRANSITION_TYPE.FADE, r_house, 0.02);
 	global.target_x = 432;

@@ -8,6 +8,12 @@ function scr_reset_deck_manager() {
 			daily_deck[_i][2] = 0; // Where is it right now? Draw Pile / Hand / Discard Pile
 		}
 
+		for (var _i = 1; _i <= 5; _i++)
+		{
+			active_hand[_i] = 0; // This contains the index of which card in the daily deck is shown to the player.
+		}
+
+
 		daily_deck_card_count = 0;
 		daily_discard_card_count = 0;
 	}
@@ -20,6 +26,7 @@ function scr_daily_deck_add_card(_id){
 		daily_deck[daily_deck_card_count + 1][1] = 0;
 		daily_deck[daily_deck_card_count + 1][2] = 0;
 		daily_deck_card_count++;
+		show_debug_message(daily_deck);
 	}
 }
 
@@ -101,9 +108,10 @@ function scr_generate_first_active_hand(){
 		}
 		else
 		{
-			repeat(daily_deck_card_count)
+			for (var _i = 1; _i <= daily_deck_card_count; _i++)
 			{
-				scr_active_hand_update();
+				active_hand[_i] = _i;
+				daily_deck[_i][2] = 1;
 			}
 		}
 	}

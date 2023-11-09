@@ -1,5 +1,7 @@
+global.session_time++;
+
 /// @description Pause the Game
-if (keyboard_check_pressed(ord("P")) && !instance_exists(obj_transition) && (obj_manager_ui.visible == true)) 
+if (keyboard_check_pressed(vk_escape) && !instance_exists(obj_transition) && (obj_manager_ui.visible == true) && !global.game_paused) 
 {
 	if (!global.game_paused)
 	{
@@ -65,5 +67,13 @@ else if (keyboard_check_pressed(ord("J")) && !instance_exists(obj_transition) &&
 	else
 	{
 		global.game_paused_tab = 1;
+	}
+}
+else if (keyboard_check_pressed(vk_escape) && global.game_paused)
+{
+	global.game_paused = false;
+	with (all)
+	{
+		image_speed = game_paused_image_speed;
 	}
 }

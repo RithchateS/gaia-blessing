@@ -4,8 +4,8 @@ clip_surface = -1;
 
 pause_option = [
 	"Continue",
-	"Save & Quit",
-	"Save & Quit to Desktop"
+	"Quit to Main Menu",
+	"Quit to Desktop"
 ];
 
 show_ui = true;
@@ -30,6 +30,7 @@ focused_card_hold = false;
 focused_x_difference = 0;
 focused_y_difference = 0;
 
+card_book_selected = 1;
 card_book_tab = 1;
 card_book_row = 1;
 card_book_column = 1;

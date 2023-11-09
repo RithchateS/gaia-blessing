@@ -23,6 +23,8 @@ global.player_energy_current = global.player_energy_max;
 
 global.player_coin = 0;
 
+global.session_time = 0;
+
 global.instance_manager_deck = instance_create_layer(0, 0, layer, obj_manager_deck);
 global.instance_manager_camera = instance_create_layer(0, 0, layer, obj_manager_camera);
 global.instance_manager_ui = instance_create_layer(0, 0, layer, obj_manager_ui);

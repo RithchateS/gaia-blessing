@@ -9,7 +9,8 @@ key_down = keyboard_check(vk_down) || keyboard_check(ord("S"));
 key_activate = keyboard_check_pressed(vk_space) || keyboard_check_pressed(vk_enter);
 key_attack = keyboard_check_pressed(vk_shift);
 key_item = keyboard_check_pressed(vk_control);
-key_focus = keyboard_check_pressed(ord("F"));
+key_tab = keyboard_check_pressed(vk_tab);
+
 
 key_card[0] = keyboard_check_pressed(ord("1"));
 key_card[1] = keyboard_check_pressed(ord("2"));

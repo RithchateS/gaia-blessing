@@ -25,8 +25,8 @@
   "nineSlice": null,
   "origin": 1,
   "parent": {
-    "name": "GaiaBlessing",
-    "path": "GaiaBlessing.yyp",
+    "name": "UI & UX",
+    "path": "folders/Sprites/UI & UX.yy",
   },
   "preMultiplyAlpha": false,
   "sequence": {

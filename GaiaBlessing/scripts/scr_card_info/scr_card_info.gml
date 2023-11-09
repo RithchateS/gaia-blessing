@@ -40,6 +40,32 @@ function scr_tooltip_info(_id){
 			return [-1, "Invalid tooltip index"];
 	}
 }
+
+function scr_card_flavor_text(_id){
+	switch (_id)
+	{
+		case 1:
+			return "Planting have never been quicker. Grow fast, sell fast!";
+		
+		case 2:
+			return "Basic plant food, it's about growing well, not fast!";
+			
+		case 3:
+			return "Now your plant can even absorb more chemicals!";
+			
+		case 4:
+			return "Time to collect your well-deserved produce.";
+			
+		case 5:
+			return "Beloved by plants, they just seem to grow faster eh?";
+			
+		case 6:
+			return "Just a bit more care can make chemical more potent huh?";
+			
+		default:
+			return "???";
+	}
+}
 	
 function scr_card_value(_id){
 	switch (_id)

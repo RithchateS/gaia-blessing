@@ -74,6 +74,7 @@ function scr_remove_card_from_deck_to_inventory(_id){
 			{
 				card_inventory[_id][2]--;
 				scr_generate_deck_array();
+				show_debug_message(card_deck);
 			}
 			else
 			{

@@ -9,7 +9,6 @@ if (instance_exists(obj_player) && (position_meeting(obj_player.x, obj_player.y,
 			if (!global.left_house)
 			{
 				global.left_house = true;
-				scr_generate_deck_array();
 				scr_generate_first_active_hand();
 				global.target_room = target_room;
 				global.target_x = target_x;
