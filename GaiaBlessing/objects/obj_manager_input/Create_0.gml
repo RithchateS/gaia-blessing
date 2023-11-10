@@ -37,4 +37,6 @@ mouse_y_position_previous = device_mouse_y_to_gui(0);
 mouse_left_pressed = mouse_check_button_pressed(mb_left);
 mouse_left_released = mouse_check_button_released(mb_left);
 
+mouse_right_pressed = mouse_check_button_pressed(mb_right);
+
 mouse_moved = false;

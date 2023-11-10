@@ -80,7 +80,6 @@ function scr_active_hand_update(){
 				active_hand[daily_deck_card_count - daily_discard_card_count + 1] = 0;
 			}
 		}
-		show_debug_message(active_hand);
 	}
 	
 }

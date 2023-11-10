@@ -56,3 +56,8 @@ card3_y2_destination = card3_y1 + (CARD_HEIGHT / 2);
 card1_lerp_progress = 0;
 card2_lerp_progress = 0;
 card3_lerp_progress = 0;
+
+game_paused_image_speed = 0;
+
+ui_tab_name_bg_width = 120;
+ui_tab_height = 24;

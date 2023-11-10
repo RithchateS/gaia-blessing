@@ -74,7 +74,6 @@ function scr_remove_card_from_deck_to_inventory(_id){
 			{
 				card_inventory[_id][2]--;
 				scr_generate_deck_array();
-				show_debug_message(card_deck);
 			}
 			else
 			{
@@ -133,6 +132,18 @@ function scr_generate_deck_array(){
 		}
 	}
 }
+
+function scr_deck_clear(){
+	with (obj_manager_inventory)
+	{
+		for (var _i = 0; _i < card_type_in_deck_count; _i++)
+		{
+			card_inventory[card_type_in_deck[_i]][2] = 0;
+		}
+		scr_generate_deck_array();
+	}
+}
+
 #endregion
 
 #region Item Inventory Manipulation
@@ -159,7 +170,7 @@ function scr_item_inventory_remove(_id, _rank, _amount){
 	{
 		if (item_inventory[_id][0] == true)
 		{
-			if (item_inventopry[_id][_rank] >= _amount)
+			if (item_inventory[_id][_rank] >= _amount)
 			{
 				item_inventory[_id][_rank] -= _amount;
 			}
@@ -195,7 +206,6 @@ function scr_sell_item_card(_id, _rank){
 	with (obj_manager_inventory)
 	{
 		global.player_coin += scr_card_value(_id, _rank);
-		scr_item_inventory_remove(_id, _rank, 1);
 	}
 }
 

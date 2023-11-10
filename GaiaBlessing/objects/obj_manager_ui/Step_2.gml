@@ -30,6 +30,22 @@ if (global.game_paused)
 		global.game_paused_tab = scr_wrap(global.game_paused_tab, 0, 2);
 	}
 	
+	if ((_input_manager.mouse_x_position >= NATIVE_GUI_RESOLUTION_WIDTH - 72) && (_input_manager.mouse_x_position <= NATIVE_GUI_RESOLUTION_WIDTH - 5))
+	{
+		if ((_input_manager.mouse_y_position >= 5) && (_input_manager.mouse_y_position <= 5 + ui_tab_height))
+		{
+			if (_input_manager.mouse_left_pressed)
+			{
+				global.game_paused = false;
+				with (all)
+				{
+					image_speed = game_paused_image_speed;
+				}
+			}
+		}
+	}
+			
+	
 	switch (global.game_paused_tab)
 	{
 		case 0:
@@ -129,7 +145,7 @@ if (global.game_paused)
 				}
 			}
 			
-			card_book_row = floor((card_book_selected - ((card_book_start_row - 1) * 5))/ 5) + 1;
+			card_book_row = floor((card_book_selected - ((card_book_start_row - 1) * 5) - 1)/ 5) + 1;
 			card_book_column = ((card_book_selected - 1) % 5) + 1;
 			
 			if ((_input_manager.mouse_x_position >= 604) && (_input_manager.mouse_x_position <= 612))
@@ -142,6 +158,11 @@ if (global.game_paused)
 						{
 							card_book_start_row = floor((_input_manager.mouse_y_position - 98) / 11) + 1;
 							card_book_selected = (((card_book_start_row - 1) + (card_book_row - 1)) * 5) + card_book_column;
+							show_debug_message(card_book_start_row);
+							show_debug_message(card_book_row);
+							show_debug_message(card_book_column);
+							
+							show_debug_message(card_book_selected);
 						}
 					}
 				}
@@ -155,22 +176,6 @@ if (global.game_paused)
 					image_speed = game_paused_image_speed;
 				}
 			}
-			
-			if ((_input_manager.mouse_x_position >= NATIVE_GUI_RESOLUTION_WIDTH - 72) && (_input_manager.mouse_x_position <= NATIVE_GUI_RESOLUTION_WIDTH - 5))
-			{
-				if ((_input_manager.mouse_y_position >= 5) && (_input_manager.mouse_y_position <= 5 + ui_tab_height))
-				{
-					if (_input_manager.mouse_left_pressed)
-					{
-						global.game_paused = false;
-						with (all)
-						{
-							image_speed = game_paused_image_speed;
-						}
-					}
-				}
-			}
-			
 			break;
 		
 		default:

@@ -12,7 +12,7 @@ function scr_crop_info(_id){
 			return ["Avocado", 50, 50, 120];
 			
 		case 4:
-			return ["Potato", 60, 20, 20];
+			return ["Potato", 60, 20, 30];
 			
 		case 5:
 			return ["Melon", 100, 100, 160];

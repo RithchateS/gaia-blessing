@@ -18,6 +18,8 @@ else
 scr_text_setup(global.font_large, fa_left, fa_top, c_white);
 draw_text(10, 10, "Day " + string(global.game_day));
 
+draw_text(10, 30, "Credits: " + string(global.player_coin));
+
 #region Buff HUD Display
 
 if (obj_player.buffs_in_play > 0)
@@ -128,7 +130,7 @@ if (show_cards && !global.game_paused)
 				var _index_to_display = scr_tooltip_info(card_information[0])[0];
 				var _tooltip_text = scr_tooltip_info(card_information[0])[1];
 			
-				
+				scr_text_setup(global.font_large, fa_left, fa_top, c_white);
 				var _tooltip_width = string_width_ext(_tooltip_text, 12, 170);
 				var _tooltip_height = string_height_ext(_tooltip_text, 12, 170);
 
@@ -213,7 +215,7 @@ if (global.game_paused)
 			{
 				if (_i == card_selected)
 				{
-					draw_sprite(spr_card_proto_select_border, floor(time_since_creation / 60) % 2, (NATIVE_GUI_RESOLUTION_WIDTH * 0.14) + ((_i % 5) * 0.18 * NATIVE_GUI_RESOLUTION_WIDTH), (NATIVE_GUI_RESOLUTION_HEIGHT * 0.2) + CARD_HEIGHT + (floor(_i / 5) * 1.3 * CARD_HEIGHT) + 8);
+					draw_sprite(spr_card_proto_select_border, floor(time_since_creation / 60) % 2, (NATIVE_GUI_RESOLUTION_WIDTH * 0.14) + ((_i % 5) * 0.18 * NATIVE_GUI_RESOLUTION_WIDTH), (NATIVE_GUI_RESOLUTION_HEIGHT * 0.2) + CARD_HEIGHT + (floor(_i / 5) * 1.3 * CARD_HEIGHT));
 				}
 				
 				if (_deck_manager.daily_deck[_i + 1][0] > 0)

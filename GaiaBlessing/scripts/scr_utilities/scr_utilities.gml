@@ -75,12 +75,6 @@ function scr_first_day(){
 	scr_inventory_add(2, 5);
 	scr_inventory_add(3, 5);
 	scr_inventory_add(4, 5);
-	scr_inventory_add(5, 3);
-	scr_inventory_add(6, 3);
-	scr_inventory_add(9, 3);
-	scr_inventory_add(10, 3);
-	scr_inventory_add(11, 3);
-	scr_inventory_add(12, 3);
 	scr_inventory_add(61, 2);
 
 	scr_add_card_from_inventory_to_deck(1);
@@ -91,13 +85,9 @@ function scr_first_day(){
 	scr_add_card_from_inventory_to_deck(3);
 	scr_add_card_from_inventory_to_deck(4);
 	scr_add_card_from_inventory_to_deck(4);
-	scr_add_card_from_inventory_to_deck(5);
-	scr_add_card_from_inventory_to_deck(6);
 	scr_add_card_from_inventory_to_deck(61);
 	scr_add_card_from_inventory_to_deck(61);
-	
-	scr_item_inventory_add(111, 2);
-	
+
 	scr_generate_found_array();
 	scr_generate_deck_array();
 }

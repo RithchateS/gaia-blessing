@@ -67,23 +67,103 @@ function scr_card_flavor_text(_id){
 	}
 }
 	
-function scr_card_value(_id){
+function scr_card_value(_id, _rank){
 	switch (_id)
 	{
-		case 111:
-			return 10;
+		case 101:
+			switch (_rank)
+			{
+				case 1:
+					return 10;
+				
+				case 2:
+					return 22;
 			
-		case 112:
-			return 22;
+				case 3:
+					return 35;
 			
-		case 113:
-			return 35;
+				case 4:
+					return 50;
+					
+				default:
+					return 0;
+			}
+		
+		case 102:
+			switch (_rank)
+			{
+				case 1:
+					return 10;
+				
+				case 2:
+					return 22;
 			
-		case 114:
-			return 50;
+				case 3:
+					return 35;
 			
-		case 115:
-			return 70;
+				case 4:
+					return 50;
+					
+				default:
+					return 0;
+			}
+			
+		case 103:
+			switch (_rank)
+			{
+				case 1:
+					return 10;
+				
+				case 2:
+					return 22;
+			
+				case 3:
+					return 35;
+			
+				case 4:
+					return 50;
+					
+				default:
+					return 0;
+			}
+			
+		case 104:
+			switch (_rank)
+			{
+				case 1:
+					return 10;
+				
+				case 2:
+					return 22;
+			
+				case 3:
+					return 35;
+			
+				case 4:
+					return 50;
+					
+				default:
+					return 0;
+			}
+			
+		case 105:
+			switch (_rank)
+			{
+				case 1:
+					return 10;
+				
+				case 2:
+					return 22;
+			
+				case 3:
+					return 35;
+			
+				case 4:
+					return 50;
+					
+				default:
+					return 0;
+			}
 		
 		default:
 			return 0;
@@ -101,7 +181,7 @@ function scr_card_activate_info(_id){
 			return [2, 2, 10, 1, 0, true, 10];
 			
 		case 3:
-			return [3, 3, 30, 1, 0, true, 0];
+			return [3, 3, 10, 1, 0, true, 0];
 			
 		case 4:
 			return [4, 4, 0, 1, 0, true, 0];
@@ -187,85 +267,85 @@ function scr_card_name(_id){
 	switch (_id)
 	{
 		case 1:
-			return "Hastener";
+			return "HASTENER";
 		
 		case 2:
-			return "Fertilizer";
+			return "FERTILIZER";
 			
 		case 3:
-			return "Toughener";
+			return "TOUGHENER";
 			
 		case 4:
-			return "Harvest";
+			return "HARVEST";
 			
 		case 5:
-			return "Green Thumb";
+			return "GREEN THUMB";
 		
 		case 6:
-			return "Caring";
+			return "CARING";
 		
 		case 7:
-			return "Change";
+			return "CHANGE";
 		
 		case 8:
-			return "Battery";
+			return "BATTERY";
 			
 		case 9:
-			return "Prep Work";
+			return "PREP WORK";
 			
 		case 10:
-			return "Cultivate";
+			return "CULTIVATE";
 			
 		case 11:
-			return "Purify";
+			return "PURIFY";
 		
 		case 12:
-			return "Safety";
+			return "SAFETY";
 			
 		case 13:
-			return "Hastener+";
+			return "HASTENER+";
 		
 		case 14:
-			return "Fertilizer+";
+			return "FERTILIZER+";
 			
 		case 15:
-			return "More Prep";
+			return "MORE PREP";
 			
 		case 16:
-			return "Surge";
+			return "SURGE";
 			
 		case 17:
-			return "Compost";
+			return "COMPOST";
 			
 		case 61:
-			return "Chi. Seed";
+			return "CHILLI SEED";
 			
 		case 62:
-			return "Car. Seed";
+			return "CARROT SEED";
 			
 		case 63:
-			return "Avo. Seed";
+			return "AVOCADO SEED";
 			
 		case 64:
-			return "Pot. Seed";
+			return "POTATO SEED";
 			
 		case 65:
-			return "Mel. Seed";
+			return "MELON SEED";
 		
 		case 101: 
-			return "Chilli";
+			return "CHILLI";
 			
 		case 102: 
-			return "Carrot";
+			return "CARROT";
 			
 		case 103: 
-			return "Avocado";
+			return "AVOCADO";
 			
 		case 104: 
-			return "Potato";
+			return "POTATO";
 	
 		case 105: 
-			return "Melon";
+			return "MELON";
 			
 		default:
 			return "Invalid card name id";
