@@ -19,7 +19,7 @@
     "name": "spr_tileset_grass_prototype",
     "path": "sprites/spr_tileset_grass_prototype/spr_tileset_grass_prototype.yy",
   },
-  "spriteNoExport": false,
+  "spriteNoExport": true,
   "textureGroupId": {
     "name": "Default",
     "path": "texturegroups/Default",

@@ -28,7 +28,7 @@ if (booster_generated == false)
 	{
 		if (global.player_coin >= 5) && (focused_booster == 1)
 		{
-			global.player_coin -= 10;
+			global.player_coin -= 5;
 			generated_cards = scr_booster_generate(focused_booster);
 			card1_sprite = asset_get_index("spr_card_" + string(generated_cards[0]));
 			card2_sprite = asset_get_index("spr_card_" + string(generated_cards[1]));
