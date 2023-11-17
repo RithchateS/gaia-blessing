@@ -159,7 +159,7 @@ function scr_farm_slot_harvest(_slot) {
 	{
 		if (_farm_manager.farm_slot[_slot, 1] >= _farm_manager.farm_slot[_slot, 2])
 		{
-			scr_item_inventory_add(100 + _farm_manager.farm_slot[_slot, 0], _farm_manager.farm_slot[_slot, 7] + 1, 1);
+			scr_item_inventory_add(100 + (4 * (_farm_manager.farm_slot[_slot, 0] - 1)) + _farm_manager.farm_slot[_slot, 7] + 1, 1);
 			scr_farm_slot_reset(_slot);
 		
 			if (instance_exists(obj_crop_info))

@@ -1,38 +1,18 @@
 function scr_computer(_id){
-	show_debug_message("Computer called")
-	var _obj = obj_computer_ui;
 	
-	with (all)
+	if (!global.game_paused)
 	{
-		game_paused_image_speed = image_speed;
-		image_speed = 0;
-	}
-	
-	if (obj_player.text_cooldown == true)
-	{
-		
-	}
-	else
-	{
-		with (instance_create_layer(0, 0, "Instances", _obj))
+		global.game_paused = !global.game_paused;
+		with (all)
 		{
-			if (instance_exists(other))
-			{
-				origin_instance = other.id;
-			}
-			else
-			{
-				origin_instance = noone;
-			}
+			game_paused_image_speed = image_speed;
+			image_speed = 0;
 		}
-	
-		with (obj_player)
+		with (global.instance_manager_ui)
 		{
-			if (state != scr_player_state_locked)
-			{
-				last_state = state;
-				state = scr_player_state_locked;
-			}
+			show_menu_ui = true;
+			previous_menu_level = -1;
+			current_menu_level = 0;
 		}
 	}
 }
@@ -159,18 +139,18 @@ function scr_booster(_id){
 function scr_booster_generate(_id){
 	switch(_id)
 	{
-		case 1:
+		case 0:
 			var _random_array = [];
 			var _random_array_count = 0;
 			repeat (3)
 			{
-				_random_array[_random_array_count] = irandom_range(61, 65);
+				_random_array[_random_array_count] = irandom_range(81, 85);
 				_random_array_count++;
 			}
 			
 			return _random_array;
 			
-		case 2:
+		case 1:
 			var _random_array = [];
 			var _random_array_count = 0;
 			repeat (3)

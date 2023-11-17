@@ -6,7 +6,6 @@ global.deck_debug_mode = false;
 global.game_save_slot = 0;
 
 global.game_paused = false;
-global.game_paused_tab = 0;
 
 global.text_speed = 0.75;
 
@@ -36,7 +35,7 @@ global.instance_manager_inventory = instance_create_layer(0, 0, layer, obj_manag
 global.font_number = font_add_sprite_ext(spr_font_number, "1234567890/", false, 1);
 global.font_number_large = font_add_sprite_ext(spr_font_number_large, "0123456789", true, 0);
 global.font_large = font_add_sprite_ext(spr_font_large, "!#$%&'()*+,-./0123456789:;<=>?@ABCDEFGHIJKLMNOPQRSTUVWXYZ[\]^_abcdefghijklmnopqrstuvwxyz{|}~", true, 0);
-global.font_capital = font_add_sprite_ext(spr_font_capital, "!#$%'()*+,-./0123456789:;<=>?@ABCDEFGHIJKLMNOPQRSTUVWXYZxcurl", true, 1)
+global.font_capital = font_add_sprite_ext(spr_font_capital, "!#$%'()*+,-./0123456789:;<=>?@ABCDEFGHIJKLMNOPQRSTUVWXYZxcurl", true, 0);
 
 yarn_file_to_load = YARN_FILE;
 ChatterboxLoadFromFile(yarn_file_to_load);

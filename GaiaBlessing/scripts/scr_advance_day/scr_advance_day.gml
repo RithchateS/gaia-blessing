@@ -32,9 +32,9 @@ function scr_advance_day(){
 	
 	scr_reset_deck_manager();
 	
-	scr_room_transition(TRANSITION_TYPE.FADE, r_house, 0.02);
-	global.target_x = 432;
-	global.target_y = 120;
+	scr_room_transition(TRANSITION_TYPE.FADE, r_tent, 0.02);
+	global.target_x = 320;
+	global.target_y = 232;
 	
 	scr_save_game();
 }

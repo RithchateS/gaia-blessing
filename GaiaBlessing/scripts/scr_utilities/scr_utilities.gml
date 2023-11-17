@@ -75,7 +75,7 @@ function scr_first_day(){
 	scr_inventory_add(2, 5);
 	scr_inventory_add(3, 5);
 	scr_inventory_add(4, 5);
-	scr_inventory_add(61, 2);
+	scr_inventory_add(81, 2);
 
 	scr_add_card_from_inventory_to_deck(1);
 	scr_add_card_from_inventory_to_deck(1);
@@ -85,9 +85,33 @@ function scr_first_day(){
 	scr_add_card_from_inventory_to_deck(3);
 	scr_add_card_from_inventory_to_deck(4);
 	scr_add_card_from_inventory_to_deck(4);
-	scr_add_card_from_inventory_to_deck(61);
-	scr_add_card_from_inventory_to_deck(61);
+	scr_add_card_from_inventory_to_deck(81);
+	scr_add_card_from_inventory_to_deck(81);
+	
+	scr_item_inventory_add(101, 5)
+	scr_item_inventory_add(104, 5);
 
 	scr_generate_found_array();
 	scr_generate_deck_array();
+}
+	
+function scr_mouse_hover(_x_start, _y_start, _width, _height)
+{
+	var _im = global.instance_manager_input;
+	
+	if ((_im.mouse_x_position >= _x_start) && (_im.mouse_x_position <= _x_start + _width))
+	{
+		if ((_im.mouse_y_position >= _y_start) && (_im.mouse_y_position <= _y_start + _height))
+		{
+			return 1;
+		}
+		else
+		{
+			return 0;
+		}
+	}
+	else
+	{
+		return 0;
+	}
 }

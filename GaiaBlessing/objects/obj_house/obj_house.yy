@@ -29,8 +29,8 @@
   "properties": [],
   "solid": false,
   "spriteId": {
-    "name": "spr_house",
-    "path": "sprites/spr_house/spr_house.yy",
+    "name": "spr_building_tent",
+    "path": "sprites/spr_building_tent/spr_building_tent.yy",
   },
   "spriteMaskId": null,
   "visible": true,

@@ -1,3 +1,7 @@
+var _input_manager = global.instance_manager_input;
+var _card_manager = global.instance_manager_card;
+var _deck_manager = global.instance_manager_deck;
+
 if (room == r_initialize || room == r_title || instance_exists(obj_item_inventory_ui) || instance_exists(obj_sales_ui) || instance_exists(obj_booster_ui) || instance_exists(obj_collection_ui) || instance_exists(obj_inventory_ui))
 {
 	visible = false;
@@ -18,18 +22,173 @@ else
 
 time_since_creation++;
 
-var _input_manager = global.instance_manager_input;
-var _card_manager = global.instance_manager_card;
-var _deck_manager = global.instance_manager_deck;
-
-if (global.game_paused)
-{	
-	if (_input_manager.key_tab)
+if (show_menu_ui)
+{
+	menu_background_alpha = scr_range(menu_background_alpha + menu_background_alpha_rate, menu_background_min, menu_background_max);
+	menu_border_top_current_y = scr_range(menu_border_top_current_y + menu_border_top_y_rate, menu_border_top_start_y, menu_border_top_destination_y);
+	menu_border_bottom_current_y = scr_range(menu_border_bottom_current_y - menu_border_bottom_y_rate, menu_border_bottom_start_y, menu_border_bottom_destination_y);
+	menu_button_back_current_y = scr_range(menu_button_back_current_y + menu_button_back_y_rate, menu_button_back_start_y, menu_button_back_destination_y);
+	
+	if (current_menu_level == 0)
 	{
-		global.game_paused_tab++;
-		global.game_paused_tab = scr_wrap(global.game_paused_tab, 0, 2);
+		menu_0_current_y = scr_range(menu_0_current_y + menu_0_y_rate, menu_0_start_y, menu_0_destination_y);
+		menu_0_array_lerp_progress = scr_range(menu_0_array_lerp_progress + 0.1, 0, 1);
+		menu_0_option_current_x = lerp(menu_0_option_current_x, 0, menu_0_array_lerp_progress);
+		menu_0_option_current_y = lerp(menu_0_option_current_y, 0, menu_0_array_lerp_progress);
+		menu_0_option_current_width = (75 - menu_0_option_current_x) * 2;
+		menu_0_option_current_height = (47 - menu_0_option_current_y) * 2;
+	}
+	else
+	{
+		menu_0_current_y = scr_range(menu_0_current_y - menu_0_y_rate, menu_0_start_y, menu_0_destination_y);
+		menu_0_array_lerp_progress = scr_range(menu_0_array_lerp_progress - 0.1, 0, 1);
+		menu_0_option_current_x = lerp(menu_0_option_width * 0.5, 0, menu_0_array_lerp_progress);
+		menu_0_option_current_y = lerp(menu_0_option_height * 0.5, 0, menu_0_array_lerp_progress);
+		menu_0_option_current_width = (75 - menu_0_option_current_x) * 2;
+		menu_0_option_current_height = (47 - menu_0_option_current_y) * 2;
 	}
 	
+	if (current_menu_level == 1)
+	{
+		menu_1_current_y = scr_range(menu_1_current_y + menu_1_y_rate, menu_1_start_y, menu_1_destination_y);
+		menu_1_title = computer_option[menu_0_focus];
+		switch (menu_0_focus)
+		{
+			case 0:
+				deck_manager_lerp_progress = scr_range(deck_manager_lerp_progress + 0.1, 0, 1);
+				deck_manager_current_width = lerp(0, deck_manager_width, deck_manager_lerp_progress);
+				deck_manager_current_height = lerp(0, deck_manager_height, deck_manager_lerp_progress);
+				deck_status_current_width = lerp(0, deck_status_width, deck_manager_lerp_progress);
+				deck_status_current_height = lerp(0, deck_status_height, deck_manager_lerp_progress);
+				break;
+				
+			case 1:
+				credit_exchange_lerp_progress = scr_range(credit_exchange_lerp_progress + 0.1, 0, 1);
+				credit_exchange_current_width = lerp(0, credit_exchange_width, credit_exchange_lerp_progress);
+				credit_exchange_current_height = lerp(0, credit_exchange_height, credit_exchange_lerp_progress);
+				sales_current_width = lerp(0, sales_width, credit_exchange_lerp_progress);
+				sales_current_height = lerp(0, sales_height, credit_exchange_lerp_progress);
+				break;
+				
+			case 2:
+				booster_menu_lerp_progress = scr_range(booster_menu_lerp_progress + 0.1, 0, 1);
+				booster_menu_current_width = lerp(0, booster_menu_width, booster_menu_lerp_progress);
+				booster_menu_current_height = lerp(0, booster_menu_height, booster_menu_lerp_progress);
+				
+				if (booster_generated)
+				{
+					frame_since_booster_ended++;
+					card1_lerp_progress += (1 - card1_lerp_progress) / 50;
+		
+					if (frame_since_booster_ended > 10)
+					{
+						card2_lerp_progress += (1 - card2_lerp_progress) / 50;
+					}
+		
+					if (frame_since_booster_ended > 20)
+					{
+						card3_lerp_progress += (1 - card3_lerp_progress) / 50;
+					}
+	
+					card1_x1 = lerp(card1_x1, card1_x1_destination, card1_lerp_progress);
+					card1_x2 = lerp(card1_x2, card1_x2_destination, card1_lerp_progress);
+					card1_y1 = lerp(card1_y1, card1_y1_destination, card1_lerp_progress);
+					card1_y2 = lerp(card1_y2, card1_y2_destination, card1_lerp_progress);
+	
+					card2_x1 = lerp(card2_x1, card2_x1_destination, card2_lerp_progress);
+					card2_x2 = lerp(card2_x2, card2_x2_destination, card2_lerp_progress);
+					card2_y1 = lerp(card2_y1, card2_y1_destination, card2_lerp_progress);
+					card2_y2 = lerp(card2_y2, card2_y2_destination, card2_lerp_progress);
+	
+					card3_x1 = lerp(card3_x1, card3_x1_destination, card3_lerp_progress);
+					card3_x2 = lerp(card3_x2, card3_x2_destination, card3_lerp_progress);
+					card3_y1 = lerp(card3_y1, card3_y1_destination, card3_lerp_progress);
+					card3_y2 = lerp(card3_y2, card3_y2_destination, card3_lerp_progress);
+	
+					if (card3_x1 < card3_x1_destination + 10 && !booster_animation_ended)
+					{
+						booster_animation_ended = true;
+					}
+				}
+				break;
+			
+			case 3:
+				quest_menu_lerp_progress = scr_range(quest_menu_lerp_progress + 0.1, 0, 1);
+				quest_menu_current_width = lerp(0, quest_menu_width, quest_menu_lerp_progress);
+				quest_menu_current_height = lerp(0, quest_menu_height, quest_menu_lerp_progress);
+				
+				if (quest_detail_show)
+				{
+					quest_detail_lerp_progress = scr_range(quest_detail_lerp_progress + 0.1, 0, 1);
+					quest_detail_current_width = lerp(0, quest_detail_width, quest_detail_lerp_progress);
+					quest_detail_current_height = lerp(0, quest_detail_height, quest_detail_lerp_progress);
+				}
+				else
+				{
+					quest_detail_lerp_progress = scr_range(quest_detail_lerp_progress - 0.1, 0, 1);
+					quest_detail_current_width = lerp(0, quest_detail_width, quest_detail_lerp_progress);
+					quest_detail_current_height = lerp(0, quest_detail_height, quest_detail_lerp_progress);
+				}
+			
+				break;
+		}
+	}
+	else
+	{
+		menu_1_current_y = scr_range(menu_1_current_y - menu_1_y_rate, menu_1_start_y, menu_1_destination_y);
+		menu_1_title = "";
+		deck_manager_lerp_progress = scr_range(deck_manager_lerp_progress - 0.1, 0, 1);
+		deck_manager_current_width = lerp(0, deck_manager_width, deck_manager_lerp_progress);
+		deck_manager_current_height = lerp(0, deck_manager_height, deck_manager_lerp_progress);
+		deck_status_current_width = lerp(0, deck_status_width, deck_manager_lerp_progress);
+		deck_status_current_height = lerp(0, deck_status_height, deck_manager_lerp_progress);
+		
+		credit_exchange_lerp_progress = scr_range(credit_exchange_lerp_progress - 0.1, 0, 1);
+		credit_exchange_current_width = lerp(0, credit_exchange_width, credit_exchange_lerp_progress);
+		credit_exchange_current_height = lerp(0, credit_exchange_height, credit_exchange_lerp_progress);
+		sales_current_width = lerp(0, sales_width, credit_exchange_lerp_progress);
+		sales_current_height = lerp(0, sales_height, credit_exchange_lerp_progress);
+		
+		booster_menu_lerp_progress = scr_range(booster_menu_lerp_progress - 0.1, 0, 1);
+		booster_menu_current_width = lerp(0, booster_menu_width, booster_menu_lerp_progress);
+		booster_menu_current_height = lerp(0, booster_menu_height, booster_menu_lerp_progress);
+		
+		quest_menu_lerp_progress = scr_range(quest_menu_lerp_progress - 0.1, 0, 1);
+		quest_menu_current_width = lerp(0, quest_menu_width, quest_menu_lerp_progress);
+		quest_menu_current_height = lerp(0, quest_menu_height, quest_menu_lerp_progress);
+		
+		quest_detail_lerp_progress = scr_range(quest_detail_lerp_progress - 0.1, 0, 1);
+		quest_detail_current_width = lerp(0, quest_detail_width, quest_detail_lerp_progress);
+		quest_detail_current_height = lerp(0, quest_detail_height, quest_detail_lerp_progress);
+}
+}
+else
+{
+	menu_background_alpha = scr_range(menu_background_alpha - menu_background_alpha_rate, menu_background_min, menu_background_max);
+	menu_border_top_current_y = scr_range(menu_border_top_current_y - menu_border_top_y_rate, menu_border_top_start_y, menu_border_top_destination_y);
+	menu_border_bottom_current_y = scr_range(menu_border_bottom_current_y + menu_border_bottom_y_rate, menu_border_bottom_start_y, menu_border_bottom_destination_y);
+	menu_button_back_current_y = scr_range(menu_button_back_current_y - menu_button_back_y_rate, menu_button_back_start_y, menu_button_back_destination_y);
+	menu_0_current_y = scr_range(menu_0_current_y - menu_0_y_rate, menu_0_start_y, menu_0_destination_y);
+	
+	menu_0_array_lerp_progress = scr_range(menu_0_array_lerp_progress - 0.1, 0, 1);
+	menu_0_option_current_x = lerp(menu_0_option_width * 0.5, 0, menu_0_array_lerp_progress);
+	menu_0_option_current_y = lerp(menu_0_option_height * 0.5, 0, menu_0_array_lerp_progress);
+	menu_0_option_current_width = (75 - menu_0_option_current_x) * 2;
+	menu_0_option_current_height = (47 - menu_0_option_current_y) * 2;
+}
+
+if (skip)
+{
+	skip = !skip;
+}
+
+
+
+
+
+/*
+if (global.game_paused)
+{	
 	if ((_input_manager.mouse_x_position >= NATIVE_GUI_RESOLUTION_WIDTH - 72) && (_input_manager.mouse_x_position <= NATIVE_GUI_RESOLUTION_WIDTH - 5))
 	{
 		if ((_input_manager.mouse_y_position >= 5) && (_input_manager.mouse_y_position <= 5 + ui_tab_height))
@@ -49,7 +208,7 @@ if (global.game_paused)
 	switch (global.game_paused_tab)
 	{
 		case 0:
-			pause_option_selected = scr_wrap(pause_option_selected + _input_manager.input_option_change_vertical, 0, option_count - 1);
+			pause_option_selected = scr_wrap(pause_option_selected + _input_manager.input_option_change_vertical, 0, pause_option_count - 1);
 	
 			if ((_input_manager.mouse_x_position >= NATIVE_GUI_RESOLUTION_WIDTH - 72) && (_input_manager.mouse_x_position <= NATIVE_GUI_RESOLUTION_WIDTH - 5))
 			{
@@ -184,3 +343,4 @@ if (global.game_paused)
 	}
 	
 }
+*/

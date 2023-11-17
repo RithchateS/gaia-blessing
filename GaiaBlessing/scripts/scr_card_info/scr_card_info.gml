@@ -45,126 +45,46 @@ function scr_card_flavor_text(_id){
 	switch (_id)
 	{
 		case 1:
-			return "Planting have never been quicker. Grow fast, sell fast!";
+			return "Increase a plant's growth by 10.";
 		
 		case 2:
-			return "Basic plant food, it's about growing well, not fast!";
+			return "Increase a plant's nutrients by 10.";
 			
 		case 3:
-			return "Now your plant can even absorb more chemicals!";
+			return "Increase a plant's endurance by 10.";
 			
 		case 4:
-			return "Time to collect your well-deserved produce.";
+			return "Harvest a fully grown plant.";
 			
 		case 5:
-			return "Beloved by plants, they just seem to grow faster eh?";
+			return "A buff that enhances all your growth increase effects by 5 for the day.";
 			
 		case 6:
-			return "Just a bit more care can make chemical more potent huh?";
+			return "A buff that enhances all your nutrients increase effects by 5 for the day.";
 			
+		case 81:
+			return "Chilli seeds. A crop with a base stat of 40 Endurance / 40 Growth / 40 Nutrients."
+		
 		default:
-			return "???";
+			return "Description of this item will be included in future builds.";
 	}
 }
 	
-function scr_card_value(_id, _rank){
+function scr_card_value(_id){
 	switch (_id)
 	{
 		case 101:
-			switch (_rank)
-			{
-				case 1:
-					return 10;
+			return 10;
 				
-				case 2:
-					return 22;
-			
-				case 3:
-					return 35;
-			
-				case 4:
-					return 50;
-					
-				default:
-					return 0;
-			}
-		
 		case 102:
-			switch (_rank)
-			{
-				case 1:
-					return 10;
-				
-				case 2:
-					return 22;
-			
-				case 3:
-					return 35;
-			
-				case 4:
-					return 50;
-					
-				default:
-					return 0;
-			}
+			return 22;
 			
 		case 103:
-			switch (_rank)
-			{
-				case 1:
-					return 10;
-				
-				case 2:
-					return 22;
-			
-				case 3:
-					return 35;
-			
-				case 4:
-					return 50;
-					
-				default:
-					return 0;
-			}
+			return 35;
 			
 		case 104:
-			switch (_rank)
-			{
-				case 1:
-					return 10;
-				
-				case 2:
-					return 22;
-			
-				case 3:
-					return 35;
-			
-				case 4:
-					return 50;
+			return 50;
 					
-				default:
-					return 0;
-			}
-			
-		case 105:
-			switch (_rank)
-			{
-				case 1:
-					return 10;
-				
-				case 2:
-					return 22;
-			
-				case 3:
-					return 35;
-			
-				case 4:
-					return 50;
-					
-				default:
-					return 0;
-			}
-		
 		default:
 			return 0;
 	}
@@ -227,19 +147,19 @@ function scr_card_activate_info(_id){
 			
 		
 		
-		case 61:
+		case 81:
 			return [61, 12, 1, 1, 0, true, 0];
 		
-		case 62:
+		case 82:
 			return [62, 12, 2, 1, 0, true, 0];
 		
-		case 63:
+		case 83:
 			return [63, 12, 3, 1, 0, true, 0];
 			
-		case 64:
+		case 84:
 			return [64, 12, 4, 1, 0, true, 0];
 			
-		case 65:
+		case 85:
 			return [65, 12, 5, 1, 0, true, 0];
 		
 			
@@ -317,32 +237,32 @@ function scr_card_name(_id){
 		case 17:
 			return "COMPOST";
 			
-		case 61:
+		case 81:
 			return "CHILLI SEED";
 			
-		case 62:
+		case 82:
 			return "CARROT SEED";
 			
-		case 63:
+		case 83:
 			return "AVOCADO SEED";
 			
-		case 64:
+		case 84:
 			return "POTATO SEED";
 			
-		case 65:
+		case 85:
 			return "MELON SEED";
 		
 		case 101: 
-			return "CHILLI";
+			return "(C) CHILLI";
 			
 		case 102: 
-			return "CARROT";
+			return "(U) CHILLI";
 			
 		case 103: 
-			return "AVOCADO";
+			return "(R) CHILLI";
 			
 		case 104: 
-			return "POTATO";
+			return "(L) CHILLI";
 	
 		case 105: 
 			return "MELON";

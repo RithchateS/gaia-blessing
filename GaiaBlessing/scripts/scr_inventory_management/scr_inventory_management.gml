@@ -148,31 +148,37 @@ function scr_deck_clear(){
 
 #region Item Inventory Manipulation
 
-function scr_item_inventory_add(_id, _rank, _amount){
+function scr_item_inventory_add(_id, _amount){
 	with (obj_manager_inventory)
 	{
 		if (item_inventory[_id][0] == true)
 		{
-			item_inventory[_id][_rank] += _amount;
+			item_inventory[_id][1] += _amount;
 		}
 		else
 		{
 			item_inventory[_id][0] = true;
-			item_inventory[_id][_rank] = _amount;
+			item_inventory[_id][1] = _amount;
+			item_inventory[_id][2] = 0;
 			
 			scr_generate_item_found_array();
 		}
 	}
 }
 
-function scr_item_inventory_remove(_id, _rank, _amount){
+function scr_item_inventory_remove(_id, _amount){
 	with (obj_manager_inventory)
 	{
 		if (item_inventory[_id][0] == true)
 		{
-			if (item_inventory[_id][_rank] >= _amount)
+			if (item_inventory[_id][1] >= _amount)
 			{
-				item_inventory[_id][_rank] -= _amount;
+				item_inventory[_id][1] -= _amount;
+				
+				if (item_inventory[_id][2] > 0)
+				{
+					item_inventory[_id][2] -= 1;
+				}
 			}
 			else
 			{
@@ -202,10 +208,11 @@ function scr_generate_item_found_array(){
 	}
 }
 
-function scr_sell_item_card(_id, _rank){
+function scr_sell_item_card(_id){
 	with (obj_manager_inventory)
 	{
-		global.player_coin += scr_card_value(_id, _rank);
+		scr_item_inventory_remove(_id, 1);
+		global.player_coin += scr_card_value(_id);
 	}
 }
 

@@ -34,8 +34,8 @@
   "properties": [],
   "solid": false,
   "spriteId": {
-    "name": "spr_indoor_pc",
-    "path": "sprites/spr_indoor_pc/spr_indoor_pc.yy",
+    "name": "spr_furniture_computer",
+    "path": "sprites/spr_furniture_computer/spr_furniture_computer.yy",
   },
   "spriteMaskId": null,
   "visible": true,

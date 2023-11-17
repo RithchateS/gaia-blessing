@@ -4,7 +4,7 @@
 #macro FACING_DIRECTION round(direction/45)
 
 #macro ROOM_START r_title
-#macro NEW_GAME_ROOM r_house
+#macro NEW_GAME_ROOM r_tent
 
 #macro NATIVE_RESOLUTION_WIDTH 640
 #macro NATIVE_RESOLUTION_HEIGHT 360

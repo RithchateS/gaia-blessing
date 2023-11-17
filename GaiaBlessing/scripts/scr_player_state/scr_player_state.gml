@@ -93,11 +93,6 @@ function scr_player_state_free(){
 		}
 		
 	}
-	
-	if (key_attack)
-	{
-		state = scr_player_state_use;
-	}
 }
 #endregion
 

@@ -27,8 +27,6 @@ for (var _i = 101; _i <= 500; _i++)
 	item_inventory[_i][0] = false;
 	item_inventory[_i][1] = 0;
 	item_inventory[_i][2] = 0;
-	item_inventory[_i][3] = 0;
-	item_inventory[_i][4] = 0;
 }
 
 item_found = [];
