@@ -129,7 +129,7 @@ if (show_menu_ui)
 	
 	#region Main Menu
 	
-	if (current_menu_level == 0)
+	if (current_menu_level == 0 && !skip)
 	{
 		booster_generated = false;
 		
@@ -149,13 +149,15 @@ if (show_menu_ui)
 			{
 				if (menu_0_focus == 5)
 				{
-					game_restart();
+					scr_new_textbox("quit_simulation");
 				}
-				
-				current_menu_level = 1;
-				previous_menu_level = 0;
-				deck_manager_tab_focus = 0;
-				skip = true;
+				else
+				{
+					current_menu_level = 1;
+					previous_menu_level = 0;
+					deck_manager_tab_focus = 0;
+					skip = true;
+				}
 			}
 		}
 		else
@@ -254,6 +256,16 @@ if (show_menu_ui)
 						}
 					}
 				}
+				
+				if (_input_manager.mouse_scroll_up)
+				{
+					deck_manager_card_start_row = scr_range(deck_manager_card_start_row - 1, 1, 3);
+				}
+				
+				if (_input_manager.mouse_scroll_down)
+				{
+					deck_manager_card_start_row = scr_range(deck_manager_card_start_row + 1, 1, 3);
+				}
 				#endregion
 				
 				break;
@@ -343,6 +355,16 @@ if (show_menu_ui)
 							}
 						}
 					}
+				}
+				
+				if (_input_manager.mouse_scroll_up)
+				{
+					credit_exchange_card_start_row = scr_range(credit_exchange_card_start_row - 1, 1, 18);
+				}
+				
+				if (_input_manager.mouse_scroll_down)
+				{
+					credit_exchange_card_start_row = scr_range(credit_exchange_card_start_row + 1, 1, 18);
 				}
 				
 				#endregion
@@ -521,6 +543,7 @@ if (show_menu_ui)
 					{
 						_inventory_manager.item_inventory[quest_id[quest_option_focus]][1] -= 5;
 						quest_status[quest_option_focus] = 1;
+						audio_play_sound(snd_quest_complete, 100, false);
 					}
 				}
 				
@@ -530,7 +553,7 @@ if (show_menu_ui)
 		}
 	}
 	
-	if (_input_manager.mouse_right_pressed || _input_manager.key_back)
+	if ((_input_manager.mouse_right_pressed || _input_manager.key_back) && !instance_exists(obj_text))
 	{
 		if (current_menu_level == 1)
 		{

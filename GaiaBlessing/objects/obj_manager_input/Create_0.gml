@@ -40,3 +40,6 @@ mouse_left_released = mouse_check_button_released(mb_left);
 mouse_right_pressed = mouse_check_button_pressed(mb_right);
 
 mouse_moved = false;
+
+mouse_scroll_up = mouse_wheel_up();
+mouse_scroll_down = mouse_wheel_down();

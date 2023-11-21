@@ -3,7 +3,7 @@ function scr_advance_day(){
 	
 	global.game_day++;
 	global.player_energy_current = global.player_energy_max;
-	global.left_house = false;
+	global.first_hand_generated = false;
 	
 	with (_player)
 	{

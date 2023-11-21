@@ -31,3 +31,12 @@ function scr_save_string_to_file(_file_name, _string)
 	buffer_save(_buffer, _file_name);
 	buffer_delete(_buffer);
 }
+
+function scr_delete_save()
+{
+	var _input_manager = global.instance_manager_input;
+	
+	file_delete("save" + string(floor((_input_manager.mouse_y_position - 248) / 34)) + ".sav");
+	
+	return true;
+}

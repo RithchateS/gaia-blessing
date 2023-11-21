@@ -2,7 +2,7 @@ var _input_manager = global.instance_manager_input;
 var _card_manager = global.instance_manager_card;
 var _deck_manager = global.instance_manager_deck;
 
-if (room == r_initialize || room == r_title || instance_exists(obj_item_inventory_ui) || instance_exists(obj_sales_ui) || instance_exists(obj_booster_ui) || instance_exists(obj_collection_ui) || instance_exists(obj_inventory_ui))
+if (room == r_initialize || room == r_title)
 {
 	visible = false;
 }

@@ -71,13 +71,19 @@ function scr_player_state_free(){
 	if (activate == noone)
 	{
 		near_interactable = false;
+		near_farm = false;
 	}
-	else 
+	else if (activate.object_index != obj_farm)
 	{
 		near_interactable = true;
+		near_farm = false;
+	}
+	else
+	{
+		near_farm = true;
 	}
 	
-	if (key_activate && near_interactable)
+	if ((key_activate || global.instance_manager_input.mouse_left_pressed) && near_interactable)
 	{
 		// If there is something with an activate script
 		scr_execute_array(activate.entity_activate_script, activate.entity_activate_argument);
@@ -115,14 +121,7 @@ function scr_player_state_use() {
 	
 	if (_animation_end)
 	{
-		if (instance_exists(obj_crop_info))
-		{
-			state = scr_player_state_locked;
-		}
-		else
-		{
-			state = scr_player_state_free;
-		}
+		state = scr_player_state_free;
 	}
 }
 

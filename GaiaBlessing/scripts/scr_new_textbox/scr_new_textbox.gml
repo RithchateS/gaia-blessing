@@ -1,7 +1,7 @@
 function scr_new_textbox(_node, _background = 0){
 	var _obj = obj_text;
 	
-	if (obj_player.text_cooldown == true)
+	if (instance_exists(obj_player) && obj_player.text_cooldown == true)
 	{
 		
 	}
@@ -24,15 +24,19 @@ function scr_new_textbox(_node, _background = 0){
 		
 			chatterbox_update();
 		}
-	
-		with (obj_player)
+		
+		if (instance_exists(obj_player))
 		{
-			if (state != scr_player_state_locked)
+			with (obj_player)
 			{
-				last_state = state;
-				state = scr_player_state_locked;
+				if (state != scr_player_state_locked)
+				{
+					last_state = state;
+					state = scr_player_state_locked;
+				}
 			}
 		}
+		
 	}
 }
 

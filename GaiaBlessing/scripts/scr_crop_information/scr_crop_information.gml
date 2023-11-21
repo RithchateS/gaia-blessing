@@ -22,17 +22,6 @@ function scr_crop_information(_slot, _background = 0){
 			crop_number = _slot;
 			background = _background;
 		}
-	
-		with (obj_player)
-		{
-			if (state != scr_player_state_locked)
-			{
-				last_state = state;
-				state = scr_player_state_locked;
-			}
-		}
 	}
-	
-	
 }
 

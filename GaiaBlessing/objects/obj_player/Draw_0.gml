@@ -12,8 +12,12 @@ draw_sprite_ext(
 	image_alpha
 );
 
-if (near_interactable && !instance_exists(obj_crop_info)) {
+if (near_interactable) {
 	draw_sprite(spr_gui_interactable_icon, 0, activate.x, activate.y - sprite_get_height(activate.sprite_index));
+}
+
+if (near_farm && !instance_exists(obj_crop_info)) {
+	instance_create_layer(0, 0, "Instances", obj_crop_info);
 }
 
 /*

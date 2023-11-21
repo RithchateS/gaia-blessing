@@ -70,6 +70,7 @@ if (title_state == 1)
 		if (focused_option == 0)
 		{
 			title_state = 2;
+			save_slot_selected = -1;
 		}
 		else if (focused_option == 3)
 		{
@@ -79,20 +80,48 @@ if (title_state == 1)
 }
 else if (title_state == 2)
 {
-	if (_input_manager.key_activate || _input_manager.mouse_left_pressed)
+	if (scr_mouse_hover((NATIVE_GUI_RESOLUTION_WIDTH - title_option_width) * 0.5, 208, title_option_width, 92))
 	{
-		if (save_slot_selected >= 0 && !loading_started)
+		if (_input_manager.key_activate || _input_manager.mouse_left_pressed)
 		{
-			global.game_save_slot = save_slot_selected;
-			if (!scr_load_game(global.game_save_slot))
+			if (save_slot_selected >= 0 && !loading_started)
 			{
-				scr_first_day();
-				scr_room_transition(TRANSITION_TYPE.SLIDE, NEW_GAME_ROOM);
+				global.game_save_slot = save_slot_selected;
+				if (!scr_load_game(global.game_save_slot))
+				{
+					scr_first_day();
+					scr_room_transition(TRANSITION_TYPE.SLIDE, NEW_GAME_ROOM);
+				}
+				loading_started = true;
 			}
-			loading_started = true;
 		}
 	}
-	if (_input_manager.key_back)
+	
+	if (scr_mouse_hover((NATIVE_GUI_RESOLUTION_WIDTH + title_option_width) * 0.5 + 10, 248, 12, 80))
+	{
+		if ((_input_manager.mouse_y_position - 248) % 34 <= 12)
+		{
+			if (_input_manager.mouse_left_pressed)
+			{
+				file_delete("save" + string(floor((_input_manager.mouse_y_position - 248) / 34)) + ".sav");
+			}
+			
+			for (var _slot = 0; _slot <= 2; _slot++)
+			{
+				var _file_name = "save" + string(_slot) + ".sav";
+				if (file_exists(_file_name))
+				{
+					slot_data[_slot] = scr_load_json_from_file(_file_name);
+				}
+				else
+				{
+					slot_data[_slot] = -1;
+				}
+			}
+		}
+	}
+	
+	if (_input_manager.key_back || _input_manager.mouse_right_pressed)
 	{
 		title_state = 1;
 	}

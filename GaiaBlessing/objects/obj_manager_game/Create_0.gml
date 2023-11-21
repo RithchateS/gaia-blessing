@@ -15,7 +15,7 @@ global.target_y = -1;
 global.target_direction = 0;
 
 global.game_day = 1;
-global.left_house = false;
+global.first_hand_generated = false;
 
 global.player_energy_max = 3;
 global.player_energy_current = global.player_energy_max;
@@ -36,6 +36,7 @@ global.font_number = font_add_sprite_ext(spr_font_number, "1234567890/", false, 
 global.font_number_large = font_add_sprite_ext(spr_font_number_large, "0123456789", true, 0);
 global.font_large = font_add_sprite_ext(spr_font_large, "!#$%&'()*+,-./0123456789:;<=>?@ABCDEFGHIJKLMNOPQRSTUVWXYZ[\]^_abcdefghijklmnopqrstuvwxyz{|}~", true, 0);
 global.font_capital = font_add_sprite_ext(spr_font_capital, "!#$%'()*+,-./0123456789:;<=>?@ABCDEFGHIJKLMNOPQRSTUVWXYZxcurl", true, 0);
+global.font_small = font_add_sprite_ext(spr_font_small, "!#$%&'()*+,-./0123456789:;<=>?@ABCDEFGHIJKLMNOPQRSTUVWXYZ[\]^_abcdefghijklmnopqrstuvwxyz{|}~", true, 0);
 
 yarn_file_to_load = YARN_FILE;
 ChatterboxLoadFromFile(yarn_file_to_load);

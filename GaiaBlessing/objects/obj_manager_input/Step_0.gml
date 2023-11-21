@@ -52,5 +52,8 @@ if (key_any)
 	mouse_moved = false;
 }
 
+mouse_scroll_up = mouse_wheel_up();
+mouse_scroll_down = mouse_wheel_down();
+
 mouse_x_position_previous = device_mouse_x_to_gui(0);
 mouse_y_position_previous = device_mouse_y_to_gui(0);

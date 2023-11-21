@@ -20,6 +20,7 @@ old_input_direction = 0;
 
 face_direction = 0;
 near_interactable = false;
+near_farm = false;
 activate = noone;
 
 image_speed = 0;

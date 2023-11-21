@@ -10,6 +10,7 @@ function scr_computer(_id){
 		}
 		with (global.instance_manager_ui)
 		{
+			skip = true;
 			show_menu_ui = true;
 			previous_menu_level = -1;
 			current_menu_level = 0;

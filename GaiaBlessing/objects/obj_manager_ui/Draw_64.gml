@@ -473,7 +473,7 @@ if (current_menu_level == 1)
 					draw_text(quest_detail_start_x + 16 + (CARD_WIDTH), quest_detail_start_y + 105 + (CARD_HEIGHT * 0.5), "x 5");
 					
 					scr_text_setup(global.font_large, fa_left, fa_top, c_white);
-					draw_text(quest_detail_start_x + 8, quest_detail_start_y + 177, "You have: " + string(_inventory_manager.item_inventory[quest_id[quest_option_focus]][1]));
+					draw_text(quest_detail_start_x + 8, quest_detail_start_y + 177, "You have: " + string(_inventory_manager.item_inventory[quest_id[quest_option_focus] + quest_sprite[quest_option_focus][1]][1]));
 					
 					scr_text_setup(global.font_large, fa_center, fa_top, c_white)
 					draw_sprite_stretched(spr_ui_menu_button_background, quest_submit_focus, quest_detail_start_x + 8, quest_detail_start_y + 196, 60, 24);

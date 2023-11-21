@@ -14,11 +14,11 @@ for (var _i = 0; _i < 4; _i++)
 		{
 			if (_i != focused_option)
 			{
-				draw_sprite_stretched(spr_ui_option_background, 0, (NATIVE_GUI_RESOLUTION_WIDTH - title_option_width) * 0.5, 208 + (_i * (title_option_height + 10)), title_option_width, title_option_height);
+				draw_sprite_stretched(spr_ui_menu_button_background, 0, (NATIVE_GUI_RESOLUTION_WIDTH - title_option_width) * 0.5, 208 + (_i * (title_option_height + 10)), title_option_width, title_option_height);
 			}
 			else
 			{
-				draw_sprite_stretched(spr_ui_option_background, 1, (NATIVE_GUI_RESOLUTION_WIDTH - title_option_width) * 0.5, 208 + (_i * (title_option_height + 10)), title_option_width, title_option_height);
+				draw_sprite_stretched(spr_ui_menu_button_background, 1, (NATIVE_GUI_RESOLUTION_WIDTH - title_option_width) * 0.5, 208 + (_i * (title_option_height + 10)), title_option_width, title_option_height);
 			}
 			
 			scr_text_setup(global.font_large, fa_center, fa_top, c_white);
@@ -28,11 +28,11 @@ for (var _i = 0; _i < 4; _i++)
 		{
 			if (_i != (save_slot_selected + 1))
 			{
-				draw_sprite_stretched(spr_ui_option_background, 0, (NATIVE_GUI_RESOLUTION_WIDTH - title_option_width) * 0.5, 208 + (_i * (title_option_height + 10)), title_option_width, title_option_height);
+				draw_sprite_stretched(spr_ui_menu_button_background, 0, (NATIVE_GUI_RESOLUTION_WIDTH - title_option_width) * 0.5, 208 + (_i * (title_option_height + 10)), title_option_width, title_option_height);
 			}
 			else
 			{
-				draw_sprite_stretched(spr_ui_option_background, 1, (NATIVE_GUI_RESOLUTION_WIDTH - title_option_width) * 0.5, 208 + (_i * (title_option_height + 10)), title_option_width, title_option_height);
+				draw_sprite_stretched(spr_ui_menu_button_background, 1, (NATIVE_GUI_RESOLUTION_WIDTH - title_option_width) * 0.5, 208 + (_i * (title_option_height + 10)), title_option_width, title_option_height);
 			}
 			
 			if (slot_data[_i - 1] == -1)
@@ -43,6 +43,11 @@ for (var _i = 0; _i < 4; _i++)
 			{
 				draw_text(NATIVE_GUI_RESOLUTION_WIDTH * 0.5, 213 + (_i * (title_option_height + 10)), "Day " +  string(slot_data[_i - 1][? "game_day"]));
 			}
+			
+			for (var _j = 0; _j < 3; _j++)
+			{
+				draw_sprite(spr_gui_remove, 0, (NATIVE_GUI_RESOLUTION_WIDTH + title_option_width) * 0.5 + 10, 248 + (_j * (title_option_height + 10)));
+			}
 		}
 	}
 	else
@@ -51,11 +56,11 @@ for (var _i = 0; _i < 4; _i++)
 		{
 			if (_i != focused_option)
 			{
-				draw_sprite_stretched(spr_ui_option_background, 0, (NATIVE_GUI_RESOLUTION_WIDTH - title_option_width) * 0.5, 208 + (_i * (title_option_height + 10)), title_option_width, title_option_height);
+				draw_sprite_stretched(spr_ui_menu_button_background, 0, (NATIVE_GUI_RESOLUTION_WIDTH - title_option_width) * 0.5, 208 + (_i * (title_option_height + 10)), title_option_width, title_option_height);
 			}
 			else
 			{
-				draw_sprite_stretched(spr_ui_option_background, 1, (NATIVE_GUI_RESOLUTION_WIDTH - title_option_width) * 0.5, 208 + (_i * (title_option_height + 10)), title_option_width, title_option_height);
+				draw_sprite_stretched(spr_ui_menu_button_background, 1, (NATIVE_GUI_RESOLUTION_WIDTH - title_option_width) * 0.5, 208 + (_i * (title_option_height + 10)), title_option_width, title_option_height);
 			}
 			scr_text_setup(global.font_large, fa_center, fa_top, c_white);
 			draw_text(NATIVE_GUI_RESOLUTION_WIDTH * 0.5, 213 + (_i * (title_option_height + 10)), title_option_text[_i]);

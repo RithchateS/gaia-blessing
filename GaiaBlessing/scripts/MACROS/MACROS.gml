@@ -23,6 +23,10 @@
 
 #macro YARN_FILE "default.yarn"
 
+#macro ENDURANCE_COLOR #D79E61
+#macro GROWTH_COLOR #A4C263
+#macro NUTRIENTS_COLOR #8CBFC2
+
 #region Old Card Stuff (Was trying to make an fan hold, while forgetting it's a pixelart sprite that's not meant to be rotated.)
 /*
 #macro CARD_ANGLE 5

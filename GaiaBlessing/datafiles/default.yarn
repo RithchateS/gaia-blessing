@@ -1,6 +1,6 @@
 #__PrivCrochet_version:1
 __PrivCrochet_colorID: 0
-__PrivCrochet_position: 1022,165
+__PrivCrochet_position: 825,97
 __PrivCrochet_tags: 
 title: npc_start
 ---
@@ -19,5 +19,51 @@ title: bed_start
 Do you want to end the day?
 -> Yes
     <<advance_day()>>
+-> No
+===
+__PrivCrochet_colorID: 0
+__PrivCrochet_position: 1250,177
+__PrivCrochet_tags: 
+title: tutorial_start
+---
+Allow me to welcome you, Participant F0014.
+I am G4, one of the overseers of Project Gaia.
+I suppose you are already familiar with the specifications of this project?
+    -> Actually, this is my first time. (Start Tutorial)
+        Ah, apologies, I must've mistaken you for someone else. We shall start with the basics then,
+        <<jump tutorial_basics>>
+    -> Yes, I am familiar (Skip Tutorial)
+        Then I bid you good luck, may Gaia be with you.
+        <<skip_tutorial()>>
+===
+__PrivCrochet_colorID: 0
+__PrivCrochet_position: 1625,161
+__PrivCrochet_tags: 
+title: tutorial_basics
+---
+Let's start by introducing your goal to you.
+In the current version, your goal is simply to raise some plants.
+<<redirect(obj_farm)>>
+This is an empty farm plot, the starting point of every plant.
+To grow anything, you'll need some seeds.
+===
+__PrivCrochet_colorID: 0
+__PrivCrochet_position: 1085,489
+__PrivCrochet_tags: 
+title: quit_simulation
+---
+Do you wish to quit to the Main Menu?
+-> Yes
+    <<game_restart()>>
+-> No
+===
+__PrivCrochet_colorID: 0
+__PrivCrochet_position: 605,494
+__PrivCrochet_tags: 
+title: delete_save
+---
+Delete your save game? This action is irreversible.
+-> Yes
+    <<save_delete()>>
 -> No
 ===

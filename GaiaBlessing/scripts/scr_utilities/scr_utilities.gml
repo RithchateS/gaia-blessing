@@ -18,8 +18,6 @@ function scr_range(_value, _minimum, _maximum) {
 function chatterbox_update() {
 	current_node = ChatterboxGetCurrent(chatterbox);
 	text_to_display = ChatterboxGetContent(chatterbox, 0);
-	text_progress = 0;
-	text_finished = false;
 }
 #endregion
 
@@ -87,9 +85,6 @@ function scr_first_day(){
 	scr_add_card_from_inventory_to_deck(4);
 	scr_add_card_from_inventory_to_deck(81);
 	scr_add_card_from_inventory_to_deck(81);
-	
-	scr_item_inventory_add(101, 5)
-	scr_item_inventory_add(104, 5);
 
 	scr_generate_found_array();
 	scr_generate_deck_array();
