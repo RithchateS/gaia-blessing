@@ -40,3 +40,18 @@ function scr_new_textbox(_node, _background = 0){
 	}
 }
 
+function scr_new_popup(_text, _speed = 1, _time = 20, _color = c_white)
+{
+	var _obj = obj_popup;
+	
+	if (instance_exists(obj_player))
+	{
+		with (instance_create_layer(0, 0, "Instances", _obj))
+		{
+			text_to_display = _text;
+			y_rate = _speed;
+			alarm[0] = _time;
+			text_color = _color;
+		}
+	}
+}

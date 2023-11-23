@@ -1,19 +1,21 @@
 function scr_computer(_id){
-	
-	if (!global.game_paused)
+	if (!global.instance_manager_ui.show_pause_menu)
 	{
-		global.game_paused = !global.game_paused;
-		with (all)
+		if (!global.game_paused)
 		{
-			game_paused_image_speed = image_speed;
-			image_speed = 0;
-		}
-		with (global.instance_manager_ui)
-		{
-			skip = true;
-			show_menu_ui = true;
-			previous_menu_level = -1;
-			current_menu_level = 0;
+			global.game_paused = !global.game_paused;
+			with (all)
+			{
+				game_paused_image_speed = image_speed;
+				image_speed = 0;
+			}
+			with (global.instance_manager_ui)
+			{
+				skip = true;
+				show_menu_ui = true;
+				previous_menu_level = -1;
+				current_menu_level = 0;
+			}
 		}
 	}
 }

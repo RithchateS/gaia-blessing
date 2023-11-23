@@ -71,6 +71,30 @@ else if (focused_card != -1 && !focused_card_hold)
 }
 #endregion
 
+if (_input_manager.key_back && !show_menu_ui)
+{
+	show_pause_menu = !show_pause_menu;
+	if (!global.game_paused)
+	{
+		global.game_paused = !global.game_paused;
+		with (all)
+		{
+			game_paused_image_speed = image_speed;
+			image_speed = 0;
+		}
+		skip = true;
+	}
+	else
+	{
+		global.game_paused = !global.game_paused;		
+		with (all)
+		{
+			game_paused_image_speed = image_speed;
+			image_speed = 0;
+		}
+	}
+}
+
 if (show_menu_ui)
 {
 	#region Back Button
@@ -82,6 +106,7 @@ if (show_menu_ui)
 		{
 			if (current_menu_level == 1)
 			{
+				show_farm_status = false;
 				if (menu_0_focus == 1)
 				{
 					for (var _i = 0; _i < card_types_in_sales_count; _i++)
@@ -174,98 +199,135 @@ if (show_menu_ui)
 		{
 			case 0:
 				#region Deck Manager
-			
-				if (scr_mouse_hover(deck_manager_start_x, deck_manager_start_y, deck_manager_tab_width * 5, deck_manager_tab_height))
+				
+				menu_button_farm_focus = scr_mouse_hover(menu_button_farm_current_x, menu_button_farm_current_y, menu_button_farm_width, menu_button_farm_height);
+				
+				if (show_farm_status)
 				{
-					if (_input_manager.mouse_left_pressed)
+					if (_input_manager.mouse_right_pressed || _input_manager.key_back || (keyboard_check_pressed(ord("F"))))
 					{
-						deck_manager_tab_focus = floor((_input_manager.mouse_x_position - deck_manager_start_x) / deck_manager_tab_width);
-						deck_manager_card_start_row = 1;
+						show_farm_status = false;
+						farm_skip = true;
 					}
 				}
 				
-				clear_button_focus = scr_mouse_hover(clear_button_start_x, clear_button_start_y, clear_button_width, clear_button_height);
-				
-				if (scr_mouse_hover(deck_manager_card_start_x, deck_manager_card_start_y, (CARD_WIDTH * 4) + 48, (CARD_HEIGHT * 3) + 32))
+				if (((menu_button_farm_focus && _input_manager.mouse_left_pressed) || (keyboard_check_pressed(ord("F")))) && !farm_skip)
 				{
-					if (((_input_manager.mouse_x_position - deck_manager_card_start_x) % (CARD_WIDTH + 16) <= CARD_WIDTH) && ((_input_manager.mouse_y_position - deck_manager_card_start_y) % (CARD_HEIGHT + 16) <= CARD_HEIGHT))
+					show_farm_status = true;
+				}
+			
+				if (!show_farm_status)
+				{
+					if (scr_mouse_hover(deck_manager_start_x, deck_manager_start_y, deck_manager_tab_width * 5, deck_manager_tab_height))
 					{
-						deck_manager_focused_column = floor((_input_manager.mouse_x_position - deck_manager_card_start_x) / (CARD_WIDTH + 16));
-						deck_manager_focused_row = floor((_input_manager.mouse_y_position - deck_manager_card_start_y) / (CARD_HEIGHT + 16));
-						deck_manager_focused_card = (20 * deck_manager_tab_focus) + ((deck_manager_card_start_row - 1) * 4) + (deck_manager_focused_column + 1) + (4 * deck_manager_focused_row);
+						if (_input_manager.mouse_left_pressed)
+						{
+							deck_manager_tab_focus = floor((_input_manager.mouse_x_position - deck_manager_start_x) / deck_manager_tab_width);
+							deck_manager_card_start_row = 1;
+						}
+					}
+				
+					clear_button_focus = scr_mouse_hover(clear_button_start_x, clear_button_start_y, clear_button_width, clear_button_height);
+				
+					if (scr_mouse_hover(deck_manager_card_start_x, deck_manager_card_start_y, (CARD_WIDTH * 4) + 48, (CARD_HEIGHT * 3) + 32))
+					{
+						if (((_input_manager.mouse_x_position - deck_manager_card_start_x) % (CARD_WIDTH + 16) <= CARD_WIDTH) && ((_input_manager.mouse_y_position - deck_manager_card_start_y) % (CARD_HEIGHT + 16) <= CARD_HEIGHT))
+						{
+							deck_manager_focused_column = floor((_input_manager.mouse_x_position - deck_manager_card_start_x) / (CARD_WIDTH + 16));
+							deck_manager_focused_row = floor((_input_manager.mouse_y_position - deck_manager_card_start_y) / (CARD_HEIGHT + 16));
+							deck_manager_focused_card = (20 * deck_manager_tab_focus) + ((deck_manager_card_start_row - 1) * 4) + (deck_manager_focused_column + 1) + (4 * deck_manager_focused_row);
+						}
+						else
+						{
+							deck_manager_focused_card = -1;
+						}
 					}
 					else
 					{
 						deck_manager_focused_card = -1;
 					}
-				}
-				else
-				{
-					deck_manager_focused_card = -1;
-				}
 				
-				if (_input_manager.mouse_left_pressed && (deck_manager_focused_card > 0))
-				{
-					scr_add_card_from_inventory_to_deck(deck_manager_focused_card);
-				}
-				
-				if (scr_mouse_hover(clear_button_start_x, clear_button_start_y, clear_button_width, clear_button_height))
-				{
-					if (_input_manager.mouse_left_pressed)
+					if (_input_manager.mouse_left_pressed && (deck_manager_focused_card > 0))
 					{
-						scr_deck_clear();
+						scr_add_card_from_inventory_to_deck(deck_manager_focused_card);
 					}
-				}
 				
-				if (scr_mouse_hover(remove_button_start_x - 1, remove_button_start_y - 1, remove_button_width + 2, (remove_button_sep_y * (_inventory_manager.card_type_in_deck_count - 1)) + remove_button_height + 2))
-				{
-					if ((_input_manager.mouse_y_position - (remove_button_start_y - 1)) % remove_button_sep_y <= 9)
+					if (scr_mouse_hover(clear_button_start_x, clear_button_start_y, clear_button_width, clear_button_height))
 					{
-						deck_focused_removed = floor((_input_manager.mouse_y_position - (remove_button_start_y - 1)) / remove_button_sep_y);
+						if (_input_manager.mouse_left_pressed)
+						{
+							scr_deck_clear();
+						}
+					}
+				
+					if (scr_mouse_hover(521, 89, 60, ((_inventory_manager.card_type_in_deck_count - 1) * 12) + 6))
+					{
+						if ((_input_manager.mouse_y_position - 89) % 12 <= 6)
+						{
+							deck_highlight = floor((_input_manager.mouse_y_position - 89) / 12);
+							deck_highlight = _inventory_manager.card_type_in_deck[deck_highlight];
+						}
+						else
+						{
+							deck_highlight = -1;
+						}
+					}
+					else
+					{
+						deck_highlight = -1;
+					}
+				
+					if (scr_mouse_hover(remove_button_start_x - 1, remove_button_start_y - 1, remove_button_width + 2, (remove_button_sep_y * (_inventory_manager.card_type_in_deck_count - 1)) + remove_button_height + 2))
+					{
+						if ((_input_manager.mouse_y_position - (remove_button_start_y - 1)) % remove_button_sep_y <= 9)
+						{
+							deck_focused_removed = floor((_input_manager.mouse_y_position - (remove_button_start_y - 1)) / remove_button_sep_y);
+						}
+						else
+						{
+							deck_focused_removed = -1;
+						}
 					}
 					else
 					{
 						deck_focused_removed = -1;
 					}
-				}
-				else
-				{
-					deck_focused_removed = -1;
-				}
 				
-				if (_inventory_manager.card_deck_count == 0)
-				{
-					deck_focused_remove = -1;
-				}
-				
-				if (_input_manager.mouse_left_pressed && deck_focused_removed != -1)
-				{
-					scr_remove_card_from_deck_to_inventory(_inventory_manager.card_type_in_deck[deck_focused_removed]);
-				}
-				
-				if ((_input_manager.mouse_x_position >= 483) && (_input_manager.mouse_x_position <= 491))
-				{
-					if ((_input_manager.mouse_y_position >= 181) && (_input_manager.mouse_y_position <= 208))
+					if (_inventory_manager.card_deck_count == 0)
 					{
-						if (_input_manager.mouse_left_pressed)
+						deck_focused_remove = -1;
+					}
+				
+					if (_input_manager.mouse_left_pressed && deck_focused_removed != -1)
+					{
+						scr_remove_card_from_deck_to_inventory(_inventory_manager.card_type_in_deck[deck_focused_removed]);
+					}
+				
+					if ((_input_manager.mouse_x_position >= 483) && (_input_manager.mouse_x_position <= 491))
+					{
+						if ((_input_manager.mouse_y_position >= 181) && (_input_manager.mouse_y_position <= 208))
 						{
-							if ((_input_manager.mouse_y_position - 181) % 11 <= 8)
+							if (_input_manager.mouse_left_pressed)
 							{
-								deck_manager_card_start_row = floor((_input_manager.mouse_y_position - 181) / 11) + 1;
+								if ((_input_manager.mouse_y_position - 181) % 11 <= 8)
+								{
+									deck_manager_card_start_row = floor((_input_manager.mouse_y_position - 181) / 11) + 1;
+								}
 							}
 						}
 					}
+				
+					if (_input_manager.mouse_scroll_up)
+					{
+						deck_manager_card_start_row = scr_range(deck_manager_card_start_row - 1, 1, 3);
+					}
+				
+					if (_input_manager.mouse_scroll_down)
+					{
+						deck_manager_card_start_row = scr_range(deck_manager_card_start_row + 1, 1, 3);
+					}
 				}
 				
-				if (_input_manager.mouse_scroll_up)
-				{
-					deck_manager_card_start_row = scr_range(deck_manager_card_start_row - 1, 1, 3);
-				}
-				
-				if (_input_manager.mouse_scroll_down)
-				{
-					deck_manager_card_start_row = scr_range(deck_manager_card_start_row + 1, 1, 3);
-				}
 				#endregion
 				
 				break;
@@ -553,50 +615,54 @@ if (show_menu_ui)
 		}
 	}
 	
-	if ((_input_manager.mouse_right_pressed || _input_manager.key_back) && !instance_exists(obj_text))
+	if (!farm_skip)
 	{
-		if (current_menu_level == 1)
+		if ((_input_manager.mouse_right_pressed || _input_manager.key_back) && !instance_exists(obj_text))
 		{
-			if (menu_0_focus == 1)
+			if (current_menu_level == 1)
 			{
-				for (var _i = 0; _i < card_types_in_sales_count; _i++)
+				if (menu_0_focus == 1)
 				{
-					for (var _j = 0; _j < card_types_in_sales[_i][1]; _j++)
+					for (var _i = 0; _i < card_types_in_sales_count; _i++)
 					{
-						_inventory_manager.item_inventory[card_types_in_sales[_i][0]][2]--;
+						for (var _j = 0; _j < card_types_in_sales[_i][1]; _j++)
+						{
+							_inventory_manager.item_inventory[card_types_in_sales[_i][0]][2]--;
+						}
+					}
+					sales_value_total = 0;
+					sales = [];
+					sales_count = 0;
+					card_types_in_sales = [];
+					card_types_in_sales_count = 0;
+				}
+				else if (menu_0_focus == 3)
+				{
+					if (quest_detail_show)
+					{
+						quest_option_focus = -1;
+						quest_detail_show = false;
+						current_menu_level++;
 					}
 				}
-				sales_value_total = 0;
-				sales = [];
-				sales_count = 0;
-				card_types_in_sales = [];
-				card_types_in_sales_count = 0;
 			}
-			else if (menu_0_focus == 3)
-			{
-				if (quest_detail_show)
-				{
-					quest_option_focus = -1;
-					quest_detail_show = false;
-					current_menu_level++;
-				}
-			}
-		}
 		
-		current_menu_level--;
+			current_menu_level--;
 			
-		if (current_menu_level < 0)
-		{
-			current_menu_level = 0;
-			global.game_paused = !global.game_paused;
-			
-			with (all)
+			if (current_menu_level < 0)
 			{
-				game_paused_image_speed = image_speed;
-				image_speed = 0;
-			}
+				current_menu_level = 0;
+				global.game_paused = !global.game_paused;
+			
+				with (all)
+				{
+					game_paused_image_speed = image_speed;
+					image_speed = 0;
+				}
 				
-			show_menu_ui = false;
+				show_menu_ui = false;
+			}
 		}
-	}
+	}	
 }
+

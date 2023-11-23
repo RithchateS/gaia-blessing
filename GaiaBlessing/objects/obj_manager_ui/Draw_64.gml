@@ -29,43 +29,6 @@ if (obj_player.buffs_in_play > 0)
 
 if (show_cards && !global.game_paused)
 {	
-	#region Card UI Old, Keyboard control.
-	/*
-	if (_input_manager.input_any_card)
-	{
-		for (var _i = 0; _i < 5; _i++)
-		{
-			if (_input_manager.key_card[_i] != 0) && (_i == focused_card) // If the focused card is used again
-			{
-				focused_card = -1;
-				card_from_key = false;
-				_card_manager.activated_card_slot = _i;
-				_card_manager.activated_card_id = _deck_manager.deck_active[_i];
-				_card_manager.alarm[0] = 2;
-			}
-			else if (_input_manager.key_card[_i] != 0) // If the player select another card instead
-			{
-				focused_card = _i;
-				card_from_key = true;
-			}
-		}
-	}
-	else if (_input_manager.key_back) // Press Esc
-	{
-		focused_card = -1;
-		card_from_key = false;
-	}
-	else
-	{
-		if (card_from_key == false)
-		{
-			focused_card = -1;
-		}
-	}
-	*/
-	
-	#endregion
-
 	// Drawing Cards on screen
 	for (var _k = 0; _k < card_to_display_amount; _k++) 
 	{
@@ -159,6 +122,20 @@ if (show_cards && !global.game_paused)
 
 #region Pause and Computer Menu
 
+draw_set_color(c_white);
+draw_set_alpha(pause_menu_alpha);
+draw_sprite(spr_ui_menu_background_base, 0, 0, 0);
+
+draw_set_alpha(0.9);
+draw_sprite(spr_ui_menu_background_border, 0, 0, pause_menu_border_top_current_y);
+draw_sprite(spr_ui_menu_background_border, 0, 0, pause_menu_border_bottom_current_y);
+
+if (pause_menu_alpha > 0.7)
+{
+	scr_text_setup(global.font_large, fa_center, fa_middle, c_white);
+	draw_text(NATIVE_GUI_RESOLUTION_WIDTH * 0.5, NATIVE_GUI_RESOLUTION_HEIGHT * 0.5, "The game is paused.")
+}
+
 // Genertic
 draw_set_color(c_white);
 draw_set_alpha(menu_background_alpha);
@@ -171,6 +148,11 @@ draw_sprite_stretched(spr_ui_menu_button_background, menu_button_back_focus, men
 scr_text_setup(global.font_large, fa_center, fa_top, c_white);
 draw_text(menu_button_back_current_x + menu_button_back_width - 27, menu_button_back_current_y + 4, "Back");
 draw_sprite(spr_ui_button_escape, 0, menu_button_back_current_x + 13,  menu_button_back_current_y + 5);
+
+draw_sprite_stretched(spr_ui_menu_button_background, menu_button_farm_focus, menu_button_farm_current_x, menu_button_farm_current_y, menu_button_farm_width, menu_button_farm_height);
+scr_text_setup(global.font_large, fa_center, fa_top, c_white);
+draw_text(menu_button_farm_current_x + menu_button_farm_width - 27, menu_button_farm_current_y + 4, "Farm");
+draw_sprite(spr_ui_button_f, 0, menu_button_farm_current_x + 16,  menu_button_farm_current_y + 5);
 
 draw_sprite(spr_ui_menu_name_background, 0, 0, menu_0_current_y);
 draw_sprite(spr_ui_menu_name_background, 0, 0, menu_1_current_y);
@@ -220,6 +202,7 @@ if (current_menu_level == 1)
 	{
 		case 0:
 			#region Deck Manager
+			
 			for (var _i = 0; _i < 5; _i++)
 			{
 				draw_text(deck_manager_start_x + (_i * deck_manager_tab_width) + (deck_manager_tab_width * 0.5), deck_manager_start_y + 5, deck_manager_tabs[_i]);
@@ -251,6 +234,11 @@ if (current_menu_level == 1)
 					else
 					{
 						draw_sprite(_sprite, 0, 28 + (CARD_WIDTH * 0.5) + ((_i % 4) * (CARD_WIDTH + 16)), 86 + CARD_HEIGHT + (floor(_i / 4) * (CARD_HEIGHT + 16)));
+					}
+					
+					if (_i + 1 + (deck_manager_tab_focus * 20) + ((deck_manager_card_start_row - 1) * 4) == deck_highlight)
+					{
+						draw_sprite(spr_ui_card_highlight, 0, 28 + (CARD_WIDTH * 0.5) + ((_i % 4) * (CARD_WIDTH + 16)), 87 + CARD_HEIGHT + (floor(_i / 4) * (CARD_HEIGHT + 16)));
 					}
 	
 					scr_text_setup(global.font_number_large, fa_left, fa_top, c_white);
@@ -298,7 +286,81 @@ if (current_menu_level == 1)
 					scr_text_setup(global.font_large, fa_left, fa_top, c_white);
 					draw_text(10, NATIVE_GUI_RESOLUTION_HEIGHT - ui_tab_height + 6, _falvour_text);
 				}
+				
+				if (deck_highlight > 0)
+				{
+					if (_inventory_manager.card_inventory[deck_highlight][0] == true)
+					{
+						var _falvour_text = scr_card_flavor_text(deck_highlight);
+					}
+					else
+					{
+						var _falvour_text = "???";
+					}
+				
+					scr_text_setup(global.font_large, fa_left, fa_top, c_white);
+					draw_text(10, NATIVE_GUI_RESOLUTION_HEIGHT - ui_tab_height + 6, _falvour_text);
+				}
 			}
+			
+			if (show_farm_status)
+			{
+				draw_set_alpha(0.7);
+				draw_set_color(c_black);
+				draw_rectangle(0, 0, NATIVE_GUI_RESOLUTION_WIDTH, NATIVE_GUI_RESOLUTION_HEIGHT, false);
+				
+				draw_set_alpha(1.0);
+				draw_set_color(c_white);
+			}
+			
+			draw_sprite_stretched(spr_ui_menu_button_background, 0, farm_status_start_x, farm_status_start_y, farm_status_current_width, farm_status_current_height);
+				
+			if (farm_status_lerp_progress > 0.7)
+			{
+				scr_text_setup(global.font_large, fa_left, fa_top, c_white);
+				draw_text(farm_status_start_x + 120, farm_status_start_y + 6, "Crop Type");
+					
+				scr_text_setup(global.font_large, fa_center, fa_top, c_white);
+				draw_text(farm_status_start_x + 260, farm_status_start_y + 6, "Growth");
+				draw_text(farm_status_start_x + 330, farm_status_start_y + 6, "Nutrient");
+				draw_text(farm_status_start_x + 400, farm_status_start_y + 6, "Endurance");
+				draw_text(farm_status_start_x + 455, farm_status_start_y + 6, "Rank");
+					
+				for (var _i = 1; _i <= 12; _i++)
+				{
+					scr_text_setup(global.font_small, fa_left, fa_top, c_white);
+					draw_text(farm_status_start_x + 10, farm_status_start_y + 16 + (_i * 18), "Farm Slot " + string(_i));
+					draw_text(farm_status_start_x + 120, farm_status_start_y + 16 + (_i * 18), scr_crop_info(global.instance_manager_farm.farm_slot[_i][0])[0]);
+						
+					scr_text_setup(global.font_small, fa_center, fa_top, c_white);
+						
+					if (global.instance_manager_farm.farm_slot[_i][1] != -1)
+					{
+						draw_text(farm_status_start_x + 260, farm_status_start_y + 16 + (_i * 18), string(global.instance_manager_farm.farm_slot[_i][1]) + "/" + string(global.instance_manager_farm.farm_slot[_i][2]));
+						if (global.instance_manager_farm.farm_slot[_i][7] == 3)
+						{
+							draw_text(farm_status_start_x + 330, farm_status_start_y + 16 + (_i * 18), "Maxed");
+						}
+						else
+						{
+							draw_text(farm_status_start_x + 330, farm_status_start_y + 16 + (_i * 18), string(global.instance_manager_farm.farm_slot[_i][3]) + "/" + string(global.instance_manager_farm.farm_slot[_i][4]));
+						}
+						draw_text(farm_status_start_x + 400, farm_status_start_y + 16 + (_i * 18), string(global.instance_manager_farm.farm_slot[_i][5]) + "/" + string(global.instance_manager_farm.farm_slot[_i][6]));
+						draw_text(farm_status_start_x + 455, farm_status_start_y + 16 + (_i * 18), string(global.instance_manager_farm.farm_slot[_i][7] + 1));
+					}
+					else
+					{
+						draw_text(farm_status_start_x + 260, farm_status_start_y + 16 + (_i * 18), "-");
+						draw_text(farm_status_start_x + 330, farm_status_start_y + 16 + (_i * 18), "-");
+						draw_text(farm_status_start_x + 400, farm_status_start_y + 16 + (_i * 18), "-");
+						draw_text(farm_status_start_x + 455, farm_status_start_y + 16 + (_i * 18), "-");
+					}
+					
+					draw_sprite_stretched(spr_ui_horizontal_line, 0, farm_status_start_x + 10, farm_status_start_y + 28 + (_i * 18), farm_status_width - 20, 2);
+				}
+			}
+			
+			
 			#endregion
 			
 			break;
@@ -495,7 +557,7 @@ if (current_menu_level == 1)
 			
 			#region Options
 			
-			scr_text_setup(global.font_large, fa_center, fa_middle, c_white)
+			scr_text_setup(global.font_large, fa_center, fa_middle, c_white);
 			draw_text(NATIVE_GUI_RESOLUTION_WIDTH * 0.5, NATIVE_GUI_RESOLUTION_HEIGHT * 0.5, "Not available right now.");
 			
 			#endregion
@@ -653,3 +715,5 @@ if (global.game_paused)
 
 */
 #endregion
+
+

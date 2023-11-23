@@ -60,6 +60,21 @@ if (show_menu_ui)
 				deck_manager_current_height = lerp(0, deck_manager_height, deck_manager_lerp_progress);
 				deck_status_current_width = lerp(0, deck_status_width, deck_manager_lerp_progress);
 				deck_status_current_height = lerp(0, deck_status_height, deck_manager_lerp_progress);
+				menu_button_farm_current_y = scr_range(menu_button_farm_current_y + menu_button_farm_y_rate, menu_button_farm_start_y, menu_button_farm_destination_y);
+				
+				if (show_farm_status)
+				{
+					farm_status_lerp_progress = scr_range(farm_status_lerp_progress + 0.1, 0, 1);
+					farm_status_current_width = lerp(0, farm_status_width, farm_status_lerp_progress);
+					farm_status_current_height = lerp(0, farm_status_height, farm_status_lerp_progress);
+				}
+				else
+				{
+					farm_status_lerp_progress = scr_range(farm_status_lerp_progress - 0.1, 0, 1);
+					farm_status_current_width = lerp(0, farm_status_width, farm_status_lerp_progress);
+					farm_status_current_height = lerp(0, farm_status_height, farm_status_lerp_progress);
+				}
+				
 				break;
 				
 			case 1:
@@ -142,6 +157,11 @@ if (show_menu_ui)
 		deck_manager_current_height = lerp(0, deck_manager_height, deck_manager_lerp_progress);
 		deck_status_current_width = lerp(0, deck_status_width, deck_manager_lerp_progress);
 		deck_status_current_height = lerp(0, deck_status_height, deck_manager_lerp_progress);
+		menu_button_farm_current_y = scr_range(menu_button_farm_current_y - menu_button_farm_y_rate, menu_button_farm_start_y, menu_button_farm_destination_y);
+		
+		farm_status_lerp_progress = scr_range(farm_status_lerp_progress - 0.1, 0, 1);
+		farm_status_current_width = lerp(0, farm_status_width, farm_status_lerp_progress);
+		farm_status_current_height = lerp(0, farm_status_height, farm_status_lerp_progress);
 		
 		credit_exchange_lerp_progress = scr_range(credit_exchange_lerp_progress - 0.1, 0, 1);
 		credit_exchange_current_width = lerp(0, credit_exchange_width, credit_exchange_lerp_progress);
@@ -160,7 +180,9 @@ if (show_menu_ui)
 		quest_detail_lerp_progress = scr_range(quest_detail_lerp_progress - 0.1, 0, 1);
 		quest_detail_current_width = lerp(0, quest_detail_width, quest_detail_lerp_progress);
 		quest_detail_current_height = lerp(0, quest_detail_height, quest_detail_lerp_progress);
-}
+		
+		
+	}
 }
 else
 {
@@ -177,9 +199,28 @@ else
 	menu_0_option_current_height = (47 - menu_0_option_current_y) * 2;
 }
 
+if (show_pause_menu)
+{
+	pause_menu_alpha = scr_range(pause_menu_alpha + pause_menu_alpha_rate, pause_menu_min, pause_menu_max);
+	pause_menu_border_top_current_y = scr_range(pause_menu_border_top_current_y + pause_menu_border_top_y_rate, pause_menu_border_top_start_y, pause_menu_border_top_destination_y);
+	pause_menu_border_bottom_current_y = scr_range(pause_menu_border_bottom_current_y - pause_menu_border_bottom_y_rate, pause_menu_border_bottom_start_y, pause_menu_border_bottom_destination_y);
+}
+else
+{
+	pause_menu_alpha = scr_range(pause_menu_alpha - pause_menu_alpha_rate, pause_menu_min, pause_menu_max);
+	pause_menu_border_top_current_y = scr_range(pause_menu_border_top_current_y - pause_menu_border_top_y_rate, pause_menu_border_top_start_y, pause_menu_border_top_destination_y);
+	pause_menu_border_bottom_current_y = scr_range(pause_menu_border_bottom_current_y + pause_menu_border_bottom_y_rate, pause_menu_border_bottom_start_y, pause_menu_border_bottom_destination_y);
+}
+
 if (skip)
 {
 	skip = !skip;
+}
+
+
+if (farm_skip)
+{
+	farm_skip = !farm_skip;
 }
 
 

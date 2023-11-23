@@ -334,6 +334,7 @@ function scr_card_activate(_type, _param, _endurance = 0){
 			}
 			else
 			{
+				scr_new_popup("No farm nearby");
 				show_debug_message("Not the correct entity activate, nothing happens");
 			}
 			break;

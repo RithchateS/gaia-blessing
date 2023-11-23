@@ -120,6 +120,7 @@ remove_button_width = 7;
 remove_button_height = 7;
 remove_button_sep_y = 12;
 deck_focused_removed = -1;
+deck_highlight = -1;
 
 deck_manager_card_start_row = 1;
 
@@ -130,6 +131,26 @@ deck_manager_tabs = [
 	"Rush",
 	"Seeds"
 ]
+
+menu_button_farm_current_x = 479;
+menu_button_farm_start_y = -24;
+menu_button_farm_destination_y = 1;
+menu_button_farm_current_y = menu_button_farm_start_y;
+menu_button_farm_y_rate = 5;
+menu_button_farm_focus = 0;
+menu_button_farm_width = 78;
+menu_button_farm_height = 22;
+
+show_farm_status = false;
+farm_skip = false;
+
+farm_status_start_x = 80;
+farm_status_start_y = 55;
+farm_status_lerp_progress = 0;
+farm_status_width = 480;
+farm_status_height = 260;
+farm_status_current_width = 0;
+farm_status_current_height = 0;
 
 #endregion
 
@@ -301,6 +322,27 @@ menu_2_start_y = -25;
 menu_2_destination_y = 0;
 menu_2_current_y = menu_0_start_y;
 menu_2_y_rate = 5;
+
+#endregion
+
+#region Pause UI
+
+show_pause_menu = false;
+
+pause_menu_alpha = 0;
+pause_menu_max = 0.9;
+pause_menu_min = 0;
+pause_menu_alpha_rate = 0.2;
+
+pause_menu_border_top_start_y = -24;
+pause_menu_border_top_destination_y = 0;
+pause_menu_border_top_current_y = pause_menu_border_top_start_y;
+pause_menu_border_top_y_rate = 5;
+
+pause_menu_border_bottom_start_y = NATIVE_GUI_RESOLUTION_HEIGHT - 24; // Bottom side use reverse logic so code might seems a bit weird to read
+pause_menu_border_bottom_destination_y = NATIVE_GUI_RESOLUTION_HEIGHT;
+pause_menu_border_bottom_current_y = pause_menu_border_bottom_destination_y;
+pause_menu_border_bottom_y_rate = 5;
 
 #endregion
 

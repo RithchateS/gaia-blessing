@@ -26,6 +26,7 @@ if (activated_card_cost <= global.player_energy_current)
 		}
 		else
 		{
+			scr_new_popup("No farm nearby");
 			show_debug_message("Trying to activate card " + activated_card_name + " and failed");
 			show_debug_message("No target, nothing happens.");
 		}

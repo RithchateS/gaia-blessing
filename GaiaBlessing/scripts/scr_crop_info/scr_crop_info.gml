@@ -18,7 +18,7 @@ function scr_crop_info(_id){
 			return ["Melon", 100, 100, 160];
 			
 		default:
-			return "-";
+			return ["Empty Slot", 0, 0, 0];
 	}
 }
 
@@ -109,6 +109,11 @@ function scr_farm_slot_add_nutrient(_slot, _value, _endurance_cost) {
 				_farm_manager.farm_slot[_slot, 7] += 1;
 			}
 			_farm_manager.farm_slot[_slot, 5] -= _endurance_cost
+			
+			if (_farm_manager.farm_slot[_slot, 7] == 3)
+			{
+				_farm_manager.farm_slot[_slot, 5] = 999;
+			}
 			
 			scr_active_hand_discard_card(activated_card_slot);
 			scr_active_hand_update();
