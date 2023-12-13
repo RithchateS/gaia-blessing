@@ -2,7 +2,7 @@
   "resourceType": "GMSprite",
   "resourceVersion": "1.0",
   "name": "spr_building_tent",
-  "bbox_bottom": 111,
+  "bbox_bottom": 70,
   "bbox_left": 18,
   "bbox_right": 113,
   "bbox_top": 32,

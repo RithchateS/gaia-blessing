@@ -24,6 +24,23 @@ function scr_save_game()
 	show_debug_message("Game Saved!");
 }
 
+function scr_save_settings()
+{
+	// Create Save Map
+	var _map = ds_map_create();
+	
+	_map[? "music_volumn"] = global.game_music_volume;
+	_map[? "effects_volumn"] = global.game_effects_volume;
+	
+	// Save to a string
+	var _string = json_encode(_map);
+	scr_save_string_to_file("settings.sav", _string);
+	
+	// Nuke the data
+	ds_map_destroy(_map);
+	show_debug_message("Setting Saved!");
+}
+
 function scr_save_string_to_file(_file_name, _string)
 {
 	var _buffer = buffer_create(string_byte_length(_string) + 1, buffer_fixed, 1);

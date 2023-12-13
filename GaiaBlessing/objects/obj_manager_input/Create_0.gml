@@ -11,6 +11,10 @@ key_attack = keyboard_check_pressed(vk_shift);
 key_item = keyboard_check_pressed(vk_control);
 key_tab = keyboard_check_pressed(vk_tab);
 
+key_discard_pressed = keyboard_check_pressed(ord("R"));
+key_discard_hold = keyboard_check(ord("R"));
+key_discard_released = keyboard_check_released(ord("R"));
+
 key_card[0] = keyboard_check_pressed(ord("1"));
 key_card[1] = keyboard_check_pressed(ord("2"));
 key_card[2] = keyboard_check_pressed(ord("3"));

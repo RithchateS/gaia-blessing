@@ -16,7 +16,7 @@ function scr_advance_day(){
 	
 	with (global.instance_manager_farm)
 	{
-		for (var _i = 1; _i < 12; _i++)
+		for (var _i = 1; _i <= 12; _i++)
 		{
 			if (farm_slot[_i][0] > 0)
 			{
@@ -26,6 +26,7 @@ function scr_advance_day(){
 					farm_slot[_i][1] = farm_slot[_i][2];
 				}
 				farm_slot[_i][5] = farm_slot[_i][6];
+				farm_slot[_i][8] = -1;
 			}
 		}
 	}

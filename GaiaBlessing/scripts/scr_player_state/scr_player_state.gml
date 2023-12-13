@@ -103,7 +103,7 @@ function scr_player_state_free(){
 #endregion
 
 function scr_player_state_transition(){
-	scr_player_collision();
+	//scr_player_collision();
 	scr_animate_sprite();
 }
 

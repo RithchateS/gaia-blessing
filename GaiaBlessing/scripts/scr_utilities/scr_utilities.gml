@@ -69,22 +69,16 @@ function scr_text_setup(_font, _horizontal_align, _vertical_align, _color){
 #endregion
 
 function scr_first_day(){
+	global.tutorial_state = 0;
+	global.tutorial_passed = false;
+	
+	global.instance_manager_ui.show_tutorial_ui = true;
+	
 	scr_inventory_add(1, 5);
 	scr_inventory_add(2, 5);
 	scr_inventory_add(3, 5);
 	scr_inventory_add(4, 5);
 	scr_inventory_add(81, 2);
-
-	scr_add_card_from_inventory_to_deck(1);
-	scr_add_card_from_inventory_to_deck(1);
-	scr_add_card_from_inventory_to_deck(2);
-	scr_add_card_from_inventory_to_deck(2);
-	scr_add_card_from_inventory_to_deck(3);
-	scr_add_card_from_inventory_to_deck(3);
-	scr_add_card_from_inventory_to_deck(4);
-	scr_add_card_from_inventory_to_deck(4);
-	scr_add_card_from_inventory_to_deck(81);
-	scr_add_card_from_inventory_to_deck(81);
 
 	scr_generate_found_array();
 	scr_generate_deck_array();

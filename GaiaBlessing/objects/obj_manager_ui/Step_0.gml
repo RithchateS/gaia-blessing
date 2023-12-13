@@ -5,6 +5,49 @@ var _card_manager = global.instance_manager_card;
 var _deck_manager = global.instance_manager_deck;
 var _inventory_manager = global.instance_manager_inventory;
 
+if (show_tutorial_ui)
+{
+	if (global.tutorial_state == 2 && tutorial_text_complete)
+	{
+		if (obj_player.x > 652)
+		{
+			global.tutorial_state++;
+			tutorial_text_complete = false;
+			tutorial_text_progress = 0;
+		}
+	}
+	else if (global.tutorial_state == 3 && instance_exists(obj_crop_info))
+	{
+		global.tutorial_state++;
+		tutorial_text_complete = false;
+		tutorial_text_progress = 0;
+	}
+	else if (global.tutorial_state == 6 && global.instance_manager_farm.farm_slot[1][0] != -1)
+	{
+		global.tutorial_state++;
+		tutorial_text_complete = false;
+		tutorial_text_progress = 0;
+	}
+	else if (global.tutorial_state == 10 && global.instance_manager_farm.farm_slot[1][1] > 0 && global.instance_manager_farm.farm_slot[1][3] > 0)
+	{
+		global.tutorial_state++;
+		tutorial_text_complete = false;
+		tutorial_text_progress = 0;
+	}
+	else if (global.tutorial_state == 15 && _deck_manager.daily_discard_card_count > 0)
+	{
+		global.tutorial_state++;
+		tutorial_text_complete = false;
+		tutorial_text_progress = 0;
+	}
+	else if (global.tutorial_state == 16 && global.instance_manager_farm.farm_slot[1][1] >= 20)
+	{
+		global.tutorial_state++;
+		tutorial_text_complete = false;
+		tutorial_text_progress = 0;
+	}
+}
+
 #region Getting Card Asset Index
 
 card_to_display_amount = 0;
@@ -21,6 +64,7 @@ for (var _i = 0; _i < 5; _i++)
 #endregion
 
 #region Card stuff
+
 if (focused_card == -1 && !focused_card_hold)
 {
 	if (_input_manager.mouse_y_position > NATIVE_GUI_RESOLUTION_HEIGHT + 10 - CARD_HEIGHT)
@@ -58,6 +102,49 @@ else if (focused_card != -1 && !focused_card_hold)
 					focused_card = -1;
 				}
 			}
+			
+			if (focused_card != -1)
+			{
+				if (_input_manager.key_discard_pressed)
+				{
+					is_discarding = true;
+				}
+				
+				if (is_discarding)
+				{
+					if (_input_manager.key_discard_released)
+					{
+						is_discarding = false;
+						discard_timer = 0;
+						discard_finished = true;
+					}
+					
+					discard_timer++;
+				}
+				
+				if (discard_timer >= discard_time)
+				{
+					is_discarding = false;
+					discard_timer = 0;
+					discard_finished = true;
+					scr_active_hand_discard_card(focused_card + 1);
+					scr_active_hand_update();
+					
+					var _buff_already_applied = false;
+					for (var _i = 0; _i < obj_player.buffs_in_play; _i++)
+					{
+						if (obj_player.applied_buff[_i] == "Discard Buff")
+						{
+							_buff_already_applied = true;
+						}
+					}
+					if (!_buff_already_applied)
+					{
+						obj_player.applied_buff[obj_player.buffs_in_play] = "Discard Buff";
+						obj_player.buffs_in_play++;
+					}
+				}	
+			}	
 		}
 		else
 		{
@@ -69,9 +156,10 @@ else if (focused_card != -1 && !focused_card_hold)
 		focused_card = -1;
 	}
 }
+
 #endregion
 
-if (_input_manager.key_back && !show_menu_ui)
+if (_input_manager.key_back && !show_menu_ui && !instance_exists(obj_options) && !instance_exists(obj_popup))
 {
 	show_pause_menu = !show_pause_menu;
 	if (!global.game_paused)
@@ -93,6 +181,59 @@ if (_input_manager.key_back && !show_menu_ui)
 			image_speed = 0;
 		}
 	}
+}
+
+if (show_pause_menu && _input_manager.mouse_right_pressed && !instance_exists(obj_options) && !instance_exists(obj_popup))
+{
+	show_pause_menu = !show_pause_menu;
+	global.game_paused = !global.game_paused;		
+	with (all)
+	{
+		game_paused_image_speed = image_speed;
+		image_speed = 0;
+	}
+}
+
+if (show_pause_menu && !instance_exists(obj_options) && !instance_exists(obj_popup))
+{
+	if (scr_mouse_hover(pause_option_current_x1, pause_option_start_y,  120, 82))
+	{
+		if (_input_manager.mouse_y_position % 30 <= 22)
+		{
+			pause_option_selected = floor((_input_manager.mouse_y_position - pause_option_start_y) / 30);
+		}
+		else
+		{
+			pause_option_selected = -1;
+		}
+	}
+	else
+	{
+		pause_option_selected = -1;
+	}
+	
+	if (_input_manager.mouse_left_pressed && pause_option_selected == 0)
+	{
+		show_pause_menu = !show_pause_menu;
+		global.game_paused = !global.game_paused;		
+		with (all)
+		{
+			game_paused_image_speed = image_speed;
+			image_speed = 0;
+		}
+	}
+	else if (_input_manager.mouse_left_pressed && pause_option_selected == 1)
+	{
+		instance_create_layer(0, 0, "Instances", obj_options);
+	}
+	else if (_input_manager.mouse_left_pressed && pause_option_selected == 2)
+	{
+		scr_new_textbox("quit_simulation");
+	}
+}
+else
+{
+	pause_option_selected = -1;
 }
 
 if (show_menu_ui)
@@ -178,6 +319,10 @@ if (show_menu_ui)
 				}
 				else
 				{
+					if (menu_0_focus == 4)
+					{
+						instance_create_layer(0, 0, "Instances", obj_options);
+					}
 					current_menu_level = 1;
 					previous_menu_level = 0;
 					deck_manager_tab_focus = 0;
@@ -666,3 +811,8 @@ if (show_menu_ui)
 	}	
 }
 
+if (room = r_title && !bgm_started)
+{
+	audio_play_sound(snd_bgm, 1000, true, global.game_music_volume * 1);
+	bgm_started = true;
+}

@@ -3,6 +3,9 @@ randomize();
 
 global.deck_debug_mode = false;
 
+global.game_music_volume = 0.5;
+global.game_effects_volume = 0.5;
+
 global.game_save_slot = 0;
 
 global.game_paused = false;
@@ -36,7 +39,7 @@ global.font_number = font_add_sprite_ext(spr_font_number, "1234567890/", false, 
 global.font_number_large = font_add_sprite_ext(spr_font_number_large, "0123456789", true, 0);
 global.font_large = font_add_sprite_ext(spr_font_large, "!#$%&'()*+,-./0123456789:;<=>?@ABCDEFGHIJKLMNOPQRSTUVWXYZ[\]^_abcdefghijklmnopqrstuvwxyz{|}~", true, 0);
 global.font_capital = font_add_sprite_ext(spr_font_capital, "!#$%'()*+,-./0123456789:;<=>?@ABCDEFGHIJKLMNOPQRSTUVWXYZxcurl", true, 0);
-global.font_small = font_add_sprite_ext(spr_font_small, "!#$%&'()*+,-./0123456789:;<=>?@ABCDEFGHIJKLMNOPQRSTUVWXYZ[\]^_abcdefghijklmnopqrstuvwxyz{|}~", true, 0);
+global.font_small = font_add_sprite_ext(spr_font_small, "!#$%&'() +,-./0123456789:;<=>?@ABCDEFGHIJKLMNOPQRSTUVWXYZ[\]^_abcdefghijklmnopqrstuvwxyz{|}~", true, 0);
 
 yarn_file_to_load = YARN_FILE;
 ChatterboxLoadFromFile(yarn_file_to_load);
@@ -44,3 +47,6 @@ ChatterboxLoadFromFile(yarn_file_to_load);
 surface_resize(application_surface, NATIVE_RESOLUTION_WIDTH, NATIVE_RESOLUTION_HEIGHT);
 
 scr_room_transition(TRANSITION_TYPE.FADE, ROOM_START, 0.02);
+
+global.tutorial_state = 0;
+global.tutorial_passed = false;

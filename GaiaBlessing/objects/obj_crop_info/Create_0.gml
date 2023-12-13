@@ -27,6 +27,7 @@ crop_endurance = -1;
 crop_endurance_destination = -1;
 crop_max_endurance = -1;
 crop_rank = -1;
+crop_mod = "";
 
 crop_lerp_speed = 0.05;
 crop_lerp_progress = 0;

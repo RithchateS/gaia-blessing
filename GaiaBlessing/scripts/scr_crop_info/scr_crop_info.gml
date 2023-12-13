@@ -3,19 +3,64 @@ function scr_crop_info(_id){
 	switch (_id)
 	{
 		case 1:
-			return ["Chilli", 20, 20, 50];
+			return ["Chilli", 40, 40, 40];
 		
 		case 2:
-			return ["Carrot", 120, 60, 80];
+			return ["Carrot", 30, 60, 40];
 			
 		case 3:
-			return ["Avocado", 50, 50, 120];
+			return ["Avocado", 40, 60, 60];
 			
 		case 4:
-			return ["Potato", 60, 20, 30];
+			return ["Potato", 30, 30, 30];
 			
 		case 5:
-			return ["Melon", 100, 100, 160];
+			return ["Melon", 50, 120, 60];
+			
+		case 6:
+			return ["Tomato", 30, 60, 40];
+			
+		case 7:
+			return ["Sugar Cane", 35, 45, 20];
+			
+		case 8:
+			return ["Rice", 40, 50, 40];
+			
+		case 9:
+			return ["Orange", 45, 60, 50];
+		
+		case 10:
+			return ["Lemon", 25, 30, 30];
+			
+		case 11:
+			return ["Cherry", 20, 40, 30];
+			
+		case 12:
+			return ["Beetroot", 50, 45, 20];
+			
+		case 13:
+			return ["Apple", 60, 80, 50];
+			
+		case 14:
+			return ["Pineapple", 35, 70, 40];
+			
+		case 15:
+			return ["Star", 30, 50, 30];
+			
+		case 16:
+			return ["Key", 40, 100, 50];
+			
+		case 17:
+			return ["Blood", 20, 50, 40];
+			
+		case 18:
+			return ["Honey", 20, 30, 20];
+			
+		case 19:
+			return ["Jewel", 60, 120, 40];
+			
+		case 20:
+			return ["Money", 30, 80, 30];
 			
 		default:
 			return ["Empty Slot", 0, 0, 0];
@@ -41,7 +86,7 @@ function scr_farm_slot_add_crop(_slot, _id) {
 	}
 	else
 	{
-		show_debug_message("Farm slot already occupied.");
+		scr_new_popup("Farm already has a crop.");
 	}
 }
 
@@ -90,7 +135,7 @@ function scr_farm_slot_add_growth(_slot, _value, _endurance_cost) {
 	}
 	else
 	{
-		show_debug_message("Not enough endurance to activate cards" );
+		scr_new_popup("Not enough endurance");
 		return false;
 	}
 }
@@ -112,7 +157,7 @@ function scr_farm_slot_add_nutrient(_slot, _value, _endurance_cost) {
 			
 			if (_farm_manager.farm_slot[_slot, 7] == 3)
 			{
-				_farm_manager.farm_slot[_slot, 5] = 999;
+				_farm_manager.farm_slot[_slot, 4] = 999;
 			}
 			
 			scr_active_hand_discard_card(activated_card_slot);
@@ -122,13 +167,13 @@ function scr_farm_slot_add_nutrient(_slot, _value, _endurance_cost) {
 		}
 		else
 		{
-			show_debug_message("Plant is already fully grown" );
+			scr_new_popup("Plant is already fully grown");
 			return false;
 		}
 	}
 	else
 	{
-		show_debug_message("Not enough endurance to activate cards" );
+		scr_new_popup("Not enough endurance");
 		return false;
 	}
 }
@@ -151,8 +196,7 @@ function scr_farm_slot_add_endurance(_slot, _value) {
 	}
 	else
 	{
-		show_debug_message("There is no crop in this slot");
-		
+		scr_new_popup("There is no plant here");
 		return false;
 	}
 }
@@ -181,14 +225,14 @@ function scr_farm_slot_harvest(_slot) {
 		}
 		else
 		{
-			show_debug_message("Farm slot not ready for harvest yet, please increase the growth.");
+			scr_new_popup("Farm slot not ready for harvest yet, please increase the growth.");
 		
 			return false;
 		}
 	}
 	else
 	{
-		show_debug_message("Farm has no crop.");
+		scr_new_popup("There is no plant here");
 		
 		return false;
 	}

@@ -39,3 +39,6 @@ for (var _slot = 0; _slot <= 2; _slot++)
 		slot_data[_slot] = -1;
 	}
 }
+
+scr_load_settings("settings.sav");
+audio_sound_gain(snd_bgm, global.game_music_volume * 1, 0);

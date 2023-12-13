@@ -11,7 +11,7 @@ else
 	visible = true;
 }
 
-if (room != r_village)
+if ((room != r_village) && (room != r_tutorial))
 {
 	show_cards = false;
 }
@@ -21,6 +21,138 @@ else
 }
 
 time_since_creation++;
+
+if (show_tutorial_ui)
+{
+	tutorial_text_length = string_length(tutorial_text[global.tutorial_state]);
+	
+	if (tutorial_text_progress < tutorial_text_length)
+	{
+		tutorial_text_progress += tutorial_text_speed;
+		if (tutorial_text_progress >= tutorial_text_length)
+		{
+			tutorial_text_complete = true;
+			tutorial_text_progress = tutorial_text_length;
+		}
+		else
+		{
+			tutorial_text_complete = false;
+		}
+	}
+	
+	if (!tutorial_text_complete && _input_manager.mouse_left_pressed)
+	{
+		tutorial_text_complete = true;
+		tutorial_text_progress = tutorial_text_length;
+	}
+	else if (tutorial_text_complete && _input_manager.mouse_left_pressed)
+	{
+		if (global.tutorial_state == 2 || global.tutorial_state == 3 || global.tutorial_state == 6 || global.tutorial_state == 10 || global.tutorial_state == 15 || global.tutorial_state == 16)
+		{
+			
+		}
+		else if (global.tutorial_state == 5)
+		{
+			scr_deck_clear();
+			scr_add_card_from_inventory_to_deck(81);
+			scr_generate_first_active_hand();
+		
+			global.tutorial_state++;
+			tutorial_text_complete = false;
+			tutorial_text_progress = 0;
+		}
+		else if (global.tutorial_state == 9)
+		{
+			scr_deck_clear();
+			scr_reset_deck_manager();
+			scr_add_card_from_inventory_to_deck(1);
+			scr_add_card_from_inventory_to_deck(2);
+			scr_generate_first_active_hand();
+		
+			global.tutorial_state++;
+			tutorial_text_complete = false;
+			tutorial_text_progress = 0;
+		}
+		else if (global.tutorial_state == 13)
+		{
+			scr_deck_clear();
+			scr_reset_deck_manager();
+			scr_generate_first_active_hand();
+			scr_inventory_add(81,5);
+			scr_add_card_from_inventory_to_deck(81);
+			scr_add_card_from_inventory_to_deck(81);
+			scr_add_card_from_inventory_to_deck(81);
+			scr_add_card_from_inventory_to_deck(81);
+			scr_add_card_from_inventory_to_deck(81);
+			scr_add_card_from_inventory_to_deck(1);
+			scr_forced_active_hand();
+		
+			global.tutorial_state++;
+			tutorial_text_complete = false;
+			tutorial_text_progress = 0;
+		}
+		else if (global.tutorial_state == 14)
+		{
+			_deck_manager.daily_discard_card_count = 0;
+		
+			global.tutorial_state++;
+			tutorial_text_complete = false;
+			tutorial_text_progress = 0;
+		}
+		else if (global.tutorial_state == 25)
+		{
+			scr_room_transition(TRANSITION_TYPE.FADE, r_tent);
+			
+			show_tutorial_ui = false;
+			
+			scr_deck_clear();
+			scr_reset_deck_manager();
+			
+			scr_inventory_remove(81, 5);
+			
+			scr_farm_slot_reset(1);
+			
+			scr_add_card_from_inventory_to_deck(1);
+			scr_add_card_from_inventory_to_deck(1);
+			scr_add_card_from_inventory_to_deck(1);
+			scr_add_card_from_inventory_to_deck(2);
+			scr_add_card_from_inventory_to_deck(2);
+			scr_add_card_from_inventory_to_deck(2);
+			scr_add_card_from_inventory_to_deck(3);
+			scr_add_card_from_inventory_to_deck(3);
+			scr_add_card_from_inventory_to_deck(3);
+			scr_add_card_from_inventory_to_deck(4);
+			scr_add_card_from_inventory_to_deck(4);
+			scr_add_card_from_inventory_to_deck(4);
+			scr_add_card_from_inventory_to_deck(81);
+			scr_add_card_from_inventory_to_deck(81);
+			
+		}
+		else
+		{
+			global.tutorial_state++;
+			tutorial_text_complete = false;
+			tutorial_text_progress = 0;
+		}
+	}
+	
+	tutorial_text_display = string_copy(tutorial_text[global.tutorial_state], 1, tutorial_text_progress);
+	
+	
+}
+
+if (show_pause_menu && pause_menu_alpha > 0.7)
+{
+	pause_option_lerp_progress = scr_range(pause_option_lerp_progress + pause_option_lerp_speed, 0, 1);
+	pause_option_current_x1 = lerp(pause_option_start_x, pause_option_destination_x1, pause_option_lerp_progress);
+	pause_option_current_x2 = lerp(pause_option_start_x, pause_option_destination_x2, pause_option_lerp_progress);
+}
+else
+{
+	pause_option_lerp_progress = scr_range(pause_option_lerp_progress - pause_option_lerp_speed, 0, 1);
+	pause_option_current_x1 = lerp(pause_option_start_x, pause_option_destination_x1, pause_option_lerp_progress);
+	pause_option_current_x2 = lerp(pause_option_start_x, pause_option_destination_x2, pause_option_lerp_progress);
+}
 
 if (show_menu_ui)
 {

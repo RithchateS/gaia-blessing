@@ -158,11 +158,7 @@ function scr_booster_generate(_id){
 			var _random_array_count = 0;
 			repeat (3)
 			{
-				_random_array[_random_array_count] = irandom_range(1,14);
-				while ((_random_array[_random_array_count] == 7) || (_random_array[_random_array_count] == 8))
-				{
-					_random_array[_random_array_count] = irandom_range(1,14);
-				}
+				_random_array[_random_array_count] = irandom_range(1,40);
 				_random_array_count++;
 			}
 			

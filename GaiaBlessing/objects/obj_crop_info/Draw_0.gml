@@ -1,6 +1,10 @@
 /// @description Draw Stat Box
 
+draw_set_alpha(0.85);
+
 draw_sprite_stretched(spr_ui_menu_button_background, 0, x1, y1, x2 - x1, y2 - y1);
+
+draw_set_alpha(1.0);
 
 scr_text_setup(global.font_small, fa_left, fa_top, c_white);
 
@@ -44,6 +48,12 @@ if (box_finished)
 			draw_text(x1 + 80, y1 + 45, "Maxed");
 		}
 		
+		if (crop_mod != -1)
+		{
+			var _image_index = scr_find_buff_index(crop_mod);
+			draw_sprite(spr_gui_player_buff, _image_index, x2 - 16, y1 + 3);
+		}
+		
 	}
 	else
 	{
@@ -52,3 +62,5 @@ if (box_finished)
 		draw_text_ext(x1 + 6, y1 + 22, "Use a seed card to start growing crops.", 10, 106);
 	}
 }
+
+draw_set_alpha(1.0);

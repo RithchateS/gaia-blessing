@@ -8,18 +8,34 @@ var _inventory_manager = global.instance_manager_inventory;
 display_set_gui_size(NATIVE_GUI_RESOLUTION_WIDTH, NATIVE_GUI_RESOLUTION_HEIGHT);
 
 scr_text_setup(global.font_large, fa_left, fa_top, c_white);
-draw_text(10, 10, "Day " + string(global.game_day));
 
-draw_text(10, 30, "Credits: " + string(global.player_coin));
+draw_sprite_stretched(spr_ui_hud_background, 0, 7, 7, string_width("Day " + string(global.game_day)) + 14, 20);
+
+draw_text(13, 10, "Day " + string(global.game_day));
+
+draw_sprite_stretched(spr_ui_hud_background, 0, 7, 31, string_width("Credits: " + string(global.player_coin)) + 14, 20);
+
+draw_text(13, 34, "Credits: " + string(global.player_coin));
 
 #region Buff HUD Display
+
+if (obj_player.buffs_in_play > 0)
+{
+	draw_sprite_stretched(spr_ui_hud_background, 0, 7, 55, 81, 20 + (((obj_player.buffs_in_play / 5) + 1) * 13));
+}
+else
+{
+	draw_sprite_stretched(spr_ui_hud_background, 0, 7, 55, 81, 20);
+}
+
+draw_text(13, 58, "Mod: " + string(obj_player.buffs_in_play));
 
 if (obj_player.buffs_in_play > 0)
 {
 	for (var _i = 0; _i < obj_player.buffs_in_play; _i++)
 	{
 		var _image_index = scr_find_buff_index(obj_player.applied_buff[_i]);
-		draw_sprite(spr_gui_player_buff, _image_index, 8 + ((_i) * 20), NATIVE_GUI_RESOLUTION_HEIGHT - 60);
+		draw_sprite(spr_gui_player_buff, _image_index, 11 + ((_i % 5) * 15), 58 + ((floor(_i / 5) + 1) * 15));
 	}
 }
 
@@ -75,10 +91,20 @@ if (show_cards && !global.game_paused)
 			}
 		}
 		
+		
+		
 		if (focused_card != -1)
 		{
+			
 			draw_sprite(card_to_display[focused_card], 0, _focused_card_origin_x, _focused_card_origin_y);
+			if (is_discarding)
+			{
+				draw_sprite(spr_discard, (discard_timer / discard_time) * 36, device_mouse_x_to_gui(0), device_mouse_y_to_gui(0));
+			}
+			
+			/*
 			card_information = scr_card_info(_deck_manager.daily_deck[_deck_manager.active_hand[focused_card + 1]][0]);
+			
 			
 			if (card_information[0] != 0)
 			{
@@ -102,11 +128,6 @@ if (show_cards && !global.game_paused)
 				{
 					scr_text_setup(global.font_large, fa_left, fa_top, c_white);
 					
-					/*
-					draw_sprite_stretched(spr_ui_option_background, 0, _focused_card_origin_x - (0.48 * CARD_WIDTH) - _tooltip_width - 14, _focused_card_origin_y - CARD_HEIGHT, _tooltip_width + 10, _tooltip_height + 20);
-					draw_sprite(spr_gui_player_buff, _index_to_display, _focused_card_origin_x - (0.48 * CARD_WIDTH) - 22, _focused_card_origin_y - CARD_HEIGHT + 4);
-					draw_text_ext(_focused_card_origin_x - (0.48 * CARD_WIDTH) - 8, _focused_card_origin_y - CARD_HEIGHT + 17, _tooltip_text, 12, 170);
-					*/
 					draw_set_alpha(0.9);
 					draw_sprite_stretched(spr_ui_option_background, 0, _focused_card_origin_x - (0.48 * CARD_WIDTH) - _tooltip_width - 14, _focused_card_origin_y - CARD_HEIGHT, _tooltip_width + 10, _tooltip_height + 20);
 					draw_sprite(spr_gui_player_buff, _index_to_display, _focused_card_origin_x - (0.48 * CARD_WIDTH) - _tooltip_width - 10, _focused_card_origin_y - CARD_HEIGHT + 4);
@@ -114,11 +135,33 @@ if (show_cards && !global.game_paused)
 					draw_set_alpha(1.0);
 				}
 			}
+			*/
 		}
 	}
 }
 
 #endregion
+
+#region Tutorial Stuff
+
+if (show_tutorial_ui)
+{
+	draw_sprite_stretched(spr_ui_hud_background, 0, 7, 7, 200, 150);
+	draw_sprite(spr_ga_profile, 0, 12, 12);
+
+	scr_text_setup(global.font_large, fa_left, fa_top, c_white);
+	draw_text(52, 20, "Gaia Assistant");
+
+	draw_sprite(spr_ui_mouse_prompt, 0, 193, 141);
+
+	scr_text_setup(global.font_small, fa_left, fa_top, c_white);
+	draw_text_ext(12, 48, tutorial_text_display, 13, 186);
+}
+
+
+#endregion
+
+
 
 #region Pause and Computer Menu
 
@@ -130,13 +173,34 @@ draw_set_alpha(0.9);
 draw_sprite(spr_ui_menu_background_border, 0, 0, pause_menu_border_top_current_y);
 draw_sprite(spr_ui_menu_background_border, 0, 0, pause_menu_border_bottom_current_y);
 
+
+
 if (pause_menu_alpha > 0.7)
 {
 	scr_text_setup(global.font_large, fa_center, fa_middle, c_white);
-	draw_text(NATIVE_GUI_RESOLUTION_WIDTH * 0.5, NATIVE_GUI_RESOLUTION_HEIGHT * 0.5, "The game is paused.")
+	draw_text(NATIVE_GUI_RESOLUTION_WIDTH * 0.5, NATIVE_GUI_RESOLUTION_HEIGHT * 0.3, "The game is paused.");
+	
+	scr_text_setup(global.font_large, fa_center, fa_top, c_white);
+	for (var _i = 0; _i < pause_option_count; _i++)
+	{
+		if (_i == pause_option_selected)
+		{
+			draw_sprite_stretched(spr_ui_menu_button_background, 1, pause_option_current_x1, pause_option_start_y + (_i * pause_option_gap), pause_option_current_x2 - pause_option_current_x1, 22);
+		}
+		else
+		{
+			draw_sprite_stretched(spr_ui_menu_button_background, 0, pause_option_current_x1, pause_option_start_y + (_i * pause_option_gap), pause_option_current_x2 - pause_option_current_x1, 22);
+		}
+		
+		if (pause_option_lerp_progress > 0.7)
+		{
+			draw_text(NATIVE_GUI_RESOLUTION_WIDTH * 0.5, pause_option_start_y + (_i * pause_option_gap) + 5, pause_option[_i]);
+		}
+	}
+	
 }
 
-// Genertic
+// Generic
 draw_set_color(c_white);
 draw_set_alpha(menu_background_alpha);
 draw_sprite(spr_ui_menu_background_base, 0, 0, 0);

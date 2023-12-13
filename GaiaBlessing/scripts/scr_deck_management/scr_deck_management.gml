@@ -26,7 +26,6 @@ function scr_daily_deck_add_card(_id){
 		daily_deck[daily_deck_card_count + 1][1] = 0;
 		daily_deck[daily_deck_card_count + 1][2] = 0;
 		daily_deck_card_count++;
-		show_debug_message(daily_deck);
 	}
 }
 
@@ -55,7 +54,6 @@ function scr_active_hand_update(){
 				break;
 			}
 		}
-		show_debug_message("Position Empty:" + string(_position_empty));
 		
 		if  (_position_empty != -1)
 		{
@@ -81,7 +79,6 @@ function scr_active_hand_update(){
 			}
 		}
 	}
-	
 }
 
 function scr_generate_first_active_hand(){
@@ -112,6 +109,28 @@ function scr_generate_first_active_hand(){
 				active_hand[_i] = _i;
 				daily_deck[_i][2] = 1;
 			}
+		}
+	}
+}
+
+function scr_forced_active_hand(){
+	var _inventory_manager = global.instance_manager_inventory;
+	
+	scr_generate_deck_array();
+	
+	with (obj_manager_deck)
+	{
+		for (var _i = 0; _i < _inventory_manager.card_deck_count; _i++) {
+		    scr_daily_deck_add_card(_inventory_manager.card_deck[_i]);
+		}
+		
+		daily_deck_card_count = _inventory_manager.card_deck_count;
+		daily_discard_card_count = 0;
+		
+		for (var _i = 1; _i <= 5; _i++)
+		{
+			active_hand[_i] = _i + 1;
+			daily_deck[_i + 1][2] = 1;
 		}
 	}
 }

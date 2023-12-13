@@ -12,6 +12,7 @@ if (_farm_manager.farm_slot[crop_number][0] != -1)
 	crop_endurance_destination = _farm_manager.farm_slot[crop_number][5];
 	crop_max_endurance = _farm_manager.farm_slot[crop_number][6];
 	crop_rank = _farm_manager.farm_slot[crop_number][7];
+	crop_mod = _farm_manager.farm_slot[crop_number][8];
 }
 else
 {
@@ -26,6 +27,7 @@ else
 	crop_max_endurance = -1;
 	crop_endurance_destination = -1;
 	crop_rank = -1;
+	crop_mod = -1;
 }
 
 x1 = lerp(x1, x1_destination, lerp_progress);
@@ -71,15 +73,7 @@ if (crop_endurance == crop_endurance_destination) && (crop_growth == crop_growth
 
 var _input_manager = global.instance_manager_input;
 
-if ((abs(obj_player.x - origin_x) > 32) || (abs(obj_player.y - origin_y) > 32))
+if (abs((obj_player.x + lengthdir_x(16, obj_player.face_direction)) - origin_x) > 30) || (abs((obj_player.y + lengthdir_y(16, obj_player.face_direction)) - origin_y) > 30)
 {
 	instance_destroy();
-	/*
-	with (obj_player)
-	{
-		state = last_state;
-		alarm[0] = 10;
-		text_cooldown = true;
-	}
-	*/
 }

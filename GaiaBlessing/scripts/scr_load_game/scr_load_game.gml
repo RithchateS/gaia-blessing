@@ -7,7 +7,6 @@ function scr_load_game(_save_slot)
 	{
 		// Load the game data
 		var _json = scr_load_json_from_file(_file);
-		show_debug_message(_json[? "deck_physical"]);
 		
 		// Global Variable
 		global.player_energy_current = _json[? "player_energy_current"];
@@ -53,6 +52,28 @@ function scr_load_game(_save_slot)
 	else
 	{
 		show_debug_message("No save in this slot");
+		return false;
+	}
+}
+
+function scr_load_settings(_settings_file)
+{
+	var _file = "settings.sav";
+	if (file_exists(_file))
+	{
+		// Load the game data
+		var _json = scr_load_json_from_file(_file);
+		
+		// Global Variable
+		global.game_music_volume = _json[? "music_volumn"];
+		global.game_effects_volume = _json[? "effects_volumn"];
+		
+		ds_map_destroy(_json);
+		
+		return true;
+	}
+	else
+	{
 		return false;
 	}
 }

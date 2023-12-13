@@ -12,7 +12,8 @@ for (var _i = 12; _i >= 1; _i--)
 	// 5 - Endurance
 	// 6 - Max Endurance
 	// 7 - Rank
-	for (var _j = 6; _j >= 0; _j--)
+	// 8 - Buff Directory
+	for (var _j = 8; _j >= 0; _j--)
 	{
 		farm_slot[_i][_j] = -1;
 	}

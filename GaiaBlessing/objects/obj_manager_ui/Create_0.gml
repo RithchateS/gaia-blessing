@@ -2,13 +2,65 @@
 
 // Options to show when pressing esc mid-game, not computer.
 pause_option = [
-	"Continue",
-	"Quit to Title",
-	"Quit to Desktop"
+	"Resume",
+	"Options",
+	"Quit Simulation"
 ];
 
+tutorial_text = [
+	"Welcome to Project Gaia, participant G27. My name is Gaia Assistant and I am here to get you started on your role here in Project Gaia.",
+	"You'll be playing a huge role in the development of card tech through this simulated reality, and I'm legally obligated to tell you that the current version of this experiment is version 0.2.1",
+	"But let's not think about the legal stuff too much! Let us check if the movement module in your avatar is working properly or not. Use W A S D to move around and go to the farm area on the right.",
+	"Great job! Now move closer to the farm plot to test your vision module, some information should appear.",
+	"Perfect! Basic functionalities seems to be be in order. Next up in the list... seems to be about card tech now.",
+	"Card tech allows humanity to store items and experiences inside cards. To demonstrate, allow me to give you a seed card you can use.",
+	"A seed card should now appear near the lower part of your interface. While you're near the farm plot, you can drag the seed card up to use it.",
+	"Nicely done! Your information screen should now show the plant information. Every plant will have three attributes: endurance, growth, and nutrients.",
+	"Growth (Green) shows the overall progress of a plant. When it is full, the plant can be harvested. Growth increases by 10 naturally every day.",
+	"Nutrient (Blue) shows the quality of a plant. When it is full, the plant goes up by one rank, up to a maximum of four. However, keep in mind that nutrients can't increase once the plant is fully grown.",
+	"Now let me give you two cards, one hastener and one fertilizer, try using it on the plant and see its effect.",
+	"As you might have noticed, a plant's endurance will decrease by 10 every time a card is used on it. If it reaches 0, you can't use any more cards on that plant.",
+	"However, a plant's endurance get fully restored every day, so you can always wait until tomorrow to use more cards on it!",
+	"Up until now, I've been providing you with the cards you need. However, in practice, the cards you get are drawn randomly from your deck, and you might not get the card you need.",
+	"For example, if your end up with five seed cards like this. You'll need a way to get rid of it.",
+	"In times like these, simple hover over the card you wish to get rid of and hold R. That card will be gone for the day, and you will receive a small mod that increases your growth or nutrient gain by 2 for the next card.",
+	"Good job! Now try using that Hastener card to see the mod in effect!",
+	"Moving forward, you'll come across cards that can give you mods with beneficial effects, I hope you experiment with them and learn how to use them to the fullest!",
+	"That should do it for the introduction to all the basic features. In a moment, you'll be transported into your lodging where you'll be provided with a bed and a personal computer.",
+	"From the computer, you can access your deck management menu where you can customize your card decks, the credit exchange menu where you can sell your harvested products for credits,",
+	"the booster pack menu where you can use those credits to get new cards, and lastly, the milestone menu where you can further progress Project Gaia.",
+	"Lastly, a few restrictions I'm instructed to tell all participants such as yourself. So please bear with me and listen.",
+	"First, your card deck has a limitation of generating cards only once per day and is done when you first leave your lodging each day. As such, changes made to the deck during the day will only take effects on the next day.",
+	"Secondly, in line with the first, each copy of a card in your deck can only be used once per day, if you run out of cards to use, feel free to go back to bed and sleep.",
+	"Thirdly, the door to your lodging, oh wait, that has been removed in version 0.1.8, silly me.",
+	"In that case, there you have it! I wish you a very fulfilling journey and will be looking forward to the day we get to talk again!"
+];
+
+show_tutorial_ui = false;
+
+tutorial_text_progress = 0;
+tutorial_text_speed = 1;
+tutorial_text_complete = false;
+tutorial_text_length = 0;
+
+tutorial_text_display = "";
+
+
+
+
 pause_option_count = array_length(pause_option);
-pause_option_selected = 0;
+pause_option_selected = -1;
+
+pause_option_start_x = NATIVE_GUI_RESOLUTION_WIDTH * 0.5;
+pause_option_start_y = NATIVE_GUI_RESOLUTION_HEIGHT * 0.5;
+pause_option_destination_x1 = pause_option_start_x - 60;
+pause_option_destination_x2 = pause_option_start_x + 60;
+pause_option_current_x1 = pause_option_start_x;
+pause_option_current_x2 = pause_option_start_x;
+pause_option_lerp_speed = 0.08;
+pause_option_lerp_progress = 0;
+
+pause_option_gap = 30;
 
 
 // Options to show when checking the in-game computer.
@@ -367,12 +419,14 @@ focused_card_hold = false;
 focused_x_difference = 0;
 focused_y_difference = 0;
 
+is_discarding = false;
+discard_timer = 0;
+discard_time = 60;
+discard_finished = false;
+
 #endregion
 
-
-
-
-
+bgm_started = false;
 
 card_book_selected = 1;
 card_book_tab = 1;
