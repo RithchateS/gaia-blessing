@@ -147,8 +147,27 @@ function scr_booster_generate(_id){
 			var _random_array_count = 0;
 			repeat (3)
 			{
-				_random_array[_random_array_count] = irandom_range(81, 85);
-				_random_array_count++;
+				var _random_chance = irandom_range(1, 50);
+				if (_random_chance <= 35)
+				{
+					_random_array[_random_array_count] = irandom_range(1, 11);
+					_random_array_count++;
+				}
+				else if (_random_chance <= 45)
+				{
+					_random_array[_random_array_count] = irandom_range(12, 15);
+					_random_array_count++;
+				}
+				else if (_random_chance <= 49)
+				{
+					_random_array[_random_array_count] = irandom_range(16, 19);
+					_random_array_count++;
+				}
+				else
+				{
+					_random_array[_random_array_count] = 20;
+					_random_array_count++;
+				}
 			}
 			
 			return _random_array;
@@ -158,8 +177,97 @@ function scr_booster_generate(_id){
 			var _random_array_count = 0;
 			repeat (3)
 			{
-				_random_array[_random_array_count] = irandom_range(1,40);
-				_random_array_count++;
+				var _random_chance = irandom_range(1, 150);
+				if (_random_chance <= 35)
+				{
+					_random_array[_random_array_count] = irandom_range(21, 28);
+					_random_array_count++;
+				}
+				else if (_random_chance <= 45)
+				{
+					_random_array[_random_array_count] = irandom_range(29, 34);
+					_random_array_count++;
+				}
+				else if (_random_chance <= 49)
+				{
+					_random_array[_random_array_count] = irandom_range(35, 38);
+					_random_array_count++;
+				}
+				else if (_random_chance <= 50)
+				{
+					_random_array[_random_array_count] = irandom_range(39, 40);
+					_random_array_count++;
+				}
+				else if (_random_chance <= 85)
+				{
+					_random_array[_random_array_count] = irandom_range(41, 48);
+					_random_array_count++;
+				}
+				else if (_random_chance <= 95)
+				{
+					_random_array[_random_array_count] = irandom_range(49, 54);
+					_random_array_count++;
+				}
+				else if (_random_chance <= 99)
+				{
+					_random_array[_random_array_count] = irandom_range(55, 58);
+					_random_array_count++;
+				}
+				else if (_random_chance <= 100)
+				{
+					_random_array[_random_array_count] = irandom_range(59, 60);
+					_random_array_count++;
+				}
+				else if (_random_chance <= 135)
+				{
+					_random_array[_random_array_count] = irandom_range(61, 65);
+					_random_array_count++;
+				}
+				else if (_random_chance <= 145)
+				{
+					_random_array[_random_array_count] = irandom_range(66, 71);
+					_random_array_count++;
+				}
+				else if (_random_chance <= 149)
+				{
+					_random_array[_random_array_count] = irandom_range(72, 78);
+					_random_array_count++;
+				}
+				else
+				{
+					_random_array[_random_array_count] = irandom_range(79, 80);
+					_random_array_count++;
+				}
+			}
+			
+			return _random_array;
+			
+		case 2:
+			var _random_array = [];
+			var _random_array_count = 0;
+			repeat (3)
+			{
+				var _random_chance = irandom_range(1, 50);
+				if (_random_chance <= 35)
+				{
+					_random_array[_random_array_count] = irandom_range(81, 88);
+					_random_array_count++;
+				}
+				else if (_random_chance <= 45)
+				{
+					_random_array[_random_array_count] = irandom_range(89, 94);
+					_random_array_count++;
+				}
+				else if (_random_chance <= 49)
+				{
+					_random_array[_random_array_count] = irandom_range(95, 98);
+					_random_array_count++;
+				}
+				else
+				{
+					_random_array[_random_array_count] = irandom_range(99, 100);
+					_random_array_count++;
+				}
 			}
 			
 			return _random_array;

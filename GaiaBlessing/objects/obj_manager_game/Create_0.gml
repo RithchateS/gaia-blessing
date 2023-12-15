@@ -46,7 +46,10 @@ ChatterboxLoadFromFile(yarn_file_to_load);
 
 surface_resize(application_surface, NATIVE_RESOLUTION_WIDTH, NATIVE_RESOLUTION_HEIGHT);
 
-scr_room_transition(TRANSITION_TYPE.FADE, ROOM_START, 0.02);
+alarm[0] = 180;
+
+logo_alpha = 0;
+logo_alpha_rate = 0.01;
 
 global.tutorial_state = 0;
 global.tutorial_passed = false;

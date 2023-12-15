@@ -46,6 +46,8 @@ function scr_tooltip_info(_id){
 function scr_card_flavor_text(_id){
 	switch (_id)
 	{
+		#region 1-20
+		
 		case 1:
 			return "Increase a plant's growth by 10.";
 		
@@ -105,7 +107,11 @@ function scr_card_flavor_text(_id){
 			
 		case 20:
 			return "Grant Double buff to your avatar. Doubles the growth/nutrient of your next card.";
-			
+		
+		#endregion
+		
+		#region 21-40
+		
 		case 21:
 			return "Summon a fairy help take care of your plant.";
 			
@@ -165,9 +171,198 @@ function scr_card_flavor_text(_id){
 			
 		case 40:
 			return "Transform a high fairy into Oberon. Transforming all adjacent fairies into high fairies.";
+		
+		#endregion
+		
+		#region 41-60
+		
+		case 41:
+			return "Increase growth by 10 + 20% per each harmony stack.";
 			
+		case 42:
+			return "Increase nutrients by 10 + 20% per each harmony stack.";
+			
+		case 43:
+			return "Increase endurance by 10 + 20% per each harmony stack.";
+			
+		case 44:
+			return "Reduce a crop's nutrient by 5 and give 2 harmony stack.";
+			
+		case 45:
+			return "Reduce a crop's endurance by 5 and give 2 harmony stack.";
+			
+		case 46:
+			return "Increase a crop's growth by 5 and give 1  harmony stack.";
+			
+		case 47:
+			return "Increase a crop's nutrients by 5 and give 1  harmony stack.";
+			
+		case 48:
+			return "Increase a crop's endurance by 5 and give 1  harmony stack.";
+			
+		case 49:
+			return "Increase growth by 15 +20% per harmony stack. Reduce 2 harmony stack.";
+			
+		case 50:
+			return "Increase nutrients by 15 +20% per harmony stack. Reduce 2 harmony stack.";
+			
+		case 51:
+			return "Increase endurance by 15 +20% per harmony stack. Reduce 2 harmony stack.";
+			
+		case 52:
+			return "Increase growth by 15 + 20% per each harmony stack.";
+			
+		case 53:
+			return "Increase nutrients by 15 + 20% per each harmony stack.";
+			
+		case 54: 
+			return "Increase endurance by 15 + 20% per each harmony stack.";
+			
+		case 55:
+			return "Increase growth by 15 +20% per harmony stack. Reduce 1 harmony stack.";
+			
+		case 56:
+			return "Increase nutrients by 15 +20% per harmony stack. Reduce 1 harmony stack.";
+			
+		case 57:
+			return "Increase endurance by 15 +20% per harmony stack. Reduce 1 harmony stack.";
+			
+		case 58:
+			return "Reduce a crop's nutrients by 10 and give 3 harmony stacks.";
+			
+		case 59:
+			return "Remove all harmony stacks and increase growth by 5 for each stack";
+			
+		case 60:
+			return "Remove all harmony stacks and increase nutrients by 5 for each stack";
+		
+		#endregion
+		
+		#region 61-80
+		
+		case 61:
+			return "Increase plant growth by 7 if two same plants are in the same row.";
+			
+		case 62:
+			return "Increase plant nutrients by 7 if two same plants are in the same column.";
+			
+		case 63:
+			return "Increase plant endurance by 7 if two same plants are diagonal of each other.";
+			
+		case 64:
+			return "Increase plant growth by 5 if three same plants are in the same row.";
+			
+		case 65:
+			return "Increase plant nutrients by 5 if three same plants are in the same column.";
+			
+		case 66:
+			return "Increase plant growth by 5 if three same plants are in the field.";
+			
+		case 67:
+			return "Increase plant nutrients by 5 if four same planys are in the field.";
+			
+		case 68:
+			return "Increase plant growth by 15 there is no other plant of the same type.";
+			
+		case 69:
+			return "Increase plant nutrient by 15 there is no other plant of the same type.";
+			
+		case 70:
+			return "Increase plant growth by 10 if 5 or more same plants in the field.";
+			
+		case 71:
+			return "Increase plant nutrient by 10 if 5 or more same plants in the field.";
+			
+		case 72:
+			return "Increase plant growth by 20 there is no other plant of the same type.";
+			
+		case 73:
+			return "Increase plant nutrient by 20 there is no other plant of the same type.";
+			
+		case 74: 
+			return "Increase plant growth by 10 if three same plants are in the same row.";
+			
+		case 75:
+			return "Increase plant nutrients by 10 if three same plants are in the same column.";
+			
+		case 76:
+			return "Increase plant growth by 15 if all plant in the row is the same.";
+			
+		case 77:
+			return "Increase plant nutrients by 15 if all plant in the column is the same.";
+			
+		case 78:
+			return "Increase a random plant growth and nutrient by 15.";
+			
+		case 79:
+			return "If all plants in the field is of the same type, increase nutrient by 10 to all.";
+			
+		case 80:
+			return "If no plant in the field is of the same type, increase nutrient by 10 to all.";
+		
+		#endregion
+
+		#region 81-100
 		case 81:
 			return "Chilli seeds. A crop with a base stat of 40 Endurance / 40 Growth / 40 Nutrients.";
+			
+		case 82:
+			return "Carrot seeds. A crop with a base stat of 50 Endurance / 30 Growth / 50 Nutrients.";
+			
+		case 83:
+			return "Avocado seeds. A crop with a base stat of 60 Endurance / 40 Growth / 60 Nutrients.";
+			
+		case 84:
+			return "Potato seeds. A crop with a base stat of 30 Endurance / 30 Growth / 30 Nutrients.";
+			
+		case 85:
+			return "Melon seeds. A crop with a base stat of 60 Endurance / 50 Growth / 80 Nutrients.";
+			
+		case 86:
+			return "Tomato seeds. A crop with a base stat of 40 Endurance / 30 Growth / 60 Nutrients.";
+			
+		case 87:
+			return "Sugar cane seeds. A crop with a base stat of 20 Endurance / 35 Growth / 45 Nutrients.";
+			
+		case 88:
+			return "Rice seeds. A crop with a base stat of 40 Endurance / 40 Growth / 50 Nutrients.";
+			
+		case 89:
+			return "Orange seeds. A crop with a base stat of 50 Endurance / 45 Growth / 60 Nutrients.";
+			
+		case 90:
+			return "Lemon seeds. A crop with a base stat of 30 Endurance / 25 Growth / 30 Nutrients.";
+			
+		case 91:
+			return "Cherry seeds. A crop with a base stat of 30 Endurance / 20 Growth / 40 Nutrients.";
+			
+		case 92:
+			return "Beetroot seeds. A crop with a base stat of 20 Endurance / 50 Growth / 45 Nutrients.";
+			
+		case 93:
+			return "Apple seeds. A crop with a base stat of 50 Endurance / 60 Growth / 80 Nutrients.";
+			
+		case 94:
+			return "Pineapple seeds. A crop with a base stat of 40 Endurance / 35 Growth / 70 Nutrients.";
+			
+		case 95:
+			return "Star seeds. A crop with a base stat of 30 Endurance / 30 Growth / 50 Nutrients.";
+			
+		case 96:
+			return "Key seeds. A crop with a base stat of 50 Endurance / 40 Growth / 100 Nutrients.";
+			
+		case 97:
+			return "Blood seeds. A crop with a base stat of 40 Endurance / 20 Growth / 50 Nutrients.";
+			
+		case 98:
+			return "Honey seeds. A crop with a base stat of 20 Endurance / 20 Growth / 30 Nutrients.";
+			
+		case 99:
+			return "Jewel seeds. A crop with a base stat of 40 Endurance / 60 Growth / 120 Nutrients.";
+			
+		case 100:
+			return "Money seeds. A crop with a base stat of 30 Endurance / 30 Growth / 80 Nutrients.";
+		#endregion
 		
 		default:
 			return "Description of this item will be included in future builds.";
@@ -402,24 +597,200 @@ function scr_card_activate_info(_id){
 		
 		#endregion
 		
+		#region Harmony Cards
+		
+		case 41:
+			return [41, 41, 10, 1, 0, true, 10];
+			
+		case 42:
+			return [42, 42, 10, 1, 0, true, 10];
+		
+		case 43:
+			return [43, 43, 10, 1, 0, true, 0];
+			
+		case 44:
+			return [44, 44, [5, 2], 1, 0, true, 0];
+			
+		case 45:
+			return [45, 45, [5, 2], 1, 0, true, 10];
+			
+		case 46:
+			return [46, 46, [5, 1], 1, 0, true, 10];
+			
+		case 47:
+			return [47, 47, [5, 1], 1, 0, true, 10];
+			
+		case 48:
+			return [48, 48, [5, 1], 1, 0, true, 0];
+			
+		case 49:
+			return [49, 49, [15, 2], 1, 0, true, 10];
+			
+		case 50:
+			return [50, 50, [15, 2], 1, 0, true, 10];
+		
+		case 51:
+			return [51, 51, [15, 2], 1, 0, true, 10];
+			
+		case 52:
+			return [52, 41, 16, 1, 0, true, 10];
+			
+		case 53:
+			return [53, 42, 15, 1, 0, true, 10];
+		
+		case 54:
+			return [54, 43, 15, 1, 0, true, 0];
+			
+		case 55:
+			return [55, 49, [15, 1], 1, 0, true, 10];
+		
+		case 56:
+			return [56, 50, [15, 1], 1, 0, true, 10];
+			
+		case 57:
+			return [57, 51, [15, 1], 1, 0, true, 0];
+			
+		case 58:
+			return [58, 44, [10, 3], 1, 0, true, 10];
+			
+		case 59:
+			return [59, 52, 5, 1, 0, true, 10];
+			
+		case 60:
+			return [60, 53, 5, 1, 0, true, 10];
+		
+		#endregion
+		
+		#region 61-80 Cards
+		
+		case 61:
+			return [61, 61, [2, 7], 1, 0, true, 10];
+			
+		case 62:
+			return [62, 62, [2, 7], 1, 0, true, 10];
+		
+		case 63:
+			return [63, 63, [2, 7], 1, 0, true, 0];
+			
+		case 64:
+			return [64, 61, [3, 5], 1, 0, true, 10];
+			
+		case 65:
+			return [65, 62, [3, 5], 1, 0, true, 10];
+			
+		case 66:
+			return [66, 64, [3, 5], 1, 0, true, 10];
+			
+		case 67:
+			return [67, 65, [3, 5], 1, 0, true, 10];
+			
+		case 68:
+			return [68, 66, 15, 1, 0, true, 10];
+			
+		case 69:
+			return [69, 67, 15, 1, 0, true, 10];
+			
+		case 70:
+			return [70, 64, [5, 10], 1, 0, true, 10];
+		
+		case 71:
+			return [71, 65, [5, 10], 1, 0, true, 10];
+			
+		case 72:
+			return [72, 66, 20, 1, 0, true, 10];
+			
+		case 73:
+			return [73, 67, 20, 1, 0, true, 10];
+		
+		case 74:
+			return [74, 61, [3, 10], 1, 0, true, 0];
+			
+		case 75:
+			return [75, 62, [3, 10], 1, 0, true, 10];
+		
+		case 76:
+			return [76, 61, [4, 15], 1, 0, true, 10];
+			
+		case 77:
+			return [77, 62, [3, 15], 1, 0, true, 0];
+			
+		case 78:
+			return [78, 68, 15, 1, 0, false, 10];
+			
+		case 79:
+			return [79, 64, [12, 10], 1, 0, true, 10];
+			
+		case 80:
+			return [80, 69, 10, 1, 0, true, 10];
+		
+		#endregion
+		
 		#region Seed cards
 		case 81:
-			return [61, 7, 1, 1, 0, true, 0];
+			return [81, 7, 1, 1, 0, true, 0];
 		
 		case 82:
-			return [62, 7, 2, 1, 0, true, 0];
+			return [82, 7, 2, 1, 0, true, 0];
 		
 		case 83:
-			return [63, 7, 3, 1, 0, true, 0];
+			return [83, 7, 3, 1, 0, true, 0];
 			
 		case 84:
-			return [64, 7, 4, 1, 0, true, 0];
+			return [84, 7, 4, 1, 0, true, 0];
 			
 		case 85:
-			return [65, 7, 5, 1, 0, true, 0];
-		#endregion
+			return [85, 7, 5, 1, 0, true, 0];
 			
+		case 86:
+			return [86, 7, 6, 1, 0, true, 0];
+			
+		case 87:
+			return [87, 7, 7, 1, 0, true, 0];
+			
+		case 88:
+			return [88, 7, 8, 1, 0, true, 0];
+			
+		case 89:
+			return [89, 7, 9, 1, 0, true, 0];
+			
+		case 90:
+			return [90, 7, 10, 1, 0, true, 0];
+			
+		case 91:
+			return [91, 7, 11, 1, 0, true, 0];	
+		
+		case 92:
+			return [92, 7, 12, 1, 0, true, 0];	
+		
+		case 93:
+			return [93, 7, 13, 1, 0, true, 0];	
+		
+		case 94:
+			return [94, 7, 14, 1, 0, true, 0];	
+		
+		case 95:
+			return [95, 7, 15, 1, 0, true, 0];	
+		
+		case 96:
+			return [96, 7, 16, 1, 0, true, 0];	
+		
+		case 97:
+			return [97, 7, 17, 1, 0, true, 0];	
+		
+		case 98:
+			return [98, 7, 18, 1, 0, true, 0];	
+		
+		case 99:
+			return [99, 7, 19, 1, 0, true, 0];	
+		
+		case 100:
+			return [100, 7, 20, 1, 0, true, 0];	
+		
+		#endregion
+		
 		#region Crop Cards
+		/*
+		
 		case 101: 
 			return [101, -1, -1, -1, 0, false, -1];
 			
@@ -434,6 +805,11 @@ function scr_card_activate_info(_id){
 	
 		case 105: 
 			return [105, -1, -1, -1, 0, false, -1];
+			
+		case 106: 
+			return [105, -1, -1, -1, 0, false, -1];
+
+		*/
 		#endregion	
 		
 		default:
@@ -572,6 +948,134 @@ function scr_card_name(_id){
 		
 		#endregion
 			
+		#region 41-60
+		
+		case 41:
+			return "GROWTH STACK";
+			
+		case 42:
+			return "NUTRIENTS STACK";
+			
+		case 43:
+			return "ENDURANCE STACK";
+			
+		case 44:
+			return "PLANT SAMPLE";
+			
+		case 45:
+			return "GROUND SAMPLE";
+			
+		case 46:
+			return "CARE";
+			
+		case 47:
+			return "WATER";
+			
+		case 48:
+			return "SUNLIGHT";
+			
+		case 49:
+			return "FORCED GROWTH";
+			
+		case 50:
+			return "QUALITY BOOST";
+			
+		case 51:
+			return "ENCOURAGE";
+			
+		case 52:
+			return "GROW TALL";
+			
+		case 53:
+			return "STAND STRONG";
+			
+		case 54:
+			return "LIVE LONG";
+			
+		case 55:
+			return "QUICK GRO";
+			
+		case 56:
+			return "ENRICH";
+			
+		case 57:
+			return "STEEL SOIL";
+			
+		case 58:
+			return "SACRIFICE";
+			
+		case 59:
+			return "G HARMONIZE";
+			
+		case 60:
+			return "N HARMONIZE";
+		
+		#endregion	
+		
+		#region 61-80
+		
+		case 61:
+			return "TWIN GROWTH";
+			
+		case 62:
+			return "TWIN NUTRIENTS";
+			
+		case 63:
+			return "TWIN ENDURANCE";
+			
+		case 64:
+			return "G TRIPLET";
+			
+		case 65:
+			return "N TRIPLET";
+			
+		case 66:
+			return "THREE OF A KIND";
+			
+		case 67:
+			return "FOUR OF A KIND";
+			
+		case 68:
+			return "UNIQUENESS";
+			
+		case 69:
+			return "INDIVIDUALITY";
+			
+		case 70:
+			return "GROUPING";
+			
+		case 71:
+			return "KINSHIP";
+			
+		case 72:
+			return "LONE WOLF";
+			
+		case 73:
+			return "STAND TALL";
+			
+		case 74:
+			return "TRIPLE GROWTH";
+			
+		case 75:
+			return "TRIPLE NUTRIENTS";
+			
+		case 76:
+			return "ROW GROWING";
+			
+		case 77:
+			return "COLUMN ENHANCING";
+			
+		case 78:
+			return "FORTUNE";
+			
+		case 79:
+			return "MASS PRODUCE";
+			
+		case 80:
+			return "SOIL VARIETY";
+		
+		#endregion
+		
 		#region Seeds
 			
 		case 81:
@@ -588,6 +1092,51 @@ function scr_card_name(_id){
 			
 		case 85:
 			return "MELON SEED";
+			
+		case 86:
+			return "TOMATO SEED";
+		
+		case 87:
+			return "SUGAR SEED";
+		
+		case 88:
+			return "RICE SEED";
+		
+		case 89:
+			return "ORANGE SEED";
+		
+		case 90:
+			return "LEMON SEED";
+		
+		case 91:
+			return "CHERRY SEED";
+		
+		case 92:
+			return "BEETROOT SEED";
+		
+		case 93:
+			return "APPLE SEED";
+		
+		case 94:
+			return "PINEAPPLE SEED";
+		
+		case 95:
+			return "STAR SEED";
+		
+		case 96:
+			return "KEY SEED";
+		
+		case 97:
+			return "BLOOD SEED";
+		
+		case 98:
+			return "HONEY SEED";
+		
+		case 99:
+			return "JEWEL SEED";
+		
+		case 100:
+			return "MONEY SEED";
 		
 		#endregion
 		
@@ -608,6 +1157,231 @@ function scr_card_name(_id){
 		case 105: 
 			return "(C) CARROT";
 			
+		case 106: 
+			return "(U) CARROT";
+			
+		case 107: 
+			return "(R) CARROT";
+			
+		case 108: 
+			return "(L) CARROT";
+			
+		case 109: 
+			return "(C) AVOCADO";
+			
+		case 110: 
+			return "(U) AVOCADO";
+			
+		case 111: 
+			return "(R) AVOCADO";
+			
+		case 112: 
+			return "(L) AVOCADO";
+			
+		case 113: 
+			return "(C) POTATO";
+			
+		case 114: 
+			return "(U) POTATO";
+			
+		case 115: 
+			return "(R) POTATO";
+			
+		case 116: 
+			return "(L) POTATO";
+		
+		case 117: 
+			return "(C) MELON";
+			
+		case 118: 
+			return "(U) MELON";
+			
+		case 119: 
+			return "(R) MELON";
+			
+		case 120: 
+			return "(L) MELON";
+			
+		case 121: 
+			return "(C) TOMATO";
+		
+		case 122: 
+			return "(U) TOMATO";
+			
+		case 123: 
+			return "(R) TOMATO";
+			
+		case 124: 
+			return "(L) TOMATO";
+			
+		case 125: 
+			return "(C) SUGAR CANE";
+			
+		case 126: 
+			return "(U) SUGAR CANE";
+			
+		case 127: 
+			return "(R) SUGAR CANE";
+			
+		case 128: 
+			return "(L) SUGAR CANE";
+			
+		case 129: 
+			return "(C) RICE";
+			
+		case 130: 
+			return "(U) RICE";
+			
+		case 131: 
+			return "(R) RICE";
+			
+		case 132: 
+			return "(L) RICE";
+			
+		case 133: 
+			return "(C) ORANGE";
+			
+		case 134: 
+			return "(U) ORANGE";
+			
+		case 135: 
+			return "(R) ORANGE";
+			
+		case 136: 
+			return "(L) ORANGE";
+			
+		case 137: 
+			return "(C) LEMON";
+			
+		case 138: 
+			return "(U) LEMON";
+			
+		case 139: 
+			return "(R) LEMON";
+			
+		case 140: 
+			return "(L) LEMON";
+			
+		case 141: 
+			return "(C) CHERRY";
+		
+		case 142: 
+			return "(U) CHERRY";
+			
+		case 143: 
+			return "(R) CHERRY";
+			
+		case 144: 
+			return "(L) CHERRY";
+			
+		case 145: 
+			return "(C) BEETROOT";
+			
+		case 146: 
+			return "(U) BEETROOT";
+			
+		case 147: 
+			return "(R) BEETROOT";
+			
+		case 148: 
+			return "(L) BEETROOT";
+			
+		case 149: 
+			return "(C) APPLE";
+		
+		case 150: 
+			return "(U) APPLE";
+			
+		case 151: 
+			return "(R) APPLE";
+			
+		case 152: 
+			return "(L) APPLE";
+			
+		case 153: 
+			return "(C) PINEAPPLE";
+			
+		case 154: 
+			return "(U) PINEAPPLE";
+			
+		case 155: 
+			return "(R) PINEAPPLE";
+			
+		case 156: 
+			return "(L) PINEAPPLE";
+			
+		case 157: 
+			return "(C) STAR";
+			
+		case 158: 
+			return "(U) STAR";
+			
+		case 159: 
+			return "(R) STAR";
+			
+		case 160: 
+			return "(L) STAR";
+			
+		case 161: 
+			return "(C) KEY";
+			
+		case 162: 
+			return "(U) KEY";
+			
+		case 163: 
+			return "(R) KEY";
+			
+		case 164: 
+			return "(L) KEY";
+			
+		case 165: 
+			return "(C) BLOOD";
+		
+		case 166: 
+			return "(U) BLOOD";
+		
+		case 167: 
+			return "(R) BLOOD";
+			
+		case 168: 
+			return "(L) BLOOD";
+			
+		case 169: 
+			return "(C) HONEY";
+			
+		case 170: 
+			return "(U) HONEY";
+			
+		case 171: 
+			return "(R) HONEY";
+			
+		case 172: 
+			return "(L) HONEY";
+			
+		case 173: 
+			return "(C) JEWEL";
+			
+		case 174: 
+			return "(U) JEWEL";
+			
+		case 175: 
+			return "(R) JEWEL";
+			
+		case 176: 
+			return "(L) JEWEL";
+			
+		case 177: 
+			return "(C) MONEY";
+			
+		case 178: 
+			return "(U) MONEY";
+			
+		case 179: 
+			return "(R) MONEY";
+			
+		case 180: 
+			return "(L) MONEY";
+			
 		#endregion
 		
 		default:
@@ -618,6 +1392,8 @@ function scr_card_name(_id){
 function scr_card_effect(_id){
 	switch (_id)
 	{
+		#region Base Effects
+		
 		case 1:
 			return "Increase Growth";
 		
@@ -654,6 +1430,10 @@ function scr_card_effect(_id){
 		case 12:
 			return "Increase Growth and Transform Buff";
 			
+		#endregion
+		
+		#region Fairy Effects
+		
 		case 21:
 			return "Fairy Increase Growth";
 			
@@ -687,6 +1467,81 @@ function scr_card_effect(_id){
 		case 31:
 			return "Sacrifice All";
 			
+		#endregion
+			
+		#region Harmony Effects	
+		
+		case 41:
+			return "Harmony Growth Increase";
+			
+		case 42:
+			return "Harmony Nutrients Increase";
+			
+		case 43:
+			return "Harmony Endurance Increase";
+			
+		case 44:
+			return "Harmony Reduce Nutrients";
+			
+		case 45:
+			return "Harmony Reduce Endurance";
+			
+		case 46:
+			return "Harmony Increase Growth";
+			
+		case 47:
+			return "Harmony Increase Nutrients";
+			
+		case 48:
+			return "Harmony Increase Endurance";
+			
+		case 49:
+			return "Harmony Deduction Growth Increase";
+			
+		case 50:
+			return "Harmony Deduction Nutrients Increase";
+			
+		case 51:
+			return "Harmony Deduction Endurance Increase";
+			
+		case 52:
+			return "Harmony Growth Final Increase";
+			
+		case 53:
+			return "Harmony Nutrients Final Increase";
+			
+		#endregion
+			
+		#region 61-80 Effects
+		
+		case 61:
+			return "Row Growth Increase";
+			
+		case 62:
+			return "Column Nutrients Increase";
+			
+		case 63:
+			return "Diag Endurance Increase";
+			
+		case 64:
+			return "Field Growth Increase";
+			
+		case 65:
+			return "Field Nutrients Increase";
+			
+		case 66:
+			return "Unique Growth Increase";
+			
+		case 67:
+			return "Unique Nutrients Increase";
+			
+		case 68:
+			return "Random Growth and Nutrients Increase";
+			
+		case 69:
+			return "All Unique Nutrients Increase";
+		
+		#endregion
 			
 		default:
 			return "Invalid card effect id";
@@ -702,6 +1557,8 @@ function scr_card_activate(_type, _param, _endurance = 0){
 	
 	switch (_type)
 	{
+		#region Base Effects
+		
 		case "Increase Growth":
 			if (object_get_name(obj_player.activate.object_index) == "obj_farm")
 			{
@@ -712,6 +1569,7 @@ function scr_card_activate(_type, _param, _endurance = 0){
 			else
 			{
 				scr_new_popup("Not a farm");
+				audio_play_sound(snd_card_fail, 800, false, global.game_effects_volume * 1);
 			}
 			break;
 			
@@ -725,6 +1583,7 @@ function scr_card_activate(_type, _param, _endurance = 0){
 			else
 			{
 				scr_new_popup("Not a farm");
+				audio_play_sound(snd_card_fail, 800, false, global.game_effects_volume * 1);
 			}
 			break;
 			
@@ -735,7 +1594,8 @@ function scr_card_activate(_type, _param, _endurance = 0){
 			}
 			else
 			{
-				show_debug_message("Not the correct entity activate, nothing happens");
+				scr_new_popup("Not a farm");
+				audio_play_sound(snd_card_fail, 800, false, global.game_effects_volume * 1);
 			}
 			break;
 			
@@ -746,7 +1606,8 @@ function scr_card_activate(_type, _param, _endurance = 0){
 			}
 			else
 			{
-				show_debug_message("Not the correct entity activate, nothing happens");
+				scr_new_popup("Not a farm");
+				audio_play_sound(snd_card_fail, 800, false, global.game_effects_volume * 1);
 			}
 			break;
 			
@@ -765,54 +1626,73 @@ function scr_card_activate(_type, _param, _endurance = 0){
 				obj_player.buffs_in_play++;
 			}
 			scr_active_hand_discard_card(activated_card_slot);
+			audio_play_sound(snd_card_success, 800, false, global.game_effects_volume * 1);
 			scr_active_hand_update();
 			
 			return true;
 			
 		case "Plant Buff":
 			var _buff_already_applied = false;
-			if (_farm_manager.farm_slot[obj_player.activate.entity_activate_argument[0], 8] == _param)
+			if (_farm_manager.farm_slot[obj_player.activate.entity_activate_argument[0], 5] >= _endurance)
 			{
-				_buff_already_applied = true;
-			}
-			
-			if (!_buff_already_applied)
-			{
-				_farm_manager.farm_slot[obj_player.activate.entity_activate_argument[0], 8] = _param;
-			}
-			
-			_endurance = scr_apply_buff(_endurance, 3);
-			_farm_manager.farm_slot[obj_player.activate.entity_activate_argument[0], 5] -= _endurance;
-			
-			scr_active_hand_discard_card(activated_card_slot);
-			scr_active_hand_update();
-			
-			return true;
-			
-		case "Increase Growth and Plant Buff":
-			var _buff_already_applied = false;
-			
-			if (object_get_name(obj_player.activate.object_index) == "obj_farm")
-			{
-				if (_farm_manager.farm_slot[obj_player.activate.entity_activate_argument[0], 8] == _param[1])
+				if (_farm_manager.farm_slot[obj_player.activate.entity_activate_argument[0], 8] == _param)
 				{
 					_buff_already_applied = true;
 				}
 			
 				if (!_buff_already_applied)
 				{
-					_farm_manager.farm_slot[obj_player.activate.entity_activate_argument[0], 8] = _param[1];
+					_farm_manager.farm_slot[obj_player.activate.entity_activate_argument[0], 8] = _param;
 				}
-				
-				_param[0] = scr_apply_buff(_param[0], 1);
+			
 				_endurance = scr_apply_buff(_endurance, 3);
-				scr_farm_slot_add_growth(obj_player.activate.entity_activate_argument[0], _param[0], _endurance);
+				_farm_manager.farm_slot[obj_player.activate.entity_activate_argument[0], 5] -= _endurance;
+			
+				scr_active_hand_discard_card(activated_card_slot);
+				audio_play_sound(snd_card_success, 800, false, global.game_effects_volume * 1);
+				scr_active_hand_update();
+			
+				return true;
 			}
 			else
 			{
-				scr_new_popup("Not a farm");
+				scr_new_popup("Not enough endurance.");
+				audio_play_sound(snd_card_fail, 800, false, global.game_effects_volume * 1);
 			}
-			break;
+			
+			
+		case "Increase Growth and Plant Buff":
+			var _buff_already_applied = false;
+			if (_farm_manager.farm_slot[obj_player.activate.entity_activate_argument[0], 5] >= _endurance)
+			{
+				if (object_get_name(obj_player.activate.object_index) == "obj_farm")
+				{
+					if (_farm_manager.farm_slot[obj_player.activate.entity_activate_argument[0], 8] == _param[1])
+					{
+						_buff_already_applied = true;
+					}
+			
+					if (!_buff_already_applied)
+					{
+						_farm_manager.farm_slot[obj_player.activate.entity_activate_argument[0], 8] = _param[1];
+					}
+				
+					_param[0] = scr_apply_buff(_param[0], 1);
+					_endurance = scr_apply_buff(_endurance, 3);
+					scr_farm_slot_add_growth(obj_player.activate.entity_activate_argument[0], _param[0], _endurance);
+				}
+				else
+				{
+					scr_new_popup("Not a farm");
+					audio_play_sound(snd_card_fail, 800, false, global.game_effects_volume * 1);
+				}
+				break;
+			}
+			else
+			{
+				scr_new_popup("Not enough endurance.");
+				audio_play_sound(snd_card_fail, 800, false, global.game_effects_volume * 1);
+			}
 			
 		case "Increase Growth with Condition":
 			var _buff_found = false;
@@ -827,6 +1707,7 @@ function scr_card_activate(_type, _param, _endurance = 0){
 				if (!_buff_found)
 				{
 					scr_new_popup("Requirement not met");
+					audio_play_sound(snd_card_fail, 800, false, global.game_effects_volume * 1);
 					break;
 					
 				}
@@ -841,6 +1722,7 @@ function scr_card_activate(_type, _param, _endurance = 0){
 			else
 			{
 				scr_new_popup("Not a farm");
+				audio_play_sound(snd_card_fail, 800, false, global.game_effects_volume * 1);
 			}
 			break;
 			
@@ -857,6 +1739,7 @@ function scr_card_activate(_type, _param, _endurance = 0){
 				if (!_buff_found)
 				{
 					scr_new_popup("Requirement not met");
+					audio_play_sound(snd_card_fail, 800, false, global.game_effects_volume * 1);
 					break;
 					
 				}
@@ -871,6 +1754,7 @@ function scr_card_activate(_type, _param, _endurance = 0){
 			else
 			{
 				scr_new_popup("Not a farm");
+				audio_play_sound(snd_card_fail, 800, false, global.game_effects_volume * 1);
 			}
 			break;
 			
@@ -887,6 +1771,7 @@ function scr_card_activate(_type, _param, _endurance = 0){
 				if (!_buff_found)
 				{
 					scr_new_popup("Requirement not met");
+					audio_play_sound(snd_card_fail, 800, false, global.game_effects_volume * 1);
 					break;
 					
 				}
@@ -899,38 +1784,53 @@ function scr_card_activate(_type, _param, _endurance = 0){
 			else
 			{
 				scr_new_popup("Not a farm");
+				audio_play_sound(snd_card_fail, 800, false, global.game_effects_volume * 1);
 			}
 			break;
 			
 		case "Increase Growth and Transform Buff":
 			var _buff_found = false;
 			
-			if (object_get_name(obj_player.activate.object_index) == "obj_farm")
+			if (_farm_manager.farm_slot[obj_player.activate.entity_activate_argument[0], 5] >= _endurance)
 			{
-				if (_farm_manager.farm_slot[obj_player.activate.entity_activate_argument[0], 8] == _param[1])
+				if (object_get_name(obj_player.activate.object_index) == "obj_farm")
 				{
-					_buff_found = true;
-				}
+					if (_farm_manager.farm_slot[obj_player.activate.entity_activate_argument[0], 8] == _param[1])
+					{
+						_buff_found = true;
+					}
 			
-				if (!_buff_found)
-				{
-					scr_new_popup("Requirement not met");
-					break;
+					if (!_buff_found)
+					{
+						scr_new_popup("Requirement not met");
+						audio_play_sound(snd_card_fail, 800, false, global.game_effects_volume * 1);
+						break;
+					}
+					else
+					{
+						_farm_manager.farm_slot[obj_player.activate.entity_activate_argument[0], 8] = _param[2];
+						_param[0] = scr_apply_buff(_param[0], 1);
+						_endurance = scr_apply_buff(_endurance, 3);
+						scr_farm_slot_add_growth(obj_player.activate.entity_activate_argument[0], _param[0], _endurance);
+					}
 				}
 				else
 				{
-					_farm_manager.farm_slot[obj_player.activate.entity_activate_argument[0], 8] = _param[2];
-					_param[0] = scr_apply_buff(_param[0], 1);
-					_endurance = scr_apply_buff(_endurance, 3);
-					scr_farm_slot_add_growth(obj_player.activate.entity_activate_argument[0], _param[0], _endurance);
+					scr_new_popup("Not a farm");
+					audio_play_sound(snd_card_fail, 800, false, global.game_effects_volume * 1);
 				}
+			
+				break;
 			}
 			else
 			{
-				scr_new_popup("Not a farm");
+				scr_new_popup("Not enough endurance.");
+				audio_play_sound(snd_card_fail, 800, false, global.game_effects_volume * 1);
 			}
 			
-			break;
+		#endregion
+		
+		#region Fairy Effects
 			
 		case "Fairy Increase Growth":
 			if (object_get_name(obj_player.activate.object_index) == "obj_farm")
@@ -971,11 +1871,13 @@ function scr_card_activate(_type, _param, _endurance = 0){
 					}
 				}
 				scr_active_hand_discard_card(activated_card_slot);
+				audio_play_sound(snd_card_success, 800, false, global.game_effects_volume * 1);
 				scr_active_hand_update();
 			}
 			else
 			{
 				scr_new_popup("Not near a farm.");
+				audio_play_sound(snd_card_fail, 800, false, global.game_effects_volume * 1);
 			}
 			break;
 			
@@ -1024,11 +1926,13 @@ function scr_card_activate(_type, _param, _endurance = 0){
 					}
 				}
 				scr_active_hand_discard_card(activated_card_slot);
+				audio_play_sound(snd_card_success, 800, false, global.game_effects_volume * 1);
 				scr_active_hand_update();
 			}
 			else
 			{
 				scr_new_popup("Not near a farm.");
+				audio_play_sound(snd_card_fail, 800, false, global.game_effects_volume * 1);
 			}
 			break;
 			
@@ -1062,11 +1966,13 @@ function scr_card_activate(_type, _param, _endurance = 0){
 					}
 				}
 				scr_active_hand_discard_card(activated_card_slot);
+				audio_play_sound(snd_card_success, 800, false, global.game_effects_volume * 1);
 				scr_active_hand_update();
 			}
 			else
 			{
 				scr_new_popup("Not near a farm.");
+				audio_play_sound(snd_card_fail, 800, false, global.game_effects_volume * 1);
 			}
 			break;
 			
@@ -1090,11 +1996,13 @@ function scr_card_activate(_type, _param, _endurance = 0){
 					}
 				}
 				scr_active_hand_discard_card(activated_card_slot);
+				audio_play_sound(snd_pop, 800, false, global.game_effects_volume * 1);
 				scr_active_hand_update();
 			}
 			else
 			{
 				scr_new_popup("Not near a farm.");
+				audio_play_sound(snd_card_fail, 800, false, global.game_effects_volume * 1);
 			}
 			break;
 			
@@ -1108,12 +2016,14 @@ function scr_card_activate(_type, _param, _endurance = 0){
 						if (_farm_manager.farm_slot[obj_player.activate.entity_activate_argument[0], 8] == "Fairy")
 						{
 							_farm_manager.farm_slot[obj_player.activate.entity_activate_argument[0], 8] = _param;
+							audio_play_sound(snd_card_success, 800, false, global.game_effects_volume * 1);
 							scr_active_hand_discard_card(activated_card_slot);
 							scr_active_hand_update();
 						}
 						else
 						{
 							scr_new_popup("No base fairy in the farm.");
+							audio_play_sound(snd_card_fail, 800, false, global.game_effects_volume * 1);
 						}
 					}
 					else if (_param == "Titania")
@@ -1122,19 +2032,19 @@ function scr_card_activate(_type, _param, _endurance = 0){
 						if (_farm_manager.farm_slot[_slot, 8] == "High")
 						{
 							_farm_manager.farm_slot[_slot, 8] = _param;
-							if (_slot % 4 > 1)
+							if (_slot % 4 != 1)
 							{
 								if (_farm_manager.farm_slot[_slot - 1, 8] != "Fairy" && _farm_manager.farm_slot[_slot - 1, 0] > 0)
 								{
-									_farm_manager.farm_slot[_slot - 1, 8] = _param;
+									_farm_manager.farm_slot[_slot - 1, 8] = "Fairy";
 								}
 							}
 							
-							if (_slot % 4 < 3)
+							if (_slot % 4 != 0)
 							{
 								if (_farm_manager.farm_slot[_slot + 1, 8] != "Fairy" && _farm_manager.farm_slot[_slot + 1, 0] > 0)
 								{
-									_farm_manager.farm_slot[_slot + 1, 8] = _param;
+									_farm_manager.farm_slot[_slot + 1, 8] = "Fairy";
 								}
 							}
 							
@@ -1142,7 +2052,7 @@ function scr_card_activate(_type, _param, _endurance = 0){
 							{
 								if (_farm_manager.farm_slot[_slot - 4, 8] != "Fairy" && _farm_manager.farm_slot[_slot - 4, 0] > 0)
 								{
-									_farm_manager.farm_slot[_slot - 4, 8] = _param;
+									_farm_manager.farm_slot[_slot - 4, 8] = "Fairy";
 								}
 							}
 							
@@ -1150,16 +2060,18 @@ function scr_card_activate(_type, _param, _endurance = 0){
 							{
 								if (_farm_manager.farm_slot[_slot + 4, 8] != "Fairy" && _farm_manager.farm_slot[_slot + 4, 0] > 0)
 								{
-									_farm_manager.farm_slot[_slot + 4, 8] = _param;
+									_farm_manager.farm_slot[_slot + 4, 8] = "Fairy";
 								}
 							}
 							
 							scr_active_hand_discard_card(activated_card_slot);
+							audio_play_sound(snd_card_success, 800, false, global.game_effects_volume * 1);
 							scr_active_hand_update();
 						}
 						else
 						{
 							scr_new_popup("No high fairy in the farm.");
+							audio_play_sound(snd_card_fail, 800, false, global.game_effects_volume * 1);
 						}
 					}
 					else if (_param == "Oberon")
@@ -1168,19 +2080,19 @@ function scr_card_activate(_type, _param, _endurance = 0){
 						if (_farm_manager.farm_slot[_slot, 8] == "High")
 						{
 							_farm_manager.farm_slot[_slot, 8] = _param;
-							if (_slot % 4 > 1)
+							if (_slot % 4 != 1)
 							{
 								if (_farm_manager.farm_slot[_slot - 1, 8] == "Fairy")
 								{
-									_farm_manager.farm_slot[_slot - 1, 8] = _param;
+									_farm_manager.farm_slot[_slot - 1, 8] = "High";
 								}
 							}
 							
-							if (_slot % 4 < 3)
+							if (_slot % 4 != 0)
 							{
 								if (_farm_manager.farm_slot[_slot + 1, 8] == "Fairy")
 								{
-									_farm_manager.farm_slot[_slot + 1, 8] = _param;
+									_farm_manager.farm_slot[_slot + 1, 8] = "High";
 								}
 							}
 							
@@ -1188,7 +2100,7 @@ function scr_card_activate(_type, _param, _endurance = 0){
 							{
 								if (_farm_manager.farm_slot[_slot - 4, 8] == "Fairy")
 								{
-									_farm_manager.farm_slot[_slot - 4, 8] = _param;
+									_farm_manager.farm_slot[_slot - 4, 8] = "High";
 								}
 							}
 							
@@ -1196,16 +2108,18 @@ function scr_card_activate(_type, _param, _endurance = 0){
 							{
 								if (_farm_manager.farm_slot[_slot + 4, 8] == "Fairy")
 								{
-									_farm_manager.farm_slot[_slot + 4, 8] = _param;
+									_farm_manager.farm_slot[_slot + 4, 8] = "High";
 								}
 							}
 							
 							scr_active_hand_discard_card(activated_card_slot);
+							audio_play_sound(snd_card_success, 800, false, global.game_effects_volume * 1);
 							scr_active_hand_update();
 						}
 						else
 						{
 							scr_new_popup("No high fairy in the farm.");
+							audio_play_sound(snd_card_fail, 800, false, global.game_effects_volume * 1);
 						}
 					}
 					
@@ -1213,11 +2127,13 @@ function scr_card_activate(_type, _param, _endurance = 0){
 				else
 				{
 					scr_new_popup("Farm has no plant.");
+					audio_play_sound(snd_card_fail, 800, false, global.game_effects_volume * 1);
 				}
 			}
 			else
 			{
 				scr_new_popup("Not near a farm.");
+				audio_play_sound(snd_card_fail, 800, false, global.game_effects_volume * 1);
 			}
 			break;
 			
@@ -1226,35 +2142,58 @@ function scr_card_activate(_type, _param, _endurance = 0){
 			{
 				_param = scr_apply_buff(_param, 1);
 				_endurance = scr_apply_buff(_endurance, 3);
+				var _has_high_fairy = false;
 				for (var _i = 1; _i <= 12; _i++)
 				{
-					var _added_value = _param;
 					if (_farm_manager.farm_slot[_i, 0] > 0)
 					{
 						if (_farm_manager.farm_slot[_i, 8] == "High")
 						{
-							if (_farm_manager.farm_slot[_i, 5] >= _endurance)
-							{
-								// Increase Growth
-								var _temp = _farm_manager.farm_slot[_i, 1] + _param;
-								if (_temp > _farm_manager.farm_slot[_i, 2])
-								{
-									_temp = _farm_manager.farm_slot[_i, 2];
-								}
-								_farm_manager.farm_slot[_i, 1] = _temp;
-		
-								// Decrease Endurance
-								_farm_manager.farm_slot[_i, 5] -= _endurance;
-							}
+							_has_high_fairy = true;
+							break;
 						}
 					}
 				}
-				scr_active_hand_discard_card(activated_card_slot);
-				scr_active_hand_update();
+				
+				if (_has_high_fairy)
+				{
+					for (var _i = 1; _i <= 12; _i++)
+					{
+						var _added_value = _param;
+						if (_farm_manager.farm_slot[_i, 0] > 0)
+						{
+							if (_farm_manager.farm_slot[_i, 8] == "High")
+							{
+								if (_farm_manager.farm_slot[_i, 5] >= _endurance)
+								{
+									// Increase Growth
+									var _temp = _farm_manager.farm_slot[_i, 1] + _param;
+									if (_temp > _farm_manager.farm_slot[_i, 2])
+									{
+										_temp = _farm_manager.farm_slot[_i, 2];
+									}
+									_farm_manager.farm_slot[_i, 1] = _temp;
+		
+									// Decrease Endurance
+									_farm_manager.farm_slot[_i, 5] -= _endurance;
+								}
+							}
+						}
+					}
+					scr_active_hand_discard_card(activated_card_slot);
+					audio_play_sound(snd_card_success, 800, false, global.game_effects_volume * 1);
+					scr_active_hand_update();
+				}
+				else
+				{
+					scr_new_popup("No high fairy in the farm.");
+					audio_play_sound(snd_card_fail, 800, false, global.game_effects_volume * 1);
+				}
 			}
 			else
 			{
 				scr_new_popup("Not near a farm.");
+				audio_play_sound(snd_card_fail, 800, false, global.game_effects_volume * 1);
 			}
 			break;
 			
@@ -1263,70 +2202,116 @@ function scr_card_activate(_type, _param, _endurance = 0){
 			{
 				_param = scr_apply_buff(_param, 2);
 				_endurance = scr_apply_buff(_endurance, 3);
+				var _has_high_fairy = false;
 				for (var _i = 1; _i <= 12; _i++)
 				{
-					var _added_value = _param;
 					if (_farm_manager.farm_slot[_i, 0] > 0)
 					{
 						if (_farm_manager.farm_slot[_i, 8] == "High")
 						{
-							if (_farm_manager.farm_slot[_i, 5] >= _endurance)
+							_has_high_fairy = true;
+							break;
+						}
+					}
+				}
+				
+				if (_has_high_fairy)
+				{
+					for (var _i = 1; _i <= 12; _i++)
+					{
+						var _added_value = _param;
+						if (_farm_manager.farm_slot[_i, 0] > 0)
+						{
+							if (_farm_manager.farm_slot[_i, 8] == "High")
 							{
-								
-								if (_farm_manager.farm_slot[_i, 1] < _farm_manager.farm_slot[_i, 2])
+								if (_farm_manager.farm_slot[_i, 5] >= _endurance)
 								{
-									_farm_manager.farm_slot[_i, 3] += _param;
-									if (_farm_manager.farm_slot[_i, 3] >= _farm_manager.farm_slot[_i, 4])
+								
+									if (_farm_manager.farm_slot[_i, 1] < _farm_manager.farm_slot[_i, 2])
 									{
-										_farm_manager.farm_slot[_i, 3] -= _farm_manager.farm_slot[_i, 4];
-										_farm_manager.farm_slot[_i, 4] *= 2;
-										_farm_manager.farm_slot[_i, 7] += 1;
-									}
-									_farm_manager.farm_slot[_i, 5] -= _endurance
+										_farm_manager.farm_slot[_i, 3] += _param;
+										if (_farm_manager.farm_slot[_i, 3] >= _farm_manager.farm_slot[_i, 4])
+										{
+											_farm_manager.farm_slot[_i, 3] -= _farm_manager.farm_slot[_i, 4];
+											_farm_manager.farm_slot[_i, 4] *= 2;
+											_farm_manager.farm_slot[_i, 7] += 1;
+										}
+										_farm_manager.farm_slot[_i, 5] -= _endurance
 			
-									if (_farm_manager.farm_slot[_i, 7] == 3)
-									{
-										_farm_manager.farm_slot[_i, 4] = 999;
+										if (_farm_manager.farm_slot[_i, 7] == 3)
+										{
+											_farm_manager.farm_slot[_i, 4] = 999;
+										}
 									}
 								}
 							}
 						}
 					}
+					scr_active_hand_discard_card(activated_card_slot);
+					audio_play_sound(snd_card_success, 800, false, global.game_effects_volume * 1);
+					scr_active_hand_update();
 				}
-				scr_active_hand_discard_card(activated_card_slot);
-				scr_active_hand_update();
+				else
+				{
+					scr_new_popup("No high fairy in the farm.");
+					audio_play_sound(snd_card_fail, 800, false, global.game_effects_volume * 1);
+				}
 			}
 			else
 			{
 				scr_new_popup("Not near a farm.");
+				audio_play_sound(snd_card_fail, 800, false, global.game_effects_volume * 1);
 			}
 			break;
 			
 		case "High Fairy Increase Endurance":
 			if (object_get_name(obj_player.activate.object_index) == "obj_farm")
 			{
+				var _has_high_fairy = false;
 				for (var _i = 1; _i <= 12; _i++)
 				{
-					var _added_value = _param;
 					if (_farm_manager.farm_slot[_i, 0] > 0)
 					{
 						if (_farm_manager.farm_slot[_i, 8] == "High")
 						{
-							_farm_manager.farm_slot[_i, 5] += _added_value;
-							
-							if (_farm_manager.farm_slot[_i, 5] >= _farm_manager.farm_slot[_i, 6])
-							{
-								_farm_manager.farm_slot[_i, 5] = _farm_manager.farm_slot[_i, 6];
-							}
+							_has_high_fairy = true;
+							break;
 						}
 					}
 				}
-				scr_active_hand_discard_card(activated_card_slot);
-				scr_active_hand_update();
+				
+				if (_has_high_fairy)
+				{
+					for (var _i = 1; _i <= 12; _i++)
+					{
+						var _added_value = _param;
+						if (_farm_manager.farm_slot[_i, 0] > 0)
+						{
+							if (_farm_manager.farm_slot[_i, 8] == "High")
+							{
+								_farm_manager.farm_slot[_i, 5] += _added_value;
+							
+								if (_farm_manager.farm_slot[_i, 5] >= _farm_manager.farm_slot[_i, 6])
+								{
+									_farm_manager.farm_slot[_i, 5] = _farm_manager.farm_slot[_i, 6];
+								}
+							}
+						}
+					}
+					scr_active_hand_discard_card(activated_card_slot);
+					audio_play_sound(snd_card_success, 800, false, global.game_effects_volume * 1);
+					scr_active_hand_update();
+				}
+				else
+				{
+					scr_new_popup("No high fairy in the farm.");
+					audio_play_sound(snd_card_fail, 800, false, global.game_effects_volume * 1);
+				}
 			}
 			else
 			{
 				scr_new_popup("Not near a farm.");
+				audio_play_sound(snd_card_fail, 800, false, global.game_effects_volume * 1);
 			}
 			break;
 		
@@ -1376,16 +2361,19 @@ function scr_card_activate(_type, _param, _endurance = 0){
 					else
 					{
 						scr_new_popup("No fairy at this plant.");
+						audio_play_sound(snd_card_fail, 800, false, global.game_effects_volume * 1);
 					}
 				}
 				else
 				{
 					scr_new_popup("Farm has no plant.");
+					audio_play_sound(snd_card_fail, 800, false, global.game_effects_volume * 1);
 				}
 			}
 			else
 			{
 				scr_new_popup("Not near a farm.");
+				audio_play_sound(snd_card_fail, 800, false, global.game_effects_volume * 1);
 			}
 			break;
 			
@@ -1397,20 +2385,26 @@ function scr_card_activate(_type, _param, _endurance = 0){
 					if (scr_fairy_check(obj_player.activate.entity_activate_argument[0]))
 					{
 						_farm_manager.farm_slot[obj_player.activate.entity_activate_argument[0], 8] = -1;
+						scr_active_hand_discard_card(activated_card_slot);
+						audio_play_sound(snd_card_success, 800, false, global.game_effects_volume * 1);
+						scr_active_hand_update();
 					}
 					else
 					{
 						scr_new_popup("No fairy at this plant.");
+						audio_play_sound(snd_card_fail, 800, false, global.game_effects_volume * 1);
 					}
 				}
 				else
 				{
 					scr_new_popup("Farm has no plant.");
+					audio_play_sound(snd_card_fail, 800, false, global.game_effects_volume * 1);
 				}
 			}
 			else
 			{
 				scr_new_popup("Not near a farm.");
+				audio_play_sound(snd_card_fail, 800, false, global.game_effects_volume * 1);
 			}
 			break;
 			
@@ -1465,8 +2459,1724 @@ function scr_card_activate(_type, _param, _endurance = 0){
 			else
 			{
 				scr_new_popup("Not near a farm.");
+				audio_play_sound(snd_card_fail, 800, false, global.game_effects_volume * 1);
 			}
 			break;
+		
+		#endregion
+		
+		#region Harmony Effects
+		
+		case "Harmony Growth Increase":
+		
+			if (object_get_name(obj_player.activate.object_index) == "obj_farm")
+			{
+				var _slot = obj_player.activate.entity_activate_argument[0];
+				if (_farm_manager.farm_slot[_slot, 0] > 0)
+				{
+					var _buff = _farm_manager.farm_slot[_slot, 8];
+					if (string_char_at(_buff, 1) == "X")
+					{
+						_param = floor(_param * (1 + 0.2 * real(string_char_at(_buff, 2))));
+					
+						_param = scr_apply_buff(_param, 1);
+						_endurance = scr_apply_buff(_endurance, 3);
+					}
+					else
+					{
+						_param = scr_apply_buff(_param, 1);
+						_endurance = scr_apply_buff(_endurance, 3);
+					}
+				
+					if (_farm_manager.farm_slot[_slot, 5] >= _endurance)
+					{
+						// Increase Growth
+						var _temp = _farm_manager.farm_slot[_slot, 1] + _param;
+						if (_temp > _farm_manager.farm_slot[_slot, 2])
+						{
+							_temp = _farm_manager.farm_slot[_slot, 2];
+						}
+						_farm_manager.farm_slot[_slot, 1] = _temp;
+		
+						// Decrease Endurance
+						_farm_manager.farm_slot[_slot, 5] -= _endurance;
+		
+						scr_active_hand_discard_card(activated_card_slot);
+						audio_play_sound(snd_card_success, 800, false, global.game_effects_volume * 1);
+						scr_active_hand_update();
+						return true;
+					}
+					else
+					{
+						scr_new_popup("Not enough endurance");
+						audio_play_sound(snd_card_fail, 800, false, global.game_effects_volume * 1);
+						return false;
+					}
+				}
+				else
+				{
+					scr_new_popup("There is no plant here");
+					audio_play_sound(snd_card_fail, 800, false, global.game_effects_volume * 1);
+					return false;
+				}
+			}
+			else
+			{
+				scr_new_popup("Not a farm");
+				audio_play_sound(snd_card_fail, 800, false, global.game_effects_volume * 1);
+			}
+			
+			break;
+			
+		case "Harmony Nutrients Increase":
+		
+			if (object_get_name(obj_player.activate.object_index) == "obj_farm")
+			{
+				var _slot = obj_player.activate.entity_activate_argument[0];
+				if (_farm_manager.farm_slot[_slot, 0] > 0)
+				{
+					
+					var _buff = _farm_manager.farm_slot[_slot, 8];
+					if (string_char_at(_buff, 1) == "X")
+					{
+						_param = floor(_param * (1 + 0.2 * real(string_char_at(_buff, 2))));
+					}
+				
+					_param = scr_apply_buff(_param, 2);
+					_endurance = scr_apply_buff(_endurance, 3);
+				
+					if (_farm_manager.farm_slot[_slot, 5] >= _endurance)
+					{
+						if (_farm_manager.farm_slot[_slot, 1] < _farm_manager.farm_slot[_slot, 2])
+						{
+							_farm_manager.farm_slot[_slot, 3] += _param;
+							if (_farm_manager.farm_slot[_slot, 3] >= _farm_manager.farm_slot[_slot, 4])
+							{
+								_farm_manager.farm_slot[_slot, 3] -= _farm_manager.farm_slot[_slot, 4];
+								_farm_manager.farm_slot[_slot, 4] *= 2;
+								_farm_manager.farm_slot[_slot, 7] += 1;
+							}
+							_farm_manager.farm_slot[_slot, 5] -= _endurance
+			
+							if (_farm_manager.farm_slot[_slot, 7] == 3)
+							{
+								_farm_manager.farm_slot[_slot, 4] = 999;
+							}
+			
+							scr_active_hand_discard_card(activated_card_slot);
+							audio_play_sound(snd_card_success, 800, false, global.game_effects_volume * 1);
+							scr_active_hand_update();
+		
+							return true;
+						}
+						else
+						{
+							scr_new_popup("Plant is already fully grown");
+							audio_play_sound(snd_card_fail, 800, false, global.game_effects_volume * 1);
+							return false;
+						}
+					}
+					else
+					{
+						scr_new_popup("Not enough endurance");
+						audio_play_sound(snd_card_fail, 800, false, global.game_effects_volume * 1);
+						return false;
+					}
+				}
+				else
+				{
+					scr_new_popup("There is no plant here");
+					audio_play_sound(snd_card_fail, 800, false, global.game_effects_volume * 1);
+					return false;
+				}
+			}
+			else
+			{
+				scr_new_popup("Not a farm");
+				audio_play_sound(snd_card_fail, 800, false, global.game_effects_volume * 1);
+			}
+			
+			break;
+		
+		case "Harmony Endurance Increase":
+		
+			if (object_get_name(obj_player.activate.object_index) == "obj_farm")
+			{
+				var _slot = obj_player.activate.entity_activate_argument[0];
+				var _buff = _farm_manager.farm_slot[_slot, 8];
+				if (string_char_at(_buff, 1) == "X")
+				{
+					_param = floor(_param * (1 + 0.2 * real(string_char_at(_buff, 2))));
+				}
+				
+				if (_farm_manager.farm_slot[_slot, 0] > 0)
+				{
+					_farm_manager.farm_slot[_slot, 5] += _param;
+					if (_farm_manager.farm_slot[_slot, 5] >= _farm_manager.farm_slot[_slot, 6])
+					{
+						_farm_manager.farm_slot[_slot, 5] = _farm_manager.farm_slot[_slot, 6];
+					}
+	
+					scr_active_hand_discard_card(activated_card_slot);
+					audio_play_sound(snd_card_success, 800, false, global.game_effects_volume * 1);
+					scr_active_hand_update();
+	
+					return true;
+				}
+				else
+				{
+					scr_new_popup("There is no plant here");
+					audio_play_sound(snd_card_fail, 800, false, global.game_effects_volume * 1);
+					return false;
+				}
+			}
+			else
+			{
+				scr_new_popup("Not a farm");
+				audio_play_sound(snd_card_fail, 800, false, global.game_effects_volume * 1);
+			}
+			
+			break;
+			
+		case "Harmony Reduce Nutrients":
+		
+			if (object_get_name(obj_player.activate.object_index) == "obj_farm")
+			{
+				var _slot = obj_player.activate.entity_activate_argument[0];
+				
+				if (_farm_manager.farm_slot[_slot, 0] > 0)
+				{
+					if (_farm_manager.farm_slot[_slot, 3] >= _param[0])
+					{
+						var _buff = _farm_manager.farm_slot[_slot, 8];
+						var _buff_found = false;
+
+						_endurance = scr_apply_buff(_endurance, 3);				
+				
+						if (string_char_at(_buff, 1) == "X")
+						{
+							_buff_found = true;
+					
+							var _temp_stack = real(string_char_at(_buff, 2)) + _param[1];
+							
+							if (_temp_stack > 9)
+							{
+								_temp_stack = 9;
+							}
+					
+							_farm_manager.farm_slot[_slot, 8] = "X" + string(_temp_stack);
+						}
+						else
+						{
+							_farm_manager.farm_slot[_slot, 8] = "X" + string(_param[1]);
+						}
+					
+						_farm_manager.farm_slot[_slot, 3] -= _param[0];
+						_farm_manager.farm_slot[_slot, 5] -= _endurance
+						
+						scr_active_hand_discard_card(activated_card_slot);
+						audio_play_sound(snd_card_success, 800, false, global.game_effects_volume * 1);
+						scr_active_hand_update();
+						return true;
+					}
+					else
+					{
+						scr_new_popup("Not enough nutrients");
+						audio_play_sound(snd_card_fail, 800, false, global.game_effects_volume * 1);
+						return false;
+					}		
+				}
+				else
+				{
+					scr_new_popup("There is no plant here");
+					audio_play_sound(snd_card_fail, 800, false, global.game_effects_volume * 1);
+					return false;
+				}
+			}
+			else
+			{
+				scr_new_popup("Not a farm");
+				audio_play_sound(snd_card_fail, 800, false, global.game_effects_volume * 1);
+			}
+		
+			break;
+		
+		case "Harmony Reduce Endurance":
+		
+			if (object_get_name(obj_player.activate.object_index) == "obj_farm")
+			{
+				var _slot = obj_player.activate.entity_activate_argument[0];
+				
+				if (_farm_manager.farm_slot[_slot, 0] > 0)
+				{
+					_endurance = scr_apply_buff(_endurance, 3);
+					if (_farm_manager.farm_slot[_slot, 5] >= _param[0] + _endurance)
+					{
+						var _buff = _farm_manager.farm_slot[_slot, 8];
+						var _buff_found = false;
+				
+						if (string_char_at(_buff, 1) == "X")
+						{
+							_buff_found = true;
+					
+							var _temp_stack = real(string_char_at(_buff, 2)) + _param[1];
+							if (_temp_stack > 9)
+							{
+								_temp_stack = 9;
+							}
+					
+							_farm_manager.farm_slot[_slot, 8] = "X" + string(_temp_stack);
+						}
+						else
+						{
+							_farm_manager.farm_slot[_slot, 8] = "X" + string(_param[1]);
+						}
+					
+						_farm_manager.farm_slot[_slot, 5] -= _param[0];
+						_farm_manager.farm_slot[_slot, 5] -= _endurance
+						
+						scr_active_hand_discard_card(activated_card_slot);
+						audio_play_sound(snd_card_success, 800, false, global.game_effects_volume * 1);
+						scr_active_hand_update();
+						return true;
+					}
+					else
+					{
+						scr_new_popup("Not enough endurance");
+						audio_play_sound(snd_card_fail, 800, false, global.game_effects_volume * 1);
+						return false;
+					}		
+				}
+				else
+				{
+					scr_new_popup("There is no plant here");
+					audio_play_sound(snd_card_fail, 800, false, global.game_effects_volume * 1);
+					return false;
+				}
+			}
+			else
+			{
+				scr_new_popup("Not a farm");
+				audio_play_sound(snd_card_fail, 800, false, global.game_effects_volume * 1);
+			}
+		
+			break;
+		
+		case "Harmony Increase Growth":
+		
+			var _slot = obj_player.activate.entity_activate_argument[0];
+			if (object_get_name(obj_player.activate.object_index) == "obj_farm")
+			{
+				if (_farm_manager.farm_slot[_slot, 0] > 0)
+				{
+					var _slot = obj_player.activate.entity_activate_argument[0];
+					var _buff = _farm_manager.farm_slot[_slot, 8];
+					var _buff_found = false;
+				
+					_endurance = scr_apply_buff(_endurance, 3);
+				
+					if (_farm_manager.farm_slot[_slot, 5] >= _endurance)
+					{
+						_param[0] = scr_apply_buff(_param[0], 1);
+					
+						if (string_char_at(_buff, 1) == "X")
+						{
+							_buff_found = true;
+					
+							var _temp_stack = real(string_char_at(_buff, 2)) + _param[1];
+							if (_temp_stack > 9)
+							{
+								_temp_stack = 9;
+							}
+					
+							_farm_manager.farm_slot[_slot, 8] = "X" + string(_temp_stack);
+						}
+						else
+						{
+							_farm_manager.farm_slot[_slot, 8] = "X" + string(_param[1]);
+						}
+					
+						// Increase Growth
+						var _temp = _farm_manager.farm_slot[_slot, 1] + _param[0];
+						if (_temp > _farm_manager.farm_slot[_slot, 2])
+						{
+							_temp = _farm_manager.farm_slot[_slot, 2];
+						}
+						_farm_manager.farm_slot[_slot, 1] = _temp;
+		
+						// Decrease Endurance
+						_farm_manager.farm_slot[_slot, 5] -= _endurance;
+		
+						scr_active_hand_discard_card(activated_card_slot);
+						audio_play_sound(snd_card_success, 800, false, global.game_effects_volume * 1);
+						scr_active_hand_update();
+						return true;
+					}
+					else
+					{
+						scr_new_popup("Not enough endurance");
+						audio_play_sound(snd_card_fail, 800, false, global.game_effects_volume * 1);
+						return false;
+					}
+				}
+				else
+				{
+					scr_new_popup("No crop in the farm.");
+					audio_play_sound(snd_card_fail, 800, false, global.game_effects_volume * 1);
+				}
+			}
+			else
+			{
+				scr_new_popup("Not a farm");
+				audio_play_sound(snd_card_fail, 800, false, global.game_effects_volume * 1);
+			}
+			
+			break;
+			
+		case "Harmony Increase Nutrients":
+		
+			var _slot = obj_player.activate.entity_activate_argument[0];
+			if (object_get_name(obj_player.activate.object_index) == "obj_farm")
+			{
+				if (_farm_manager.farm_slot[_slot, 0] > 0)
+				{
+					var _slot = obj_player.activate.entity_activate_argument[0];
+					var _buff = _farm_manager.farm_slot[_slot, 8];
+					var _buff_found = false;
+				
+					_endurance = scr_apply_buff(_endurance, 3);
+				
+					if (_farm_manager.farm_slot[_slot, 5] >= _endurance)
+					{
+						_param[0] = scr_apply_buff(_param[0], 2);
+					
+						if (string_char_at(_buff, 1) == "X")
+						{
+							_buff_found = true;
+					
+							var _temp_stack = real(string_char_at(_buff, 2)) + _param[1];
+							if (_temp_stack > 9)
+							{
+								_temp_stack = 9;
+							}
+					
+							_farm_manager.farm_slot[_slot, 8] = "X" + string(_temp_stack);
+						}
+						else
+						{
+							_farm_manager.farm_slot[_slot, 8] = "X" + string(_param[1]);
+						}
+					
+						if (_farm_manager.farm_slot[_slot, 1] < _farm_manager.farm_slot[_slot, 2])
+						{
+							_farm_manager.farm_slot[_slot, 3] += _param[0];
+							if (_farm_manager.farm_slot[_slot, 3] >= _farm_manager.farm_slot[_slot, 4])
+							{
+								_farm_manager.farm_slot[_slot, 3] -= _farm_manager.farm_slot[_slot, 4];
+								_farm_manager.farm_slot[_slot, 4] *= 2;
+								_farm_manager.farm_slot[_slot, 7] += 1;
+							}
+							_farm_manager.farm_slot[_slot, 5] -= _endurance
+			
+							if (_farm_manager.farm_slot[_slot, 7] == 3)
+							{
+								_farm_manager.farm_slot[_slot, 4] = 999;
+							}
+			
+							scr_active_hand_discard_card(activated_card_slot);
+							audio_play_sound(snd_card_success, 800, false, global.game_effects_volume * 1);
+							scr_active_hand_update();
+		
+							return true;
+						}
+						else
+						{
+							scr_new_popup("Plant already fully grown");
+							audio_play_sound(snd_card_fail, 800, false, global.game_effects_volume * 1);
+							return false;
+						}
+					}
+					else
+					{
+						scr_new_popup("No crop in the farm.");
+						audio_play_sound(snd_card_fail, 800, false, global.game_effects_volume * 1);
+					}
+				}
+				else
+				{
+					scr_new_popup("Not enough endurance");
+					audio_play_sound(snd_card_fail, 800, false, global.game_effects_volume * 1);
+					return false;
+				}
+			}
+			else
+			{
+				scr_new_popup("Not a farm");
+				audio_play_sound(snd_card_fail, 800, false, global.game_effects_volume * 1);
+			}
+			
+			break;
+		
+		case "Harmony Increase Endurance":
+		
+			var _slot = obj_player.activate.entity_activate_argument[0];
+			if (object_get_name(obj_player.activate.object_index) == "obj_farm")
+			{
+				if (_farm_manager.farm_slot[_slot, 0] > 0)
+				{
+					var _slot = obj_player.activate.entity_activate_argument[0];
+					var _buff = _farm_manager.farm_slot[_slot, 8];
+					var _buff_found = false;
+					
+					if (string_char_at(_buff, 1) == "X")
+					{
+						_buff_found = true;
+					
+						var _temp_stack = real(string_char_at(_buff, 2)) + _param[1];
+						if (_temp_stack > 9)
+						{
+							_temp_stack = 9;
+						}
+					
+						_farm_manager.farm_slot[_slot, 8] = "X" + string(_temp_stack);
+					}
+					else
+					{
+						_farm_manager.farm_slot[_slot, 8] = "X" + string(_param[1]);
+					}
+					
+					_farm_manager.farm_slot[_slot, 5] += _param[0];
+					if (_farm_manager.farm_slot[_slot, 5] >= _farm_manager.farm_slot[_slot, 6])
+					{
+						_farm_manager.farm_slot[_slot, 5] = _farm_manager.farm_slot[_slot, 6];
+					}
+	
+					scr_active_hand_discard_card(activated_card_slot);
+					audio_play_sound(snd_card_success, 800, false, global.game_effects_volume * 1);
+					scr_active_hand_update();
+	
+					return true;
+				}
+				else
+				{
+					scr_new_popup("No crop in the farm.");
+					audio_play_sound(snd_card_fail, 800, false, global.game_effects_volume * 1);
+				}
+			}
+			else
+			{
+				scr_new_popup("Not a farm");
+				audio_play_sound(snd_card_fail, 800, false, global.game_effects_volume * 1);
+			}
+			
+			break;
+			
+		case "Harmony Deduction Growth Increase":
+		
+			if (object_get_name(obj_player.activate.object_index) == "obj_farm")
+			{
+				var _slot = obj_player.activate.entity_activate_argument[0];
+				if (_farm_manager.farm_slot[_slot, 0] > 0)
+				{
+					var _buff = _farm_manager.farm_slot[_slot, 8];
+					if (string_char_at(_buff, 1) == "X")
+					{
+						if (real(string_char_at(_buff, 2)) >= _param[1])
+						{
+							_param[0] = floor(_param[0] * (1 + 0.2 * real(string_char_at(_buff, 2))));
+							
+							_param[0] = scr_apply_buff(_param[0], 1);
+							_endurance = scr_apply_buff(_endurance, 3);
+							
+							if (_farm_manager.farm_slot[_slot, 5] >= _endurance)
+							{
+								var _temp_stack = real(string_char_at(_buff, 2) - _param[1]);
+								if (_temp_stack == 0)
+								{
+									_farm_manager.farm_slot[_slot, 8] =  -1;
+								}
+								else
+								{
+									_farm_manager.farm_slot[_slot, 8] = "X" + string(_temp_stack);
+								}
+								
+								// Increase Growth
+								var _temp = _farm_manager.farm_slot[_slot, 1] + _param[0];
+								if (_temp > _farm_manager.farm_slot[_slot, 2])
+								{
+									_temp = _farm_manager.farm_slot[_slot, 2];
+								}
+								_farm_manager.farm_slot[_slot, 1] = _temp;
+		
+								// Decrease Endurance
+								_farm_manager.farm_slot[_slot, 5] -= _endurance;
+		
+								scr_active_hand_discard_card(activated_card_slot);
+								audio_play_sound(snd_card_success, 800, false, global.game_effects_volume * 1);
+								scr_active_hand_update();
+								return true;
+							}
+							else
+							{
+								scr_new_popup("Not enough endurance");
+								audio_play_sound(snd_card_fail, 800, false, global.game_effects_volume * 1);
+								return false;
+							}
+						}
+						else
+						{
+							scr_new_popup("Not enough harmony stack.");
+							audio_play_sound(snd_card_fail, 800, false, global.game_effects_volume * 1);
+							return false;
+						}
+					}
+					else
+					{
+						scr_new_popup("No harmony stack.");
+						audio_play_sound(snd_card_fail, 800, false, global.game_effects_volume * 1);
+						return false;
+					}
+				}
+				else
+				{
+					scr_new_popup("There is no plant here");
+					audio_play_sound(snd_card_fail, 800, false, global.game_effects_volume * 1);
+					return false;
+				}
+			}
+			else
+			{
+				scr_new_popup("Not a farm");
+				audio_play_sound(snd_card_fail, 800, false, global.game_effects_volume * 1);
+			}
+			
+			break;
+			
+		case "Harmony Deduction Nutrients Increase":
+		
+			if (object_get_name(obj_player.activate.object_index) == "obj_farm")
+			{
+				var _slot = obj_player.activate.entity_activate_argument[0];
+				if (_farm_manager.farm_slot[_slot, 0] > 0)
+				{
+					var _buff = _farm_manager.farm_slot[_slot, 8];
+					if (string_char_at(_buff, 1) == "X")
+					{
+						if (real(string_char_at(_buff, 2)) >= _param[1])
+						{
+							_param[0] = floor(_param[0] * (1 + 0.2 * real(string_char_at(_buff, 2))));
+							
+							_param[0] = scr_apply_buff(_param[0], 2);
+							_endurance = scr_apply_buff(_endurance, 3);
+							
+							if (_farm_manager.farm_slot[_slot, 5] >= _endurance)
+							{
+								if (_farm_manager.farm_slot[_slot, 1] < _farm_manager.farm_slot[_slot, 2])
+								{
+									var _temp_stack = real(string_char_at(_buff, 2) - _param[1]);
+									if (_temp_stack == 0)
+									{
+										_farm_manager.farm_slot[_slot, 8] =  -1;
+									}
+									else
+									{
+										_farm_manager.farm_slot[_slot, 8] = "X" + string(_temp_stack);
+									}
+									
+									_farm_manager.farm_slot[_slot, 3] += _param[0];
+									if (_farm_manager.farm_slot[_slot, 3] >= _farm_manager.farm_slot[_slot, 4])
+									{
+										_farm_manager.farm_slot[_slot, 3] -= _farm_manager.farm_slot[_slot, 4];
+										_farm_manager.farm_slot[_slot, 4] *= 2;
+										_farm_manager.farm_slot[_slot, 7] += 1;
+									}
+									_farm_manager.farm_slot[_slot, 5] -= _endurance;
+			
+									if (_farm_manager.farm_slot[_slot, 7] == 3)
+									{
+										_farm_manager.farm_slot[_slot, 4] = 999;
+									}
+			
+									scr_active_hand_discard_card(activated_card_slot);
+									audio_play_sound(snd_card_success, 800, false, global.game_effects_volume * 1);
+									scr_active_hand_update();
+		
+									return true;
+								}
+								else
+								{
+									scr_new_popup("Plant is already fully grown");
+									audio_play_sound(snd_card_fail, 800, false, global.game_effects_volume * 1);
+									return false;
+								}
+							}
+							else
+							{
+								scr_new_popup("Not enough endurance");
+								audio_play_sound(snd_card_fail, 800, false, global.game_effects_volume * 1);
+								return false;
+							}
+						}
+						else
+						{
+							scr_new_popup("Not enough harmony stack.");
+							audio_play_sound(snd_card_fail, 800, false, global.game_effects_volume * 1);
+							return false;
+						}
+					}
+					else
+					{
+						scr_new_popup("No harmony stack.");
+						audio_play_sound(snd_card_fail, 800, false, global.game_effects_volume * 1);
+						return false;
+					}
+				}
+				else
+				{
+					scr_new_popup("There is no plant here");
+					audio_play_sound(snd_card_fail, 800, false, global.game_effects_volume * 1);
+					return false;
+				}
+			}
+			else
+			{
+				scr_new_popup("Not a farm");
+				audio_play_sound(snd_card_fail, 800, false, global.game_effects_volume * 1);
+			}
+			
+			break;
+			
+		case "Harmony Deduction Endurance Increase":
+		
+			if (object_get_name(obj_player.activate.object_index) == "obj_farm")
+			{
+				var _slot = obj_player.activate.entity_activate_argument[0];
+				if (_farm_manager.farm_slot[_slot, 0] > 0)
+				{
+					var _buff = _farm_manager.farm_slot[_slot, 8];
+					if (string_char_at(_buff, 1) == "X")
+					{
+						if (real(string_char_at(_buff, 2)) >= _param[1])
+						{
+							_param[0] = floor(_param[0] * (1 + 0.2 * real(string_char_at(_buff, 2))));
+							var _temp_stack = real(string_char_at(_buff, 2) - _param[1]);
+							if (_temp_stack == 0)
+							{
+								_farm_manager.farm_slot[_slot, 8] =  -1;
+							}
+							else
+							{
+								_farm_manager.farm_slot[_slot, 8] = "X" + string(_temp_stack);
+							}
+								
+							_farm_manager.farm_slot[_slot, 5] += _param[0];
+								
+							if (_farm_manager.farm_slot[_slot, 5] >= _farm_manager.farm_slot[_slot, 6])
+							{
+								_farm_manager.farm_slot[_slot, 5] = _farm_manager.farm_slot[_slot, 6];
+							}
+	
+							scr_active_hand_discard_card(activated_card_slot);
+							audio_play_sound(snd_card_success, 800, false, global.game_effects_volume * 1);
+							scr_active_hand_update();
+	
+							return true;
+						}
+						else
+						{
+							scr_new_popup("Not enough harmony stack.");
+							audio_play_sound(snd_card_fail, 800, false, global.game_effects_volume * 1);
+							return false;
+						}
+					}
+					else
+					{
+						scr_new_popup("No harmony stack.");
+						audio_play_sound(snd_card_fail, 800, false, global.game_effects_volume * 1);
+						return false;
+					}
+				}
+				else
+				{
+					scr_new_popup("There is no plant here");
+					audio_play_sound(snd_card_fail, 800, false, global.game_effects_volume * 1);
+					return false;
+				}
+			}
+			else
+			{
+				scr_new_popup("Not a farm");
+				audio_play_sound(snd_card_fail, 800, false, global.game_effects_volume * 1);
+			}
+			
+			break;
+		
+		case "Harmony Growth Final Increase":
+		
+			if (object_get_name(obj_player.activate.object_index) == "obj_farm")
+			{
+				var _slot = obj_player.activate.entity_activate_argument[0];
+				if (_farm_manager.farm_slot[_slot, 0] > 0)
+				{
+					var _buff = _farm_manager.farm_slot[_slot, 8];
+					
+					if (string_char_at(_buff, 1) == "X")
+					{
+						_param[0] *= real(string_char_at(_buff, 2));
+						_endurance = scr_apply_buff(_endurance, 3);	
+						
+						if (_farm_manager.farm_slot[_slot, 5] >= _endurance)
+						{
+							_farm_manager.farm_slot[_slot, 8] =  -1;
+								
+							_farm_manager.farm_slot[_slot, 1] += _param[0];
+								
+							if (_farm_manager.farm_slot[_slot, 1] >= _farm_manager.farm_slot[_slot, 2])
+							{
+								_farm_manager.farm_slot[_slot, 1] = _farm_manager.farm_slot[_slot, 2];
+							}
+	
+							scr_active_hand_discard_card(activated_card_slot);
+							audio_play_sound(snd_card_success, 800, false, global.game_effects_volume * 1);
+							scr_active_hand_update();
+	
+							return true;
+						}
+						else
+						{
+							scr_new_popup("Not enough endurance");
+							audio_play_sound(snd_card_fail, 800, false, global.game_effects_volume * 1);
+							return false;
+						}
+					}
+					else
+					{
+						scr_new_popup("No harmony stack.");
+						audio_play_sound(snd_card_fail, 800, false, global.game_effects_volume * 1);
+						return false;
+					}
+				}
+				else
+				{
+					scr_new_popup("There is no plant here");
+					audio_play_sound(snd_card_fail, 800, false, global.game_effects_volume * 1);
+					return false;
+				}
+			}
+			else
+			{
+				scr_new_popup("Not a farm");
+				audio_play_sound(snd_card_fail, 800, false, global.game_effects_volume * 1);
+			}
+			
+			break;
+			
+		case "Harmony Nutrients Final Increase":
+		
+			if (object_get_name(obj_player.activate.object_index) == "obj_farm")
+			{
+				var _slot = obj_player.activate.entity_activate_argument[0];
+				if (_farm_manager.farm_slot[_slot, 0] > 0)
+				{
+					var _buff = _farm_manager.farm_slot[_slot, 8];
+					
+					if (string_char_at(_buff, 1) == "X")
+					{
+						_param[0] *= real(string_char_at(_buff, 2));
+						_endurance = scr_apply_buff(_endurance, 3);	
+						
+						if (_farm_manager.farm_slot[_slot, 5] >= _endurance)
+						{
+							if (_farm_manager.farm_slot[_slot, 1] < _farm_manager.farm_slot[_slot, 2])
+							{
+								_farm_manager.farm_slot[_slot, 8] =  -1;
+									
+								_farm_manager.farm_slot[_slot, 3] += _param[0];
+								if (_farm_manager.farm_slot[_slot, 3] >= _farm_manager.farm_slot[_slot, 4])
+								{
+									_farm_manager.farm_slot[_slot, 3] -= _farm_manager.farm_slot[_slot, 4];
+									_farm_manager.farm_slot[_slot, 4] *= 2;
+									_farm_manager.farm_slot[_slot, 7] += 1;
+								}
+								_farm_manager.farm_slot[_slot, 5] -= _endurance;
+			
+								if (_farm_manager.farm_slot[_slot, 7] == 3)
+								{
+									_farm_manager.farm_slot[_slot, 4] = 999;
+								}
+			
+								scr_active_hand_discard_card(activated_card_slot);
+								audio_play_sound(snd_card_success, 800, false, global.game_effects_volume * 1);
+								scr_active_hand_update();
+		
+								return true;
+							}
+							else
+							{
+								scr_new_popup("Plant is already fully grown");
+								audio_play_sound(snd_card_fail, 800, false, global.game_effects_volume * 1);
+								return false;
+							}
+						}
+						else
+						{
+							scr_new_popup("Not enough endurance");
+							audio_play_sound(snd_card_fail, 800, false, global.game_effects_volume * 1);
+							return false;
+						}
+					}
+					else
+					{
+						scr_new_popup("No harmony stack.");
+						audio_play_sound(snd_card_fail, 800, false, global.game_effects_volume * 1);
+						return false;
+					}
+				}
+				else
+				{
+					scr_new_popup("There is no plant here");
+					audio_play_sound(snd_card_fail, 800, false, global.game_effects_volume * 1);
+					return false;
+				}
+			}
+			else
+			{
+				scr_new_popup("Not a farm");
+				audio_play_sound(snd_card_fail, 800, false, global.game_effects_volume * 1);
+			}
+			
+			break;
+		
+		#endregion
+		
+		#region 61-80 Effects
+		
+		case "Row Growth Increase":
+		
+			if (object_get_name(obj_player.activate.object_index) == "obj_farm")
+			{
+				var _slot = obj_player.activate.entity_activate_argument[0];
+				var _row = floor(_slot / 4) + 1;
+				var _column = _slot % 4
+				var _check_amount = _param[0];
+				var _increase_amount = _param[1];
+				_increase_amount = scr_apply_buff(_increase_amount, 1);
+				_endurance = scr_apply_buff(_endurance, 3);
+				
+				if (_farm_manager.farm_slot[_slot, 0] > 0)
+				{
+					var _plant_type = _farm_manager.farm_slot[_slot, 0];
+					var _same_count = 1;
+					var _same_array = [_slot];
+					
+					for (var _i = 1 + (4 * (_row - 1)); _i <= 4 + (4 * (_row - 1)); _i++)
+					{
+						if (_i != _slot)
+						{
+							if (_farm_manager.farm_slot[_i, 0] == _plant_type)
+							{
+								_same_array[_same_count] = _i;
+								_same_count++;
+							}
+						}
+					}
+					
+					if (_same_count >= _check_amount)
+					{
+						var _enough_endurance = true;
+						for (var _i = 0; _i < _check_amount; _i++)
+						{
+							if (_farm_manager.farm_slot[_same_array[_i], 5] < _endurance)
+							{
+								_enough_endurance = false;
+							}
+						}
+						
+						if (_enough_endurance)
+						{
+							for (var _i = 0; _i < _check_amount; _i++)
+							{
+								var _temp = _farm_manager.farm_slot[_same_array[_i], 1] + _increase_amount;
+								if (_temp > _farm_manager.farm_slot[_same_array[_i], 2])
+								{
+									_temp = _farm_manager.farm_slot[_same_array[_i], 2];
+								}
+								_farm_manager.farm_slot[_same_array[_i], 1] = _temp;
+		
+								// Decrease Endurance
+								_farm_manager.farm_slot[_same_array[_i], 5] -= _endurance;
+							}							
+							scr_active_hand_discard_card(activated_card_slot);
+							audio_play_sound(snd_card_success, 800, false, global.game_effects_volume * 1);
+							scr_active_hand_update();
+							return true;
+						}
+						else
+						{
+							scr_new_popup("Not enough endurance");
+							audio_play_sound(snd_card_fail, 800, false, global.game_effects_volume * 1);
+							return false;
+						}
+					}
+					else
+					{
+						scr_new_popup("Not enough same plants");
+						audio_play_sound(snd_card_fail, 800, false, global.game_effects_volume * 1);
+						return false;
+					}
+				}
+				else
+				{
+					scr_new_popup("There is no plant here");
+					audio_play_sound(snd_card_fail, 800, false, global.game_effects_volume * 1);
+					return false;
+				}
+			}
+			else
+			{
+				scr_new_popup("Not near a farm.");
+				audio_play_sound(snd_card_fail, 800, false, global.game_effects_volume * 1);
+				return false;
+			}
+			break;
+		
+		case "Column Nutrients Increase":
+		
+			if (object_get_name(obj_player.activate.object_index) == "obj_farm")
+			{
+				var _slot = obj_player.activate.entity_activate_argument[0];
+				var _row = floor(_slot / 4) + 1;
+				var _column = _slot % 4
+				var _check_amount = _param[0];
+				var _increase_amount = _param[1];
+				_increase_amount = scr_apply_buff(_increase_amount, 2);
+				_endurance = scr_apply_buff(_endurance, 3);
+				
+				if (_farm_manager.farm_slot[_slot, 0] > 0)
+				{
+					var _plant_type = _farm_manager.farm_slot[_slot, 0];
+					var _same_count = 1;
+					var _same_array = [_slot];
+					
+					if (_column != 0)
+					{
+						for (var _i = 0; _i <= 2; _i++)
+						{
+							if (_column + (4 * _i) != _slot)
+							{
+								if (_farm_manager.farm_slot[_column + (4 * _i), 0] == _plant_type)
+								{
+									_same_array[_same_count] = _column + (4 * _i);
+									_same_count++;
+								}
+							}
+						}
+					}
+					else
+					{
+						for (var _i = 0; _i <= 2; _i++)
+						{
+							if (4 + (4 * _i) != _slot)
+							{
+								if (_farm_manager.farm_slot[4 + (4 * _i), 0] == _plant_type)
+								{
+									_same_array[_same_count] = 4 + (4 * _i);
+									_same_count++;
+								}
+							}
+						}
+					}
+					
+					if (_same_count >= _check_amount)
+					{
+						var _enough_endurance = true;
+						for (var _i = 0; _i < _check_amount; _i++)
+						{
+							if (_farm_manager.farm_slot[_same_array[_i], 5] < _endurance)
+							{
+								_enough_endurance = false;
+							}
+						}
+						
+						if (_enough_endurance)
+						{
+							var _not_fully_grown = true;
+							for (var _i = 0; _i < _check_amount; _i++)
+							{
+								if (_farm_manager.farm_slot[_same_array[_i], 1] >= _farm_manager.farm_slot[_same_array[_i], 2])
+								{
+									_not_fully_grown = false;
+								}
+							}
+							
+							if (_not_fully_grown)
+							{
+								for (var _i = 0; _i < _check_amount; _i++)
+								{
+									_farm_manager.farm_slot[_same_array[_i], 3] += _increase_amount;
+									if (_farm_manager.farm_slot[_same_array[_i], 3] >= _farm_manager.farm_slot[_same_array[_i], 4])
+									{
+										_farm_manager.farm_slot[_same_array[_i], 3] -= _farm_manager.farm_slot[_same_array[_i], 4];
+										_farm_manager.farm_slot[_same_array[_i], 4] *= 2;
+										_farm_manager.farm_slot[_same_array[_i], 7] += 1;
+									}
+									_farm_manager.farm_slot[_same_array[_i], 5] -= _endurance
+			
+									if (_farm_manager.farm_slot[_same_array[_i], 7] == 3)
+									{
+										_farm_manager.farm_slot[_same_array[_i], 4] = 999;
+									}
+								}
+								scr_active_hand_discard_card(activated_card_slot);
+								audio_play_sound(snd_card_success, 800, false, global.game_effects_volume * 1);
+								scr_active_hand_update();
+								return true;
+							}
+							else
+							{
+								scr_new_popup("Plant is already fully grown");
+								audio_play_sound(snd_card_fail, 800, false, global.game_effects_volume * 1);
+								return false;
+							}
+						}
+						else
+						{
+							scr_new_popup("Not enough endurance");
+							audio_play_sound(snd_card_fail, 800, false, global.game_effects_volume * 1);
+							return false;
+						}
+					}
+					else
+					{
+						scr_new_popup("Not enough same plants");
+						audio_play_sound(snd_card_fail, 800, false, global.game_effects_volume * 1);
+						return false;
+					}
+				}
+				else
+				{
+					scr_new_popup("There is no plant here");
+					audio_play_sound(snd_card_fail, 800, false, global.game_effects_volume * 1);
+					return false;
+				}
+			}
+			else
+			{
+				scr_new_popup("Not near a farm.");
+				audio_play_sound(snd_card_fail, 800, false, global.game_effects_volume * 1);
+				return false;
+			}
+			break;
+		
+		case "Diag Endurance Increase":
+		
+			if (object_get_name(obj_player.activate.object_index) == "obj_farm")
+			{
+				var _slot = obj_player.activate.entity_activate_argument[0];
+				var _row = floor(_slot / 4) + 1;
+				var _column = _slot % 4
+				var _check_amount = _param[0];
+				var _increase_amount = _param[1];
+				
+				if (_farm_manager.farm_slot[_slot, 0] > 0)
+				{
+					var _plant_type = _farm_manager.farm_slot[_slot, 0];
+					var _same_count = 1;
+					var _same_array = [_slot];
+					
+					if (_column > 0 && _row < 3)
+					{
+						if (_farm_manager.farm_slot[_slot + 5, 0] == _plant_type)
+						{
+							_same_array[_same_count] = _slot + 5;
+							_same_count++;
+						}
+					}
+					
+					if (_column != 1 && _row < 3)
+					{
+						if (_farm_manager.farm_slot[_slot + 3, 0] == _plant_type)
+						{
+							_same_array[_same_count] = _slot + 3;
+							_same_count++;
+						}
+					}
+					
+					if (_column > 0 && _row > 1)
+					{
+						if (_farm_manager.farm_slot[_slot - 3, 0] == _plant_type)
+						{
+							_same_array[_same_count] = _slot - 3;
+							_same_count++;
+						}
+					}
+					
+					if (_column != 1 && _row > 1)
+					{
+						if (_farm_manager.farm_slot[_slot - 5, 0] == _plant_type)
+						{
+							_same_array[_same_count] = _slot - 5;
+							_same_count++;
+						}
+					}
+					
+					if (_same_count >= _check_amount)
+					{
+					
+						for (var _i = 0; _i < _check_amount; _i++)
+						{
+							_farm_manager.farm_slot[_same_array[_i], 5] += _increase_amount;
+							if (_farm_manager.farm_slot[_same_array[_i], 5] >= _farm_manager.farm_slot[_same_array[_i], 6])
+							{
+								_farm_manager.farm_slot[_same_array[_i], 5] = _farm_manager.farm_slot[_same_array[_i], 6];
+							}
+						}							
+						scr_active_hand_discard_card(activated_card_slot);
+						audio_play_sound(snd_card_success, 800, false, global.game_effects_volume * 1);
+						scr_active_hand_update();
+						return true;
+					}
+					else
+					{
+						scr_new_popup("Not enough same plants");
+						audio_play_sound(snd_card_fail, 800, false, global.game_effects_volume * 1);
+						return false;
+					}
+				}
+				else
+				{
+					scr_new_popup("There is no plant here");
+					audio_play_sound(snd_card_fail, 800, false, global.game_effects_volume * 1);
+					return false;
+				}
+			}
+			else
+			{
+				scr_new_popup("Not near a farm.");
+				audio_play_sound(snd_card_fail, 800, false, global.game_effects_volume * 1);
+				return false;
+			}
+			break;		
+		
+		case "Field Growth Increase":
+		
+			if (object_get_name(obj_player.activate.object_index) == "obj_farm")
+			{
+				var _slot = obj_player.activate.entity_activate_argument[0];
+				var _row = floor(_slot / 4) + 1;
+				var _column = _slot % 4
+				var _check_amount = _param[0];
+				var _increase_amount = _param[1];
+				_increase_amount = scr_apply_buff(_increase_amount, 1);
+				_endurance = scr_apply_buff(_endurance, 3);
+				
+				if (_farm_manager.farm_slot[_slot, 0] > 0)
+				{
+					var _plant_type = _farm_manager.farm_slot[_slot, 0];
+					var _same_count = 1;
+					var _same_array = [_slot];
+					
+					for (var _i = 1; _i <= 12; _i++)
+					{
+						if (_i != _slot)
+						{
+							if (_farm_manager.farm_slot[_i, 0] == _plant_type)
+							{
+								_same_array[_same_count] = _i;
+								_same_count++;
+							}
+						}
+					}
+					
+					if (_same_count >= _check_amount)
+					{
+						var _enough_endurance = true;
+						for (var _i = 0; _i < _check_amount; _i++)
+						{
+							if (_farm_manager.farm_slot[_same_array[_i], 5] < _endurance)
+							{
+								_enough_endurance = false;
+							}
+						}
+						
+						if (_enough_endurance)
+						{
+							for (var _i = 0; _i < _check_amount; _i++)
+							{
+								var _temp = _farm_manager.farm_slot[_same_array[_i], 1] + _increase_amount;
+								if (_temp > _farm_manager.farm_slot[_same_array[_i], 2])
+								{
+									_temp = _farm_manager.farm_slot[_same_array[_i], 2];
+								}
+								_farm_manager.farm_slot[_same_array[_i], 1] = _temp;
+		
+								// Decrease Endurance
+								_farm_manager.farm_slot[_same_array[_i], 5] -= _endurance;
+							}							
+							scr_active_hand_discard_card(activated_card_slot);
+							audio_play_sound(snd_card_success, 800, false, global.game_effects_volume * 1);
+							scr_active_hand_update();
+							return true;
+						}
+						else
+						{
+							scr_new_popup("Not enough endurance");
+							audio_play_sound(snd_card_fail, 800, false, global.game_effects_volume * 1);
+							return false;
+						}
+					}
+					else
+					{
+						scr_new_popup("Not enough same plants");
+						audio_play_sound(snd_card_fail, 800, false, global.game_effects_volume * 1);
+						return false;
+					}
+				}
+				else
+				{
+					scr_new_popup("There is no plant here");
+					audio_play_sound(snd_card_fail, 800, false, global.game_effects_volume * 1);
+					return false;
+				}
+			}
+			else
+			{
+				scr_new_popup("Not near a farm.");
+				audio_play_sound(snd_card_fail, 800, false, global.game_effects_volume * 1);
+				return false;
+			}
+			break;
+		
+		case "Field Nutrients Increase":
+		
+			if (object_get_name(obj_player.activate.object_index) == "obj_farm")
+			{
+				var _slot = obj_player.activate.entity_activate_argument[0];
+				var _row = floor(_slot / 4) + 1;
+				var _column = _slot % 4
+				var _check_amount = _param[0];
+				var _increase_amount = _param[1];
+				_increase_amount = scr_apply_buff(_increase_amount, 2);
+				_endurance = scr_apply_buff(_endurance, 3);
+				
+				if (_farm_manager.farm_slot[_slot, 0] > 0)
+				{
+					var _plant_type = _farm_manager.farm_slot[_slot, 0];
+					var _same_count = 1;
+					var _same_array = [_slot];
+					
+					for (var _i = 1; _i <= 12; _i++)
+					{
+						if (_i != _slot)
+						{
+							if (_farm_manager.farm_slot[_i, 0] == _plant_type)
+							{
+								_same_array[_same_count] = _i;
+								_same_count++;
+							}
+						}
+					}
+					
+					if (_same_count >= _check_amount)
+					{
+						var _enough_endurance = true;
+						for (var _i = 0; _i < _check_amount; _i++)
+						{
+							if (_farm_manager.farm_slot[_same_array[_i], 5] < _endurance)
+							{
+								_enough_endurance = false;
+							}
+						}
+						
+						if (_enough_endurance)
+						{
+							var _not_fully_grown = true;
+							for (var _i = 0; _i < _check_amount; _i++)
+							{
+								if (_farm_manager.farm_slot[_same_array[_i], 1] >= _farm_manager.farm_slot[_same_array[_i], 2])
+								{
+									_not_fully_grown = false;
+								}
+							}
+							
+							if (_not_fully_grown)
+							{
+								for (var _i = 0; _i < _check_amount; _i++)
+								{
+									_farm_manager.farm_slot[_same_array[_i], 3] += _increase_amount;
+									if (_farm_manager.farm_slot[_same_array[_i], 3] >= _farm_manager.farm_slot[_same_array[_i], 4])
+									{
+										_farm_manager.farm_slot[_same_array[_i], 3] -= _farm_manager.farm_slot[_same_array[_i], 4];
+										_farm_manager.farm_slot[_same_array[_i], 4] *= 2;
+										_farm_manager.farm_slot[_same_array[_i], 7] += 1;
+									}
+									_farm_manager.farm_slot[_same_array[_i], 5] -= _endurance
+			
+									if (_farm_manager.farm_slot[_same_array[_i], 7] == 3)
+									{
+										_farm_manager.farm_slot[_same_array[_i], 4] = 999;
+									}
+								}
+								scr_active_hand_discard_card(activated_card_slot);
+								audio_play_sound(snd_card_success, 800, false, global.game_effects_volume * 1);
+								scr_active_hand_update();
+		
+								return true;
+							}
+							else
+							{
+								scr_new_popup("Plant is already fully grown");
+								audio_play_sound(snd_card_fail, 800, false, global.game_effects_volume * 1);
+								return false;
+							}
+						}
+						else
+						{
+							scr_new_popup("Not enough endurance");
+							audio_play_sound(snd_card_fail, 800, false, global.game_effects_volume * 1);
+							return false;
+						}
+					}
+					else
+					{
+						scr_new_popup("Not enough same plants");
+						audio_play_sound(snd_card_fail, 800, false, global.game_effects_volume * 1);
+						return false;
+					}
+				}
+				else
+				{
+					scr_new_popup("There is no plant here");
+					audio_play_sound(snd_card_fail, 800, false, global.game_effects_volume * 1);
+					return false;
+				}
+			}
+			else
+			{
+				scr_new_popup("Not near a farm.");
+				audio_play_sound(snd_card_fail, 800, false, global.game_effects_volume * 1);
+				return false;
+			}
+			break;
+		
+		case "Unique Growth Increase":
+			if (object_get_name(obj_player.activate.object_index) == "obj_farm")
+			{
+				var _slot = obj_player.activate.entity_activate_argument[0];
+				var _row = floor(_slot / 4) + 1;
+				var _column = _slot % 4
+				var _increase_amount = _param;
+				_increase_amount = scr_apply_buff(_increase_amount, 1);
+				_endurance = scr_apply_buff(_endurance, 3);
+				
+				if (_farm_manager.farm_slot[_slot, 0] > 0)
+				{
+					var _plant_type = _farm_manager.farm_slot[_slot, 0];
+					var _same_count = 1;
+					var _same_array = [_slot];
+					
+					for (var _i = 1; _i <= 12; _i++)
+					{
+						if (_i != _slot)
+						{
+							if (_farm_manager.farm_slot[_i, 0] == _plant_type)
+							{
+								_same_array[_same_count] = _i;
+								_same_count++;
+								break;
+							}
+						}
+					}
+					
+					if (_same_count == 1)
+					{
+						if (_farm_manager.farm_slot[_slot, 5] >= _endurance)
+						{
+							var _temp = _farm_manager.farm_slot[_slot, 1] + _increase_amount;
+							if (_temp > _farm_manager.farm_slot[_slot, 2])
+							{
+								_temp = _farm_manager.farm_slot[_slot, 2];
+							}
+							_farm_manager.farm_slot[_slot, 1] = _temp;
+		
+							// Decrease Endurance
+							_farm_manager.farm_slot[_slot, 5] -= _endurance;
+							
+							scr_active_hand_discard_card(activated_card_slot);
+							audio_play_sound(snd_card_success, 800, false, global.game_effects_volume * 1);
+							scr_active_hand_update();
+							return true;
+						}
+						else
+						{
+							scr_new_popup("Not enough endurance");
+							audio_play_sound(snd_card_fail, 800, false, global.game_effects_volume * 1);
+							return false;
+						}
+					}
+					else
+					{
+						scr_new_popup("Too many same plants");
+						audio_play_sound(snd_card_fail, 800, false, global.game_effects_volume * 1);
+						return false;
+					}
+				}
+				else
+				{
+					scr_new_popup("There is no plant here");
+					audio_play_sound(snd_card_fail, 800, false, global.game_effects_volume * 1);
+					return false;
+				}
+			}
+			else
+			{
+				scr_new_popup("Not near a farm.");
+				audio_play_sound(snd_card_fail, 800, false, global.game_effects_volume * 1);
+				return false;
+			}
+			break;
+			
+		case "Unique Nutrients Increase":
+		
+			if (object_get_name(obj_player.activate.object_index) == "obj_farm")
+			{
+				var _slot = obj_player.activate.entity_activate_argument[0];
+				var _row = floor(_slot / 4) + 1;
+				var _column = _slot % 4
+				var _increase_amount = _param;
+				_increase_amount = scr_apply_buff(_increase_amount, 2);
+				_endurance = scr_apply_buff(_endurance, 3);
+				
+				if (_farm_manager.farm_slot[_slot, 0] > 0)
+				{
+					var _plant_type = _farm_manager.farm_slot[_slot, 0];
+					var _same_count = 1;
+					var _same_array = [_slot];
+					
+					for (var _i = 1; _i <= 12; _i++)
+					{
+						if (_i != _slot)
+						{
+							if (_farm_manager.farm_slot[_i, 0] == _plant_type)
+							{
+								_same_array[_same_count] = _i;
+								_same_count++;
+								break;
+							}
+						}
+					}
+					
+					if (_same_count == 1)
+					{
+						show_debug_message(_slot);
+						show_debug_message(_farm_manager.farm_slot[_slot, 1]);
+						show_debug_message(_farm_manager.farm_slot[_slot, 2]);
+						if (_farm_manager.farm_slot[_slot, 5] >= _endurance)
+						{
+							if (_farm_manager.farm_slot[_slot, 1] < _farm_manager.farm_slot[_slot, 2])
+							{
+								
+								_farm_manager.farm_slot[_slot, 3] += _increase_amount;
+								if (_farm_manager.farm_slot[_slot, 3] >= _farm_manager.farm_slot[_slot, 4])
+								{
+									_farm_manager.farm_slot[_slot, 3] -= _farm_manager.farm_slot[_slot, 4];
+									_farm_manager.farm_slot[_slot, 4] *= 2;
+									_farm_manager.farm_slot[_slot, 7] += 1;
+								}
+								_farm_manager.farm_slot[_slot, 5] -= _endurance
+			
+								if (_farm_manager.farm_slot[_slot, 7] == 3)
+								{
+									_farm_manager.farm_slot[_slot, 4] = 999;
+								}
+			
+								scr_active_hand_discard_card(activated_card_slot);
+								audio_play_sound(snd_card_success, 800, false, global.game_effects_volume * 1);
+								scr_active_hand_update();
+		
+								return true;
+								
+							}
+							else
+							{
+								scr_new_popup("Plant is already fully grown");
+								audio_play_sound(snd_card_fail, 800, false, global.game_effects_volume * 1);
+								return false;
+							}
+						}
+						else
+						{
+							scr_new_popup("Not enough endurance");
+							audio_play_sound(snd_card_fail, 800, false, global.game_effects_volume * 1);
+							return false;
+						}
+					}
+					else
+					{
+						scr_new_popup("Too many same plants");
+						audio_play_sound(snd_card_fail, 800, false, global.game_effects_volume * 1);
+						return false;
+					}
+				}
+				else
+				{
+					scr_new_popup("There is no plant here");
+					audio_play_sound(snd_card_fail, 800, false, global.game_effects_volume * 1);
+					return false;
+				}
+			}
+			else
+			{
+				scr_new_popup("Not near a farm.");
+				audio_play_sound(snd_card_fail, 800, false, global.game_effects_volume * 1);
+				return false;
+			}
+			break;
+		
+		case "Random Growth and Nutrients Increase":
+		
+			var _slot = irandom_range(1, 12);
+			var _increase_amount = _param;
+			_increase_amount = scr_apply_buff(_increase_amount, 1);
+			_endurance = scr_apply_buff(_endurance, 3);
+			
+			var _empty_field = true;
+			for (var _i = 1; _i <= 12; _i++)
+			{
+				if (_farm_manager.farm_slot[_i, 0] > 0)
+				{
+					_empty_field = false;
+				}
+			}
+			
+			if (!_empty_field)
+			{
+				while (_farm_manager.farm_slot[_slot, 0] != 0)
+				{
+					var _slot = irandom_range(1, 12);
+				}
+				
+				var _temp = _farm_manager.farm_slot[_slot, 1] + _increase_amount;
+				if (_temp > _farm_manager.farm_slot[_slot, 2])
+				{
+					_temp = _farm_manager.farm_slot[_slot, 2];
+				}
+				_farm_manager.farm_slot[_slot, 1] = _temp;
+				
+				_farm_manager.farm_slot[_slot, 3] += _increase_amount;
+				if (_farm_manager.farm_slot[_slot, 3] >= _farm_manager.farm_slot[_slot, 4])
+				{
+					_farm_manager.farm_slot[_slot, 3] -= _farm_manager.farm_slot[_slot, 4];
+					_farm_manager.farm_slot[_slot, 4] *= 2;
+					_farm_manager.farm_slot[_slot, 7] += 1;
+				}
+			
+				if (_farm_manager.farm_slot[_slot, 7] == 3)
+				{
+					_farm_manager.farm_slot[_slot, 4] = 999;
+				}
+			
+				scr_active_hand_discard_card(activated_card_slot);
+				audio_play_sound(snd_card_success, 800, false, global.game_effects_volume * 1);
+				scr_active_hand_update();
+		
+				return true;
+				
+			}
+			else
+			{
+				scr_new_popup("Field is empty.");
+				audio_play_sound(snd_card_fail, 800, false, global.game_effects_volume * 1);
+			}
+			
+			break;
+
+		case "All Unique Nutrients Increase":
+		
+			if (object_get_name(obj_player.activate.object_index) == "obj_farm")
+			{
+				var _increase_amount = _param;
+				_increase_amount = scr_apply_buff(_increase_amount, 2);
+				
+				var _plant_count = 0;
+				for (var _i = 1; _i <= 12; _i++)
+				{
+					if (_farm_manager.farm_slot[_i, 0] > 0)
+					{
+						_plant_count++;
+					}
+				}
+				
+				if (_plant_count != 12)
+				{
+					var _plant_type = [_farm_manager.farm_slot[1, 0]];
+					var _plant_type_count = 1;
+					var _all_unique = true;
+					
+					for (var _i = 2; _i <= 12; _i++)
+					{
+						for (var _j = 0; _j < _plant_type_count; _j++)
+						{
+							if (_farm_manager.farm_slot[_i, 0] == _plant_type[_j])
+							{
+								_all_unique = false;
+								break;
+							}
+							else
+							{
+								_plant_type[_plant_type_count] = _farm_manager.farm_slot[_i, 0];
+								_plant_type_count++;
+							}
+						}
+					}
+					
+					if (_all_unique)
+					{
+						for (var _i = 1; _i <= 12; _i++)
+						{
+							_farm_manager.farm_slot[_i, 3] += _increase_amount;
+							if (_farm_manager.farm_slot[_i, 3] >= _farm_manager.farm_slot[_i, 4])
+							{
+								_farm_manager.farm_slot[_i, 3] -= _farm_manager.farm_slot[_i, 4];
+								_farm_manager.farm_slot[_i, 4] *= 2;
+								_farm_manager.farm_slot[_i, 7] += 1;
+							}
+							_farm_manager.farm_slot[_i, 5] -= _endurance
+			
+							if (_farm_manager.farm_slot[_i, 7] == 3)
+							{
+								_farm_manager.farm_slot[_i, 4] = 999;
+							}
+						}
+						scr_active_hand_discard_card(activated_card_slot);
+						audio_play_sound(snd_card_success, 800, false, global.game_effects_volume * 1);
+						scr_active_hand_update();
+		
+						return true;
+					}
+					else
+					{
+						scr_new_popup("Some plants are the same");
+						audio_play_sound(snd_card_fail, 800, false, global.game_effects_volume * 1);
+						return false;
+					}
+				}
+				else
+				{
+					scr_new_popup("Not a full field");
+					audio_play_sound(snd_card_fail, 800, false, global.game_effects_volume * 1);
+					return false;
+				}
+			}
+			else
+			{
+				scr_new_popup("Not near a farm.");
+				audio_play_sound(snd_card_fail, 800, false, global.game_effects_volume * 1);
+				return false;
+			}
+			break;
+
+		#endregion
 		
 		case "Plant":
 			if (object_get_name(obj_player.activate.object_index) == "obj_farm")
@@ -1475,7 +4185,8 @@ function scr_card_activate(_type, _param, _endurance = 0){
 			}
 			else
 			{
-				show_debug_message("Not the correct entity activate, nothing happens");
+				scr_new_popup("Not a farm");
+				audio_play_sound(snd_card_fail, 800, false, global.game_effects_volume * 1);
 			}
 			break;
 		
@@ -1548,6 +4259,33 @@ function scr_find_buff_index(_name)
 			
 		case "Oberon":
 			return 15;
+			
+		case "X1":
+			return 16;
+			
+		case "X2":
+			return 17;
+			
+		case "X3":
+			return 18;
+			
+		case "X4":
+			return 19;
+			
+		case "X5":
+			return 20;
+			
+		case "X6":
+			return 21;
+			
+		case "X7":
+			return 22;
+			
+		case "X8":
+			return 23;
+			
+		case "X9":
+			return 24;
 			
 		default:
 			return "Error";

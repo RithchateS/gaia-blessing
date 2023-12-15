@@ -21,7 +21,7 @@ if (!instance_exists(obj_options))
 
 	if (_input_manager.mouse_moved)
 	{
-		if (title_state == 1)
+		if (title_state == 1 && !show_credit)
 		{
 			if ((_input_manager.mouse_x_position > ((NATIVE_GUI_RESOLUTION_WIDTH - title_option_width) * 0.5)) && (_input_manager.mouse_x_position < ((NATIVE_GUI_RESOLUTION_WIDTH + title_option_width) * 0.5)))
 			{
@@ -50,7 +50,7 @@ if (!instance_exists(obj_options))
 	}
 	else
 	{
-		if (title_state == 1)
+		if (title_state == 1 && !show_credit)
 		{
 			if (_input_manager.input_option_change_vertical != 0)
 			{
@@ -66,14 +66,19 @@ if (!instance_exists(obj_options))
 		}
 	}
 
-	if (title_state == 1)
+	if (title_state == 1 && !show_credit)
 	{
 		if (_input_manager.key_activate || _input_manager.mouse_left_pressed)
 		{
+			audio_play_sound(snd_menu_ui, 800, false, global.game_effects_volume * 1);
 			if (focused_option == 0)
 			{
 				title_state = 2;
 				save_slot_selected = -1;
+			}
+			else if (focused_option == 1)
+			{
+				show_credit = true;
 			}
 			else if (focused_option == 2)
 			{
@@ -87,17 +92,18 @@ if (!instance_exists(obj_options))
 	}
 	else if (title_state == 2)
 	{
-		if (scr_mouse_hover((NATIVE_GUI_RESOLUTION_WIDTH - title_option_width) * 0.5, 208, title_option_width, 92))
+		if (scr_mouse_hover((NATIVE_GUI_RESOLUTION_WIDTH - title_option_width) * 0.5, 243, title_option_width, 92))
 		{
 			if (_input_manager.key_activate || _input_manager.mouse_left_pressed)
 			{
 				if (save_slot_selected >= 0 && !loading_started)
 				{
+					audio_play_sound(snd_menu_ui, 800, false, global.game_effects_volume * 1);
 					global.game_save_slot = save_slot_selected;
 					if (!scr_load_game(global.game_save_slot))
 					{
 						scr_first_day();
-						scr_room_transition(TRANSITION_TYPE.SLIDE, NEW_GAME_ROOM);
+						scr_room_transition(TRANSITION_TYPE.FADE, NEW_GAME_ROOM);
 					}
 					loading_started = true;
 				}
@@ -110,6 +116,7 @@ if (!instance_exists(obj_options))
 			{
 				if (_input_manager.mouse_left_pressed)
 				{
+					audio_play_sound(snd_menu_ui, 800, false, global.game_effects_volume * 1);
 					file_delete("save" + string(floor((_input_manager.mouse_y_position - 248) / 34)) + ".sav");
 				}
 			
@@ -130,7 +137,16 @@ if (!instance_exists(obj_options))
 	
 		if (_input_manager.key_back || _input_manager.mouse_right_pressed)
 		{
+			audio_play_sound(snd_menu_ui, 800, false, global.game_effects_volume * 1);
 			title_state = 1;
+		}
+	}
+	else if (show_credit)
+	{
+		if (_input_manager.key_back || _input_manager.mouse_right_pressed || _input_manager.mouse_left_pressed)
+		{
+			audio_play_sound(snd_menu_ui, 800, false, global.game_effects_volume * 1);
+			show_credit = false;
 		}
 	}
 }

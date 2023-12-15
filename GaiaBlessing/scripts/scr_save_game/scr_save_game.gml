@@ -13,6 +13,15 @@ function scr_save_game()
 	_map[? "card_inventory"] = global.instance_manager_inventory.card_inventory;
 	_map[? "item_inventory"] = global.instance_manager_inventory.item_inventory;
 	_map[? "farm_status"] = global.instance_manager_farm.farm_slot;
+	_map[? "quest1_objective"] = global.instance_manager_ui.quest1_objective;
+	_map[? "quest2_objective"] = global.instance_manager_ui.quest2_objective;
+	_map[? "quest3_objective"] = global.instance_manager_ui.quest3_objective;
+	_map[? "quest4_objective"] = global.instance_manager_ui.quest4_objective;
+	_map[? "quest5_objective"] = global.instance_manager_ui.quest5_objective;
+	_map[? "quest_sprite"] = global.instance_manager_ui.quest_sprite;
+	_map[? "quest_id"] = global.instance_manager_ui.quest_id;
+	_map[? "quest_status"] = global.instance_manager_ui.quest_status;
+	
 	
 	// Save to a string
 	var _string = json_encode(_map);

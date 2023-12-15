@@ -1,0 +1,1 @@
+draw_sprite_ext(spr_group_logo, 0, NATIVE_GUI_RESOLUTION_WIDTH * 0.5, NATIVE_GUI_RESOLUTION_HEIGHT * 0.5, 1, 1, 0, c_white, logo_alpha);

@@ -42,3 +42,5 @@ for (var _slot = 0; _slot <= 2; _slot++)
 
 scr_load_settings("settings.sav");
 audio_sound_gain(snd_bgm, global.game_music_volume * 1, 0);
+
+show_credit = false;

@@ -9,41 +9,30 @@ activated_card_cost = _activated_card_info[4];
 activated_card_target_requirement = _activated_card_info[5];
 activated_card_endurance_cost = _activated_card_info[6];
 
-	
-if (activated_card_cost <= global.player_energy_current)
+if (activated_card_target_requirement)
 {
-	if (activated_card_target_requirement)
+	if (obj_player.activate != noone)
 	{
-		if (obj_player.activate != noone)
-		{
-			scr_card_activate(activated_card_effect_type, activated_card_effect_param, activated_card_endurance_cost);
-			scr_active_hand_update();
-			
-			with (obj_player)
-			{
-				state = scr_player_state_use;
-			}
-		}
-		else
-		{
-			scr_new_popup("No farm nearby");
-		}
-	}
-	else
-	{
-		scr_card_activate(activated_card_effect_type, activated_card_effect_param);
+		scr_card_activate(activated_card_effect_type, activated_card_effect_param, activated_card_endurance_cost);
 		scr_active_hand_update();
-		
+			
 		with (obj_player)
 		{
 			state = scr_player_state_use;
 		}
 	}
-	
-	
+	else
+	{
+		scr_new_popup("No farm nearby");
+	}
 }
 else
 {
-	show_debug_message("Trying to activate card " + activated_card_name + " and failed");
-	show_debug_message("Not enough energy, nothing happens.");
+	scr_card_activate(activated_card_effect_type, activated_card_effect_param);
+	scr_active_hand_update();
+		
+	with (obj_player)
+	{
+		state = scr_player_state_use;
+	}
 }

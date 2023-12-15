@@ -177,10 +177,10 @@ deck_highlight = -1;
 deck_manager_card_start_row = 1;
 
 deck_manager_tabs = [
-	"Standard",
-	"Diverse",
-	"Dedicate",
-	"Rush",
+	"1-20",
+	"21-40",
+	"41-60",
+	"61-80",
 	"Seeds"
 ]
 
@@ -331,27 +331,34 @@ quest_name = [
 ];
 
 quest_detail = [
-	"A simple task, this will prove that you have at least mastered the basic skills needed to be a farmer. Please submit 5 Legend-worthy chillis.",
-	"The council will require you to demonstrate your basic skills first, please check back once you have completed the first milestone.",
-	"The council will require you to demonstrate your basic skills first, please check back once you have completed the first milestone.",
-	"The council will require you to demonstrate your basic skills first, please check back once you have completed the first milestone.",
-	"The council will require you to demonstrate your basic skills first, please check back once you have completed the first milestone."
+	"A simple task, this will prove that you have at least mastered the basic skills needed to be a farmer. Submit three of these common crops of highest quality.",
+	"You have proven yourself to be adequate when it comes to basic skills. However, there are some who wish to see more. Submit three of these common crops of highest quality.",
+	"With the previous two tasks, you are now a proper farmer. So how about we increase the difficulty a bit, submit three of these uncommon crops of highest quality.",
+	"You have aided the development of card tech greatly with your skills. Your next task is to provide three of these rare crops of the highest quality.",
+	"This shall be your ultimate test, we are experimenting with crops that doesn't exist in reality. Please prove the possibility of such crop by delivering three of these crops of highest quality."
 ];
 
+quest1_objective = irandom_range(1, 4);
+quest2_objective = irandom_range(5, 8);
+quest3_objective = irandom_range(1, 6);
+quest4_objective = irandom_range(5, 8);
+quest5_objective = irandom_range(1, 2)
+
+
 quest_sprite = [
-	[spr_card_101, 3],
-	[spr_card_mystery, 0],
-	[spr_card_mystery, 0],
-	[spr_card_mystery, 0],
-	[spr_card_mystery, 0]
+	[asset_get_index("spr_card_10" + string(quest1_objective)), 3],
+	[asset_get_index("spr_card_10" + string(quest2_objective)), 3],
+	[asset_get_index("spr_card_" + string(108 + quest3_objective)), 3],
+	[asset_get_index("spr_card_11" + string(quest4_objective)), 3],
+	[asset_get_index("spr_card_" + string(118 + quest5_objective)), 3]
 ];
 
 quest_id = [
-	104,
-	105,
-	105,
-	105,
-	105
+	100 + (quest1_objective * 4),
+	100 + (quest2_objective * 4),
+	132 + (quest3_objective * 4),
+	140 + (quest4_objective * 4),
+	172 + (quest5_objective * 4)
 ];
 
 quest_status = [0, 0, 0, 0, 0];

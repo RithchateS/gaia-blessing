@@ -41,8 +41,30 @@ function scr_load_game(_save_slot)
 			}
 		}
 		
+		global.instance_manager_ui.quest1_objective = _json[? "quest1_objective"];
+		global.instance_manager_ui.quest2_objective = _json[? "quest2_objective"];
+		global.instance_manager_ui.quest3_objective = _json[? "quest3_objective"];
+		global.instance_manager_ui.quest4_objective = _json[? "quest4_objective"];
+		global.instance_manager_ui.quest5_objective = _json[? "quest5_objective"];
+		
+		for (var _i = 0; _i < 5; _i++)
+		{
+			
+			global.instance_manager_ui.quest_id[_i] = _json[? "quest_id"][| _i];
+			global.instance_manager_ui.quest_status[_i] = _json[? "quest_status"][| _i];
+		}
+		
+		for (var _i = 0; _i < 5; _i++)
+		{
+			for (var _j = 0; _j < 2; _j++)
+			{
+				global.instance_manager_ui.quest_sprite[_i][_j] = _json[? "quest_sprite"][| _i][| _j];
+			}
+		}
+		
+		
 		// Room
-		scr_room_transition(TRANSITION_TYPE.SLIDE, _json[? "room"]);
+		scr_room_transition(TRANSITION_TYPE.FADE, _json[? "room"]);
 		
 		ds_map_destroy(_json);
 		

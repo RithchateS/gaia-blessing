@@ -72,3 +72,29 @@ for (var _i = 0; _i < 4; _i++)
 		}
 	}
 }
+
+if (show_credit)
+{
+	draw_set_color(c_black);
+	draw_set_alpha(0.9);
+	draw_rectangle(0, 0, NATIVE_GUI_RESOLUTION_WIDTH, NATIVE_GUI_RESOLUTION_HEIGHT, false);
+	scr_text_setup(global.font_large, fa_center, fa_top, c_white);
+	draw_text(NATIVE_GUI_RESOLUTION_WIDTH * 0.5, 25, "CREDITS");
+	
+	draw_text(NATIVE_GUI_RESOLUTION_WIDTH * 0.5, 55, "IKU Productions Team");
+	
+	scr_text_setup(global.font_small, fa_center, fa_top, c_white);
+	draw_text(NATIVE_GUI_RESOLUTION_WIDTH * 0.5, 85, "Rithchate Sirimangklanurak - Programmer, Artist, Game Designer, BGM, Project Manager");
+	draw_text(NATIVE_GUI_RESOLUTION_WIDTH * 0.5, 110, "Kulasatee Prampetch - Artist");
+	draw_text(NATIVE_GUI_RESOLUTION_WIDTH * 0.5, 135, "Tosapol Deengamsamoe - Sound Designer, QA Tester, Card Design");
+	
+	scr_text_setup(global.font_large, fa_center, fa_top, c_white);
+	draw_text(NATIVE_GUI_RESOLUTION_WIDTH * 0.5, 170, "Others");
+	
+	scr_text_setup(global.font_small, fa_center, fa_top, c_white);
+	draw_text(NATIVE_GUI_RESOLUTION_WIDTH * 0.5, 200, "zapsplat.com - Sound Effects");
+	draw_text(NATIVE_GUI_RESOLUTION_WIDTH * 0.5, 225, "Chisato Kimura - Sound Effects");
+	draw_text(NATIVE_GUI_RESOLUTION_WIDTH * 0.5, 250, "Cupnooble - Color Palette");
+	draw_text(NATIVE_GUI_RESOLUTION_WIDTH * 0.5, 275, "Kachain Puttiwarawut - Advisor");
+	draw_text(NATIVE_GUI_RESOLUTION_WIDTH * 0.5, 300, "Pongtham Nantapan - Advisor");
+}

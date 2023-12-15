@@ -214,6 +214,7 @@ if (show_pause_menu && !instance_exists(obj_options) && !instance_exists(obj_pop
 	
 	if (_input_manager.mouse_left_pressed && pause_option_selected == 0)
 	{
+		audio_play_sound(snd_menu_ui, 800, false, global.game_effects_volume * 1);
 		show_pause_menu = !show_pause_menu;
 		global.game_paused = !global.game_paused;		
 		with (all)
@@ -224,10 +225,12 @@ if (show_pause_menu && !instance_exists(obj_options) && !instance_exists(obj_pop
 	}
 	else if (_input_manager.mouse_left_pressed && pause_option_selected == 1)
 	{
+		audio_play_sound(snd_menu_ui, 800, false, global.game_effects_volume * 1);
 		instance_create_layer(0, 0, "Instances", obj_options);
 	}
 	else if (_input_manager.mouse_left_pressed && pause_option_selected == 2)
 	{
+		audio_play_sound(snd_menu_ui, 800, false, global.game_effects_volume * 1);
 		scr_new_textbox("quit_simulation");
 	}
 }
@@ -245,6 +248,7 @@ if (show_menu_ui)
 	{
 		if (_input_manager.mouse_left_pressed)
 		{
+			audio_play_sound(snd_menu_ui, 800, false, global.game_effects_volume * 1);
 			if (current_menu_level == 1)
 			{
 				show_farm_status = false;
@@ -313,6 +317,7 @@ if (show_menu_ui)
 			
 			if (_input_manager.mouse_left_pressed && menu_0_focus != -1)
 			{
+				audio_play_sound(snd_menu_ui, 800, false, global.game_effects_volume * 1);
 				if (menu_0_focus == 5)
 				{
 					scr_new_textbox("quit_simulation");
@@ -358,6 +363,7 @@ if (show_menu_ui)
 				
 				if (((menu_button_farm_focus && _input_manager.mouse_left_pressed) || (keyboard_check_pressed(ord("F")))) && !farm_skip)
 				{
+					audio_play_sound(snd_menu_ui, 800, false, global.game_effects_volume * 1);
 					show_farm_status = true;
 				}
 			
@@ -367,6 +373,7 @@ if (show_menu_ui)
 					{
 						if (_input_manager.mouse_left_pressed)
 						{
+							audio_play_sound(snd_menu_ui, 800, false, global.game_effects_volume * 1);
 							deck_manager_tab_focus = floor((_input_manager.mouse_x_position - deck_manager_start_x) / deck_manager_tab_width);
 							deck_manager_card_start_row = 1;
 						}
@@ -394,6 +401,7 @@ if (show_menu_ui)
 				
 					if (_input_manager.mouse_left_pressed && (deck_manager_focused_card > 0))
 					{
+						audio_play_sound(snd_menu_ui, 800, false, global.game_effects_volume * 1);
 						scr_add_card_from_inventory_to_deck(deck_manager_focused_card);
 					}
 				
@@ -401,6 +409,7 @@ if (show_menu_ui)
 					{
 						if (_input_manager.mouse_left_pressed)
 						{
+							audio_play_sound(snd_menu_ui, 800, false, global.game_effects_volume * 1);
 							scr_deck_clear();
 						}
 					}
@@ -445,6 +454,7 @@ if (show_menu_ui)
 				
 					if (_input_manager.mouse_left_pressed && deck_focused_removed != -1)
 					{
+						audio_play_sound(snd_menu_ui, 800, false, global.game_effects_volume * 1);
 						scr_remove_card_from_deck_to_inventory(_inventory_manager.card_type_in_deck[deck_focused_removed]);
 					}
 				
@@ -456,6 +466,7 @@ if (show_menu_ui)
 							{
 								if ((_input_manager.mouse_y_position - 181) % 11 <= 8)
 								{
+									audio_play_sound(snd_menu_ui, 800, false, global.game_effects_volume * 1);
 									deck_manager_card_start_row = floor((_input_manager.mouse_y_position - 181) / 11) + 1;
 								}
 							}
@@ -502,6 +513,7 @@ if (show_menu_ui)
 				
 				if (_input_manager.mouse_left_pressed && (credit_exchange_focused_card > 100))
 				{
+					audio_play_sound(snd_menu_ui, 800, false, global.game_effects_volume * 1);
 					if (_inventory_manager.item_inventory[credit_exchange_focused_card][1] - _inventory_manager.item_inventory[credit_exchange_focused_card][2] > 0)
 					{
 						_inventory_manager.item_inventory[credit_exchange_focused_card][2]++;
@@ -538,6 +550,7 @@ if (show_menu_ui)
 				{
 					if (_input_manager.mouse_left_pressed)
 					{
+						audio_play_sound(snd_sell, 800, false, global.game_effects_volume * 1);
 						scr_generate_item_found_array();
 						for (var _i = 0; _i < sales_count; _i++)
 						{
@@ -558,6 +571,7 @@ if (show_menu_ui)
 						{
 							if ((_input_manager.mouse_y_position - 98) % 11 <= 8)
 							{
+								audio_play_sound(snd_menu_ui, 800, false, global.game_effects_volume * 1);
 								credit_exchange_card_start_row = floor((_input_manager.mouse_y_position - 98) / 11) + 1;
 							}
 						}
@@ -583,7 +597,7 @@ if (show_menu_ui)
 				
 				if (booster_generated == false)
 				{
-					if (scr_mouse_hover(NATIVE_RESOLUTION_WIDTH * 0.25 - 59, 70, 436, 80))
+					if (scr_mouse_hover(NATIVE_RESOLUTION_WIDTH * 0.25 - 59, 120, 436, 80))
 					{
 						if ((_input_manager.mouse_x_position - (NATIVE_RESOLUTION_WIDTH * 0.25 - 59)) % 159 <= 118)
 						{
@@ -601,22 +615,34 @@ if (show_menu_ui)
 
 					if (_input_manager.mouse_left_pressed && (focused_booster != -1))
 					{
+						
 						booster_paid = false;
 						switch (focused_booster)
 						{
 							case 0:
-								if (global.player_coin >= 10)
-								{
-									global.player_coin -= 10;
-									booster_paid = true;
-								}
-								break;
-								
-							case 1:
 								if (global.player_coin >= 20)
 								{
 									global.player_coin -= 20;
 									booster_paid = true;
+									audio_play_sound(snd_booster, 800, false, global.game_effects_volume * 1);
+								}
+								break;
+								
+							case 1:
+								if (global.player_coin >= 40)
+								{
+									global.player_coin -= 40;
+									booster_paid = true;
+									audio_play_sound(snd_booster, 800, false, global.game_effects_volume * 1);
+								}
+								break;
+								
+							case 2:
+								if (global.player_coin >= 10)
+								{
+									global.player_coin -= 10;
+									booster_paid = true;
+									audio_play_sound(snd_booster, 800, false, global.game_effects_volume * 1);
 								}
 								break;
 						}
@@ -678,6 +704,7 @@ if (show_menu_ui)
 					
 					if (booster_animation_ended && (_input_manager.mouse_left_pressed || _input_manager.key_back))
 					{
+						audio_play_sound(snd_menu_ui, 800, false, global.game_effects_volume * 1);
 						booster_generated = false;
 					}
 				}
@@ -699,6 +726,7 @@ if (show_menu_ui)
 						
 							if (_input_manager.mouse_left_pressed)
 							{
+								audio_play_sound(snd_menu_ui, 800, false, global.game_effects_volume * 1);
 								quest_detail_show = true;
 							}
 						}
@@ -713,6 +741,7 @@ if (show_menu_ui)
 						{
 							if (_input_manager.mouse_left_pressed)
 							{
+								audio_play_sound(snd_menu_ui, 800, false, global.game_effects_volume * 1);
 								quest_option_focus = floor((_input_manager.mouse_y_position - quest_option_start_y) / quest_option_gap);
 								quest_detail_show = true;
 							}
@@ -732,7 +761,7 @@ if (show_menu_ui)
 				{
 					if (scr_mouse_hover(quest_detail_start_x + 8, quest_detail_start_y + 196, 60, 24))
 					{
-						if (_inventory_manager.item_inventory[quest_id[quest_option_focus]][1] >= 5)
+						if (_inventory_manager.item_inventory[quest_id[quest_option_focus]][1] >= 3)
 						{
 							quest_submit_focus = 1;
 						}
@@ -748,9 +777,14 @@ if (show_menu_ui)
 					
 					if (_input_manager.mouse_left_pressed && quest_submit_focus)
 					{
-						_inventory_manager.item_inventory[quest_id[quest_option_focus]][1] -= 5;
+						_inventory_manager.item_inventory[quest_id[quest_option_focus]][1] -= 3;
 						quest_status[quest_option_focus] = 1;
-						audio_play_sound(snd_quest_complete, 100, false);
+						audio_play_sound(snd_quest_complete, 100, false, global.game_effects_volume * 1);
+						if (quest_option_focus == 4)
+						{
+							scr_save_game();
+							scr_room_transition(TRANSITION_TYPE.FADE, r_ending);
+						}
 					}
 				}
 				
@@ -813,6 +847,6 @@ if (show_menu_ui)
 
 if (room = r_title && !bgm_started)
 {
-	audio_play_sound(snd_bgm, 1000, true, global.game_music_volume * 1);
+	audio_play_sound(snd_bgm, 1000, true, global.game_music_volume * 3);
 	bgm_started = true;
 }

@@ -35,7 +35,8 @@ function scr_advance_day(){
 	
 	scr_room_transition(TRANSITION_TYPE.FADE, r_tent, 0.02);
 	global.target_x = 320;
-	global.target_y = 232;
+	global.target_y = 202;
+	global.instance_manager_input.input_direction = 180;
 	
 	scr_save_game();
 }

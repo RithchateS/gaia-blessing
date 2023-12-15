@@ -44,6 +44,7 @@ if (show_tutorial_ui)
 	{
 		tutorial_text_complete = true;
 		tutorial_text_progress = tutorial_text_length;
+		audio_play_sound(snd_menu_ui, 100, false, global.game_effects_volume * 1);
 	}
 	else if (tutorial_text_complete && _input_manager.mouse_left_pressed)
 	{
@@ -53,6 +54,7 @@ if (show_tutorial_ui)
 		}
 		else if (global.tutorial_state == 5)
 		{
+			audio_play_sound(snd_menu_ui, 100, false, global.game_effects_volume * 1);
 			scr_deck_clear();
 			scr_add_card_from_inventory_to_deck(81);
 			scr_generate_first_active_hand();
@@ -63,6 +65,7 @@ if (show_tutorial_ui)
 		}
 		else if (global.tutorial_state == 9)
 		{
+			audio_play_sound(snd_menu_ui, 100, false, global.game_effects_volume * 1);
 			scr_deck_clear();
 			scr_reset_deck_manager();
 			scr_add_card_from_inventory_to_deck(1);
@@ -75,6 +78,7 @@ if (show_tutorial_ui)
 		}
 		else if (global.tutorial_state == 13)
 		{
+			audio_play_sound(snd_menu_ui, 100, false, global.game_effects_volume * 1);
 			scr_deck_clear();
 			scr_reset_deck_manager();
 			scr_generate_first_active_hand();
@@ -90,18 +94,22 @@ if (show_tutorial_ui)
 			global.tutorial_state++;
 			tutorial_text_complete = false;
 			tutorial_text_progress = 0;
+			_deck_manager.daily_discard_card_count = 0;
 		}
 		else if (global.tutorial_state == 14)
 		{
-			_deck_manager.daily_discard_card_count = 0;
-		
+			audio_play_sound(snd_menu_ui, 100, false, global.game_effects_volume * 1);
 			global.tutorial_state++;
 			tutorial_text_complete = false;
 			tutorial_text_progress = 0;
 		}
 		else if (global.tutorial_state == 25)
 		{
+			audio_play_sound(snd_menu_ui, 100, false, global.game_effects_volume * 1);
 			scr_room_transition(TRANSITION_TYPE.FADE, r_tent);
+			global.target_x = 320;
+			global.target_y = 202;
+			
 			
 			show_tutorial_ui = false;
 			
@@ -312,8 +320,6 @@ if (show_menu_ui)
 		quest_detail_lerp_progress = scr_range(quest_detail_lerp_progress - 0.1, 0, 1);
 		quest_detail_current_width = lerp(0, quest_detail_width, quest_detail_lerp_progress);
 		quest_detail_current_height = lerp(0, quest_detail_height, quest_detail_lerp_progress);
-		
-		
 	}
 }
 else
@@ -354,10 +360,6 @@ if (farm_skip)
 {
 	farm_skip = !farm_skip;
 }
-
-
-
-
 
 /*
 if (global.game_paused)

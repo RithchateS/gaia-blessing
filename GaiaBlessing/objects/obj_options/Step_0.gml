@@ -74,6 +74,7 @@ if (effects_slider_focus)
 	
 	if (_input_manager.mouse_left_released)
 	{
+		audio_play_sound(snd_menu_ui, 800, false, global.game_effects_volume * 1);
 		effects_slider_focus = false;
 	}
 }

@@ -1,0 +1,1 @@
+scr_room_transition(TRANSITION_TYPE.FADE, ROOM_START, 0.02);

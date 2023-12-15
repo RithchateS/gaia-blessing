@@ -81,12 +81,15 @@ function scr_farm_slot_add_crop(_slot, _id) {
 		_farm_manager.farm_slot[_slot][6] = scr_crop_info(_id)[3];
 		_farm_manager.farm_slot[_slot][7] = 0;
 		
+		audio_play_sound(snd_card_success, 800, false, global.game_effects_volume * 1);
 		scr_active_hand_discard_card(activated_card_slot);
+		audio_play_sound(snd_card_success, 800, false, global.game_effects_volume * 1);
 		scr_active_hand_update();
 	}
 	else
 	{
 		scr_new_popup("Farm already has a crop.");
+		audio_play_sound(snd_card_fail, 800, false, global.game_effects_volume * 1);
 	}
 }
 
@@ -129,6 +132,7 @@ function scr_farm_slot_add_growth(_slot, _value, _endurance_cost) {
 		global.player_energy_current -= activated_card_cost;
 		
 		scr_active_hand_discard_card(activated_card_slot);
+		audio_play_sound(snd_card_success, 800, false, global.game_effects_volume * 1);
 		scr_active_hand_update();
 					
 		return true;
@@ -136,6 +140,7 @@ function scr_farm_slot_add_growth(_slot, _value, _endurance_cost) {
 	else
 	{
 		scr_new_popup("Not enough endurance");
+		audio_play_sound(snd_card_fail, 800, false, global.game_effects_volume * 1);
 		return false;
 	}
 }
@@ -161,6 +166,7 @@ function scr_farm_slot_add_nutrient(_slot, _value, _endurance_cost) {
 			}
 			
 			scr_active_hand_discard_card(activated_card_slot);
+			audio_play_sound(snd_card_success, 800, false, global.game_effects_volume * 1);
 			scr_active_hand_update();
 		
 			return true;
@@ -168,12 +174,14 @@ function scr_farm_slot_add_nutrient(_slot, _value, _endurance_cost) {
 		else
 		{
 			scr_new_popup("Plant is already fully grown");
+			audio_play_sound(snd_card_fail, 800, false, global.game_effects_volume * 1);
 			return false;
 		}
 	}
 	else
 	{
 		scr_new_popup("Not enough endurance");
+		audio_play_sound(snd_card_fail, 800, false, global.game_effects_volume * 1);
 		return false;
 	}
 }
@@ -190,6 +198,7 @@ function scr_farm_slot_add_endurance(_slot, _value) {
 		}
 	
 		scr_active_hand_discard_card(activated_card_slot);
+		audio_play_sound(snd_card_success, 800, false, global.game_effects_volume * 1);
 		scr_active_hand_update();
 	
 		return true;
@@ -197,6 +206,7 @@ function scr_farm_slot_add_endurance(_slot, _value) {
 	else
 	{
 		scr_new_popup("There is no plant here");
+		audio_play_sound(snd_card_fail, 800, false, global.game_effects_volume * 1);
 		return false;
 	}
 }
@@ -219,6 +229,7 @@ function scr_farm_slot_harvest(_slot) {
 			_farm_manager.farm_slot[_slot, 0] = -1;
 			
 			scr_active_hand_discard_card(activated_card_slot);
+			audio_play_sound(snd_pop, 800, false, global.game_effects_volume * 1);
 			scr_active_hand_update();
 		
 			return true;
@@ -226,14 +237,14 @@ function scr_farm_slot_harvest(_slot) {
 		else
 		{
 			scr_new_popup("Farm slot not ready for harvest yet, please increase the growth.");
-		
+			audio_play_sound(snd_card_fail, 800, false, global.game_effects_volume * 1);
 			return false;
 		}
 	}
 	else
 	{
 		scr_new_popup("There is no plant here");
-		
+		audio_play_sound(snd_card_fail, 800, false, global.game_effects_volume * 1);
 		return false;
 	}
 		

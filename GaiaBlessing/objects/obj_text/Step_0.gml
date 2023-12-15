@@ -30,6 +30,7 @@ else if (response_count)
 	
 	if _input_manager.key_activate || _input_manager.mouse_left_pressed
 	{
+		audio_play_sound(snd_menu_ui, 800, false, global.game_effects_volume * 1);
 		ChatterboxSelect(chatterbox, response_select);
 		response_select = 0;
 		
@@ -39,6 +40,7 @@ else if (response_count)
 
 if (_input_manager.key_back || _input_manager.mouse_right_pressed)
 {
+	audio_play_sound(snd_menu_ui, 800, false, global.game_effects_volume * 1);
 	closing = true;
 }
 
